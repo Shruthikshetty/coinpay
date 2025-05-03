@@ -20,13 +20,6 @@
       "subtitle": "Pay your utility bill's",
       "image": "receipt_icon",
       "id": "b522"
-    },
-    {
-      "id": "a957",
-      "key": "emi_pay",
-      "title": "emi",
-      "subtitle": "pay your emi",
-      "image": "receipt_icon"
     }
   ]
 }
