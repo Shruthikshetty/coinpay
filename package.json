@@ -10,7 +10,8 @@
     "test": "jest",
     "server": "start cmd /K \"json-server db.json\" && react-native start",
     "json": "json-server db.json",
-    "gen:screen": "node scripts/genScreen.js"
+    "gen:screen": "node scripts/genScreen.js",
+    "apk": "cd android && gradlew assembleRelease"
   },
   "dependencies": {
     "@react-navigation/native-stack": "^7.3.10",
