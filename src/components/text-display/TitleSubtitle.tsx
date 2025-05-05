@@ -19,6 +19,7 @@ type TitleSubtitleProps = {
 //this is a Reusable component that provides title and subtitle
 // by default the title is bold and subtitle is normal
 const TitleSubtitle = ({subTitle, title, customStyles}: TitleSubtitleProps) => {
+  // combine the default and custom styles
   const combinedStyles = getCombinedStyles<customStyles>(styles, customStyles);
   return (
     <View style={combinedStyles.root}>
