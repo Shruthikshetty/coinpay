@@ -25,6 +25,7 @@ const ProgressBar = ({Progress, fillColor, customStyles}: ProgressBarProps) => {
   );
   return (
     <View style={combinedStyles.root}>
+      {/* this is the fill , fill up based on percent */}
       <View
         style={[
           combinedStyles.fill,
