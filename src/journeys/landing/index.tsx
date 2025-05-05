@@ -21,6 +21,7 @@ const AppLanding = () => {
     {name: 'Component catalog', route: Stack.COMPONENT_CATALOG},
     {name: 'React Form', route: Stack.REACT_FORM_EXAMPLE},
     {name: 'Intenationalization', route: Stack.INTERNATIONALIZATION_EXAMPLE},
+    {name: 'Send Stack', route: Stack.SEND_STACK},
     // Add more screens here
   ];
 

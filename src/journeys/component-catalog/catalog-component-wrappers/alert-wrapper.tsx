@@ -115,7 +115,6 @@ const AlertSecondaryDark = () => (
 /**
  * Demo component to render all alert combinations for visual testing.
  */
-//@Todo this has a bug
 const AlertVariantsDemo = () => {
   // this can be used if we have to use diff alert types in a single screen
   const {changeAlert} = useAlert('Primary', 'light');

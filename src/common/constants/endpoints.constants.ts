@@ -5,5 +5,5 @@ const BASE_URL = config.BASE_URL;
 
 // all the api endpoints used in the app
 export const Endpoints = {
-  PURPOSE_OPTIONS: `${BASE_URL}/purposeOptions`,
+  PURPOSE_OPTIONS: `${BASE_URL}/api/purpose-options`,
 };

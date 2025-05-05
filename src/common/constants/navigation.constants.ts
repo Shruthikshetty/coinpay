@@ -8,4 +8,10 @@ export enum Stack {
   COMPONENT_CATALOG = 'componentCateloge',
   REACT_FORM_EXAMPLE = 'react-form-example',
   INTERNATIONALIZATION_EXAMPLE = 'i18next-example',
+  SEND_STACK = 'sendStack',
+}
+
+// contains all the inner stack screen names
+export enum Route {
+  SEND_LANDING = 'sendLanding',
 }
