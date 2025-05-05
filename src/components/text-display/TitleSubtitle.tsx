@@ -1,6 +1,7 @@
 import React from 'react';
 import {View, Text, ViewStyle, TextStyle} from 'react-native';
 import {titleSubtitleStyles as styles} from './text-display.styles';
+import {getCombinedStyles} from '~/common/utils/combined-styles';
 
 //types...
 type customStyles = {
@@ -18,10 +19,11 @@ type TitleSubtitleProps = {
 //this is a Reusable component that provides title and subtitle
 // by default the title is bold and subtitle is normal
 const TitleSubtitle = ({subTitle, title, customStyles}: TitleSubtitleProps) => {
+  const combinedStyles = getCombinedStyles<customStyles>(styles, customStyles);
   return (
-    <View style={[styles.root, customStyles?.root]}>
-      <Text style={[styles.title, customStyles?.title]}>{title}</Text>
-      <Text style={[styles.subtitle, customStyles?.subtitle]}>{subTitle}</Text>
+    <View style={combinedStyles.root}>
+      <Text style={combinedStyles.title}>{title}</Text>
+      <Text style={combinedStyles.subtitle}>{subTitle}</Text>
     </View>
   );
 };

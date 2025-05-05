@@ -1,11 +1,17 @@
 //utility used to combine custom styles and the default styles
-//@Todo yet to be tested
 export const getCombinedStyles = <T extends Record<string, any>>(
   defaultStyles: T,
   customStyles?: Partial<T>,
-): T => {
+): Record<keyof T, any[]> => {
   return Object.keys(defaultStyles).reduce((combined, key) => {
-    (combined as Record<string, any>)[key] = [defaultStyles[key], customStyles?.[key]];
+    const k = key as keyof T;
+    const defaultStyle = defaultStyles[k];
+    const customStyle = customStyles?.[k];
+
+    // Combine styles, filtering out undefined
+    combined[k] = [defaultStyle, customStyle].filter(Boolean);
+
     return combined;
-  }, {} as T);
+  }, {} as Record<keyof T, any[]>);
 };
+
