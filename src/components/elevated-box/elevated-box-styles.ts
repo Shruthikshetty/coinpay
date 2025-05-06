@@ -4,7 +4,7 @@ import {colors} from '~/common/constants/colors.constants';
 const elevatedBoxStyles = StyleSheet.create({
   root: {
     backgroundColor: colors.white,
-    padding: 10,
+    padding: 13,
     borderRadius: 10,
     elevation: 5,
   },

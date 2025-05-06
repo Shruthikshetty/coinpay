@@ -1,4 +1,5 @@
 import {StyleSheet} from 'react-native';
+import {themeColors} from '~/common/constants/colors.constants';
 
 const sendStyles = StyleSheet.create({
   container: {
@@ -7,6 +8,14 @@ const sendStyles = StyleSheet.create({
   },
   titleRoot: {
     marginTop: 10,
+  },
+  recentsText: {
+    color: themeColors.contentPrimary,
+    fontSize: 15,
+    marginBottom: 10
+  },
+  boxStyle: {
+    marginTop: 25,
   },
 });
 
