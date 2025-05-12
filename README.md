@@ -1,10 +1,10 @@
 # SimpleProject - Sample Banking App
 
-**Version:** 0.0.1  
+**Version:** 1.0.0  
 **Platform:** React Native  
 **Status:** Development  
 
-SimpleProject is a sample mobile banking application built with React Native. This app demonstrates a  navigation, API integration, environment configurations, responsive UI, and testing.
+coinpay is a sample mobile banking application built with React Native. This app demonstrates a  navigation, API integration, environment configurations, responsive UI, and testing.
 
 ---
 
