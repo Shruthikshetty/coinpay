@@ -12,6 +12,7 @@ import TitleSubtitle from '~/components/text-display/TitleSubtitle';
 import {colors} from '~/common/constants/colors.constants';
 import Button from '~/components/buttons/Button';
 import {widthPercentageToDP as wp} from 'react-native-responsive-screen';
+import HeaderLayout from '~/components/layoutes/HeaderLayout';
 
 /**
  * This screen contains an example on how to use reanimated
@@ -42,11 +43,10 @@ const ReanimatedExample = () => {
     width.value = withSpring(width.value + 50);
   };
   return (
-    <SafeAreaView style={styles.container}>
-      <HeaderPanel
-        title="Reanimated Example"
-        handleBackPress={() => navigation.goBack()}
-      />
+    <HeaderLayout
+      conatinerStyles={styles.content}
+      title="Reanimated Example"
+      handleBackPress={() => navigation.goBack()}>
       <TitleSubtitle
         title=""
         subTitle={`This is an example of how reanimated can be used for animation . \n\nWe are using reanimated 3 .`}
@@ -64,7 +64,7 @@ const ReanimatedExample = () => {
           }}
         />
       </View>
-    </SafeAreaView>
+    </HeaderLayout>
   );
 };
 

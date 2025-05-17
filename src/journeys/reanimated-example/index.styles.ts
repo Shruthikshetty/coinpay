@@ -3,10 +3,6 @@ import {widthPercentageToDP as wp} from 'react-native-responsive-screen';
 import {colors} from '~/common/constants/colors.constants';
 
 const reanimatedexampleStyles = StyleSheet.create({
-  container: {
-    flex: 1,
-    padding: 10,
-  },
   content: {
     flex: 1,
     marginTop: '10%',

@@ -5,7 +5,7 @@ import Angleleft from '../svgs/AngleLeft';
 import ProgressBar from './progress-bar';
 
 //types ...
-type HeaderPanelBase = {
+export type HeaderPanelBase = {
   rightComponent?: React.ReactNode;
   title?: string;
   progressPercent?: number;
