@@ -2,9 +2,9 @@
 
 **Version:** 1.0.0  
 **Platform:** React Native  
-**Status:** Development  
+**Status:** Development
 
-coinpay is a sample mobile banking application built with React Native. This app demonstrates a  navigation, API integration, environment configurations, responsive UI, and testing.
+coinpay is a sample mobile banking application built with React Native. This app demonstrates a navigation, API integration, environment configurations, responsive UI, and testing.
 
 ---
 
@@ -21,3 +21,4 @@ coinpay is a sample mobile banking application built with React Native. This app
 
 ```bash
 npm install
+```
