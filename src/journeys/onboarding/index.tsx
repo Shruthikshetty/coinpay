@@ -45,6 +45,7 @@ const Onboarding = () => {
           data={ONBOARDING_CAROUSAL_CONTENT}
           renderItem={({item}) => (
             <View>
+               {loading && <ShimmerLoader style={styles.loader} />}
               <item.img
                 width={styles.image.width}
                 height={styles.image.height}
