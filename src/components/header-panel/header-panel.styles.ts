@@ -8,7 +8,7 @@ const headerPanelStyles = StyleSheet.create({
     paddingVertical: 10,
   },
   title: {
-    fontSize: 15,
+    fontSize: 16,
     fontWeight: '600',
     textAlign: 'center',
     flex: 3,

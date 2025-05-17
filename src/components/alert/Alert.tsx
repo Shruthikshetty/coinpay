@@ -19,7 +19,7 @@ const Alert = ({duration = 1000}: AlertProps) => {
   // getting the state from context
   const {message, setMessage, theme, varient} = useAlertContext();
   // ref for time out
-  const timeoutRef = useRef<NodeJS.Timeout>(null);
+  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const opacity = useRef(new Animated.Value(1)).current; // Start fully visible
   useEffect(() => {
     if (!message) {
