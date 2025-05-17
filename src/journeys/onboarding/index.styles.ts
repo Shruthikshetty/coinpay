@@ -8,6 +8,7 @@ const onboardingStyles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 15,
+    paddingBottom: 30,
     flexDirection: 'column',
     justifyContent: 'space-between',
   },
@@ -18,7 +19,7 @@ const onboardingStyles = StyleSheet.create({
   },
   contentContainer: {
     justifyContent: 'space-between',
-    paddingTop: 100,
+    paddingTop: hp(10),
   },
   image: {
     alignSelf: 'center',
@@ -31,6 +32,14 @@ const onboardingStyles = StyleSheet.create({
     borderRadius: 15,
     width: wp(90),
     height: hp(50),
+  },
+  carousalContentContainer: {
+    gap: hp(5),
+  },
+  paginationConatiner: {
+    position: 'absolute',
+    bottom: hp(13),
+    alignSelf: 'center',
   },
 });
 

@@ -14,7 +14,7 @@ const ShimmerLoader = ({
     <ShimmerPlaceHolder
       duration={2000}
       LinearGradient={LinearGradient}
-      shimmerColors={[colors.gray200, colors.gray400]}
+      shimmerColors={[colors.gray200, colors.gray300, colors.gray400]}
       {...shimmertypes}
     />
   );
