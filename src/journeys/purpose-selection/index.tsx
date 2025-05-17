@@ -31,7 +31,7 @@ const PurposeSelect = () => {
         <Radio
           frameColor={colors.gray100}
           value={'Payment'}
-          subTitle={"Pay your utility bill's"}
+          subTitle={'Pay your utility bill\'s'}
           image={<ReceiptIcon />}
         />
       </RadioGroup>

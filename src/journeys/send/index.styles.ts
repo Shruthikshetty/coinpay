@@ -12,7 +12,7 @@ const sendStyles = StyleSheet.create({
   recentsText: {
     color: themeColors.contentPrimary,
     fontSize: 15,
-    marginBottom: 10
+    marginBottom: 10,
   },
   boxStyle: {
     marginTop: 25,
