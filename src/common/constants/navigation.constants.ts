@@ -6,13 +6,16 @@ export enum Stack {
   QUERY_EXAMPLE = 'tanstackQueryExample',
   REDUX_EXAMPLE = 'reduxExample',
   COMPONENT_CATALOG = 'componentCateloge',
-  REACT_FORM_EXAMPLE = 'react-form-example',
-  INTERNATIONALIZATION_EXAMPLE = 'i18next-example',
+  REACT_FORM_EXAMPLE = 'reactFormExample',
+  INTERNATIONALIZATION_EXAMPLE = 'i18nextExample',
   SEND_STACK = 'sendStack',
-  REANIMATED_EXAMPLE = 'reanimated-example',
+  REANIMATED_EXAMPLE = 'reanimatedExample',
+  ONBOARDING_STACK = 'OnboardingStack',
 }
 
 // contains all the inner stack screen names
 export enum Route {
   SEND_LANDING = 'sendLanding',
+  ONBOARDING = 'Onboarding',
+  PRE_LOGIN = 'PreLogin',
 }
