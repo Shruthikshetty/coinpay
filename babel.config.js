@@ -10,5 +10,6 @@ module.exports = {
         },
       },
     ],
+    'react-native-reanimated/plugin', // <-- Add this as a separate entry at the end
   ],
 };

@@ -22,6 +22,7 @@ const AppLanding = () => {
     {name: 'React Form', route: Stack.REACT_FORM_EXAMPLE},
     {name: 'Intenationalization', route: Stack.INTERNATIONALIZATION_EXAMPLE},
     {name: 'Send Stack', route: Stack.SEND_STACK},
+    {name: 'Reanimated Example', route: Stack.REANIMATED_EXAMPLE},
     // Add more screens here
   ];
 

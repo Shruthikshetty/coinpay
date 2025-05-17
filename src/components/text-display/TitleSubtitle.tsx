@@ -23,8 +23,8 @@ const TitleSubtitle = ({subTitle, title, customStyles}: TitleSubtitleProps) => {
   const combinedStyles = getCombinedStyles<customStyles>(styles, customStyles);
   return (
     <View style={combinedStyles.root}>
-      <Text style={combinedStyles.title}>{title}</Text>
-      <Text style={combinedStyles.subtitle}>{subTitle}</Text>
+      {title && <Text style={combinedStyles.title}>{title}</Text>}
+      {subTitle && <Text style={combinedStyles.subtitle}>{subTitle}</Text>}
     </View>
   );
 };

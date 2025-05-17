@@ -5,7 +5,7 @@ import Angleleft from '../svgs/AngleLeft';
 import ProgressBar from './progress-bar';
 
 //types ...
-type HeaderPanelBase = {
+export type HeaderPanelBase = {
   rightComponent?: React.ReactNode;
   title?: string;
   progressPercent?: number;
@@ -24,11 +24,20 @@ type HeaderPanelWithoutBack = {
 type HeaderPanel = HeaderPanelBase &
   (HeaderPanelWithBack | HeaderPanelWithoutBack);
 
-// this is a Reusable header that provides back button and title
+/**
+ * this is a Reusable header that provides back button and title
+ * @param {object} props
+ * @param {React.ReactNode} [props.rightComponent] - Optional component to display on the right side.
+ * @param {string} [props.title] - Title text for the header.
+ * @param {() => void} [props.handleBackPress] - Function to call when back button is pressed. Required if backButton is true.
+ * @param {boolean} [props.backButton=true] - Whether to show the back button. Defaults to true. (which makes handleBackPress true by deault as well)
+ * @param {number} [props.progressPercent] - Optional progress percentage to display a progress bar.
+ * @returns {JSX.Element}
+ */
 const HeaderPanel = ({
   rightComponent,
   title = '',
-  handleBackPress,
+  handleBackPress = () => {},
   backButton = true,
   progressPercent,
 }: HeaderPanel) => {

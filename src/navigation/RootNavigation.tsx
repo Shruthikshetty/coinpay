@@ -10,6 +10,7 @@ import AlertProvider from '~/components/alert/AlertProvider';
 import ReactFormExample from '~/journeys/react-form-example';
 import InternationalizationExample from '~/journeys/internationalization-example';
 import SendStack from './send/SendStack';
+import ReanimatedExample from '~/journeys/reanimated-example';
 
 const RootStack = createNativeStackNavigator();
 
@@ -44,6 +45,10 @@ const RootNavigation = () => {
         <RootStack.Screen
           name={Stack.INTERNATIONALIZATION_EXAMPLE}
           component={InternationalizationExample}
+        />
+        <RootStack.Screen
+          name={Stack.REANIMATED_EXAMPLE}
+          component={ReanimatedExample}
         />
         <RootStack.Screen name={Stack.SEND_STACK} component={SendStack} />
       </RootStack.Navigator>
