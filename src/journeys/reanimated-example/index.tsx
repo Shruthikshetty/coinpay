@@ -1,7 +1,6 @@
 import React, {useRef} from 'react';
-import {SafeAreaView, View} from 'react-native';
+import {View} from 'react-native';
 import styles from './index.styles';
-import HeaderPanel from '~/components/header-panel/HeaderPanel';
 import {useNavigation} from '~/common/hooks/use-navigation';
 import Animated, {
   useAnimatedStyle,
