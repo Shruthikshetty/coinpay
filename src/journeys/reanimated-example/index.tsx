@@ -57,9 +57,7 @@ const ReanimatedExample = (): JSX.Element => {
           label="Click me"
           theme="Primary"
           customStyles={{
-            root: {
-              marginTop: 10,
-            },
+            root: styles.buttonRoot,
           }}
         />
       </View>

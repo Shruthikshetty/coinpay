@@ -1,19 +1,23 @@
 import {StyleSheet} from 'react-native';
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+} from 'react-native-responsive-screen';
 import {colors} from '~/common/constants/colors.constants';
 
 const paginationStyles = StyleSheet.create({
   dotStyle: {
     backgroundColor: colors.gray200,
-    borderRadius: 50,
-    width: 30,
+    borderRadius: wp(5),
+    height: hp(1),
   },
   activeDotStyle: {
     backgroundColor: colors.blue400,
-    width: 30,
+    borderRadius: wp(5),
+    height: hp(1),
   },
   conatainer: {
-    gap: 5,
-    marginTop: 10,
+    gap: wp(1.5),
   },
 });
 

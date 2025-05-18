@@ -48,7 +48,8 @@ const Onboarding = () => {
             height={loading ? 1 : hp(55)}
             data={ONBOARDING_CAROUSAL_CONTENT}
             autoPlay
-            autoPlayInterval={2000}
+            autoPlayInterval={1500}
+            scrollAnimationDuration={1500}
             renderItem={({item}) => (
               <View style={styles.carousalContentContainer}>
                 {loading && <ShimmerLoader style={styles.loader} />}
@@ -63,6 +64,7 @@ const Onboarding = () => {
             )}
           />
           <View style={styles.paginationConatiner}>
+            {/* pagination dots  */}
             {!loading && (
               <CustomPagination
                 progress={progress}
