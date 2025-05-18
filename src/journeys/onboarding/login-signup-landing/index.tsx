@@ -1,12 +1,45 @@
 import React from 'react';
-import {View, Text} from 'react-native';
+import {Image, Text, View} from 'react-native';
+import HeaderLayout from '~/components/layoutes/HeaderLayout';
+import styles from './index.styles';
+import TitleSubtitle from '~/components/text-display/TitleSubtitle';
+import Button from '~/components/buttons/Button';
 
-// this is the starting screen of the app where user can slect to login or signup
+// this is the starting screen of the app where user can select to login or signup
 const PreLogin = () => {
   return (
-    <View>
-      <Text>PreLoginPage Component</Text>
-    </View>
+    <HeaderLayout
+      progressPercent={10}
+      rootStyles={styles.root}
+      conatinerStyles={styles.conatiner}>
+      <Image
+        source={require('~/../assets/craete-account-img.png')}
+        style={styles.image}
+        resizeMode="contain"
+      />
+      <TitleSubtitle
+        customStyles={{
+          title: styles.title,
+          subtitle: styles.textCenter,
+        }}
+        title={`Create your \nCoinpay account`}
+        subTitle="coinpay is a powerfull tool that allows you to easilt send , receivee and track your transactions"
+      />
+      <View style={styles.buttonContainer}>
+        <Button label="Sign up" handlePress={() => {}} theme="Primary" />
+        <Button
+          label="Log in"
+          handlePress={() => {}}
+          theme="Primary"
+          varient="Border"
+        />
+      </View>
+      <Text>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus
+        magni dolorem voluptatum odio ipsa laborum quisquam repudiandae harum
+        sint perspiciatis.
+      </Text>
+    </HeaderLayout>
   );
 };
 
