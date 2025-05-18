@@ -1,10 +1,9 @@
 import React from 'react';
-import {Image, Text, View} from 'react-native';
+import {Image, View} from 'react-native';
 import HeaderLayout from '~/components/layoutes/HeaderLayout';
 import styles from './index.styles';
 import TitleSubtitle from '~/components/text-display/TitleSubtitle';
 import Button from '~/components/buttons/Button';
-import {Trans} from 'react-i18next';
 import Parsetext from '~/components/text-display/Parsetext';
 
 // this is the starting screen of the app where user can select to login or signup
@@ -36,11 +35,6 @@ const PreLogin = () => {
           varient="Border"
         />
       </View>
-      <Text>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus
-        magni dolorem voluptatum odio ipsa laborum quisquam repudiandae harum
-        sint perspiciatis.
-      </Text>
       <Parsetext
         text="By continuing you accept our <li>Terms of Service</li> and <li>Privacy Policy</li>"
         textStyle={styles.terms}

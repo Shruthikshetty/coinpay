@@ -1,4 +1,5 @@
 import {View, Text} from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import styles from './index.styles';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import Button from '~/components/buttons/Button';
@@ -7,14 +8,13 @@ import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import ShimmerLoader from '~/components/loaders/ShimmerLoader';
 import {ONBOARDING_CAROUSAL_CONTENT} from '~/common/constants/screen.constants';
 import {useSharedValue} from 'react-native-reanimated';
 import {useNavigation} from '~/common/hooks/use-navigation';
 import {Route} from '~/common/constants/navigation.constants';
 import CustomPagination from '~/components/pagination/CustomPagination';
-
 /**
  * This is onboarding screen this screen will only shown when the app is opend for the first time
  */
@@ -25,6 +25,21 @@ const Onboarding = () => {
   const progress = useSharedValue<number>(0);
   // ref for the carousal component
   const ref = React.useRef<ICarouselInstance>(null);
+
+  useEffect(() => {
+    // this is used to check id the user is logging in for first time
+    // if not its navigated to the prelogin screen
+    const checkOnboarding = async () => {
+      const value = await AsyncStorage.getItem('onboarding');
+      if (!value) {
+        AsyncStorage.setItem('onboarding', 'done');
+      } else {
+        navigation.replace(Route.PRE_LOGIN);
+      }
+    };
+    checkOnboarding();
+  }, [navigation]);
+
   // used to sroll the contants of carousal to the required position on press of pagination dot
   const onPressPagination = (index: number) => {
     ref.current?.scrollTo({
