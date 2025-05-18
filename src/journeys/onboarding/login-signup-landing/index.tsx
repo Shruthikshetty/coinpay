@@ -5,9 +5,12 @@ import styles from './index.styles';
 import TitleSubtitle from '~/components/text-display/TitleSubtitle';
 import Button from '~/components/buttons/Button';
 import Parsetext from '~/components/text-display/Parsetext';
+import {useNavigation} from '~/common/hooks/use-navigation';
+import {Stack} from '~/common/constants/navigation.constants';
 
 // this is the starting screen of the app where user can select to login or signup
 const PreLogin = () => {
+  const navigation = useNavigation();
   return (
     <HeaderLayout
       progressPercent={10}
@@ -27,7 +30,13 @@ const PreLogin = () => {
         subTitle="coinpay is a powerfull tool that allows you to easilt send , receivee and track your transactions"
       />
       <View style={styles.buttonContainer}>
-        <Button label="Sign up" handlePress={() => {}} theme="Primary" />
+        <Button
+          label="Sign up"
+          handlePress={() => {
+            navigation.navigate(Stack.SIGNUP_STACK);
+          }}
+          theme="Primary"
+        />
         <Button
           label="Log in"
           handlePress={() => {}}

@@ -10,12 +10,14 @@ export enum Stack {
   INTERNATIONALIZATION_EXAMPLE = 'i18nextExample',
   SEND_STACK = 'sendStack',
   REANIMATED_EXAMPLE = 'reanimatedExample',
-  ONBOARDING_STACK = 'OnboardingStack',
+  ONBOARDING_STACK = 'onboardingStack',
+  SIGNUP_STACK = 'signupStack',
 }
 
 // contains all the inner stack screen names
 export enum Route {
   SEND_LANDING = 'sendLanding',
-  ONBOARDING = 'Onboarding',
-  PRE_LOGIN = 'PreLogin',
+  ONBOARDING = 'onboarding',
+  PRE_LOGIN = 'preLogin',
+  SIGNUP_LANDING = 'signupLanding',
 }
