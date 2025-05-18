@@ -3,7 +3,7 @@ import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
-import {colors} from '~/common/constants/colors.constants';
+import {colors, themeColors} from '~/common/constants/colors.constants';
 
 const preLoginStyles = StyleSheet.create({
   root: {
@@ -31,6 +31,13 @@ const preLoginStyles = StyleSheet.create({
   },
   buttonContainer: {
     gap: 10,
+  },
+  terms: {
+    color: themeColors.contentSecondary,
+    fontSize: 16,
+    maxWidth: wp(70),
+    textAlign: 'center',
+    alignSelf: 'center',
   },
 });
 
