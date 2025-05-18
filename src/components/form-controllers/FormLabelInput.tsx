@@ -13,6 +13,7 @@ type FormLabelInputProps<T extends FieldValues> = {
   | 'placeholder'
   | 'helperText'
   | 'leftComponent'
+  | 'keyboardType'
 >;
 
 // form controlled Label input to use with forms

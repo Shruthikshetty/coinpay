@@ -4,10 +4,7 @@ import React from 'react';
 import {FormProvider, useForm} from 'react-hook-form';
 import {Route} from '~/common/constants/navigation.constants';
 import SignUpLanding from '~/journeys/signup';
-import {
-  customerSignupSchema,
-  defaultSignupDetails,
-} from '~/journeys/signup/signup-schema';
+import {customerRegisterSchema, defaultSignupDetails} from './signup-schema';
 
 // initaialize the navigator
 const SignupNavigator = createNativeStackNavigator();
@@ -17,7 +14,7 @@ const SignupStack = () => {
   // get all the methods from useForm hook
   const methods = useForm({
     mode: 'all',
-    resolver: zodResolver(customerSignupSchema),
+    resolver: zodResolver(customerRegisterSchema),
     defaultValues: defaultSignupDetails,
   });
 

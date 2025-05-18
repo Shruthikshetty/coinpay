@@ -9,6 +9,9 @@ const signupStyles = StyleSheet.create({
     flex: 1,
     paddingHorizontal: wp(3),
     paddingTop: hp(1),
+    flexDirection: 'column',
+    justifyContent: 'space-between',
+    marginBottom: hp(4),
   },
   root: {
     paddingHorizontal: 0,
@@ -17,6 +20,7 @@ const signupStyles = StyleSheet.create({
     marginTop: hp(1.5),
     gap: hp(1.5),
   },
+  button: {},
 });
 
 export default signupStyles;

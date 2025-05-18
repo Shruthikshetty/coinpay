@@ -1,5 +1,5 @@
 //@TODO outside click is not calling on blur
-import {Text, TextInput, View} from 'react-native';
+import {KeyboardTypeOptions, Text, TextInput, View} from 'react-native';
 import styles from './label-input-styles';
 import {colors, themeColors} from '~/common/constants/colors.constants';
 import {useState} from 'react';
@@ -17,6 +17,7 @@ export type LabelInputProps = {
   handleFocus?: () => void;
   error?: boolean;
   helperText?: string;
+  keyboardType?: KeyboardTypeOptions;
 };
 
 // this is a recusable Input feild to be used in the app
@@ -32,6 +33,7 @@ const LabelInput = ({
   handleFocus,
   error = false,
   helperText,
+  keyboardType,
 }: LabelInputProps) => {
   // this will handle state change in case there is value or setter from parent
   const [localValue, setLocalValue] = useState<string>('');
@@ -62,6 +64,7 @@ const LabelInput = ({
           {/* Text feild */}
           <View style={styles.mainInputContainer}>
             <TextInput
+              keyboardType={keyboardType ?? 'default'}
               onChangeText={handleChange ?? setLocalValue}
               value={value ?? localValue}
               placeholder={placeholder}
