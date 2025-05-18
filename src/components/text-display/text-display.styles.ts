@@ -1,5 +1,5 @@
 import {StyleSheet} from 'react-native';
-import {themeColors} from '~/common/constants/colors.constants';
+import {colors, themeColors} from '~/common/constants/colors.constants';
 
 export const titleSubtitleStyles = StyleSheet.create({
   root: {
@@ -16,5 +16,12 @@ export const titleSubtitleStyles = StyleSheet.create({
     fontSize: 15,
     fontWeight: '400',
     color: themeColors.contentSecondary,
+  },
+});
+
+export const parseTextStyles = StyleSheet.create({
+  linktext: {
+    color: colors.blue500,
+    textDecorationLine: 'underline',
   },
 });

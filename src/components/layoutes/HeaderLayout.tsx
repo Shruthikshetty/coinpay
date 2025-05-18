@@ -7,6 +7,7 @@ import {useNavigation} from '~/common/hooks/use-navigation';
 // types...
 type HeaderLayoutProps = {
   children: React.ReactNode;
+  rootStyles?: ViewStyle;
   conatinerStyles?: ViewStyle;
   handleBackPress?: () => void;
   backButton?: boolean;
@@ -16,6 +17,7 @@ type HeaderLayoutProps = {
 const HeaderLayout = ({
   children,
   conatinerStyles,
+  rootStyles,
   backButton = true,
   handleBackPress,
   ...headerprops
@@ -28,7 +30,7 @@ const HeaderLayout = ({
   };
 
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={[styles.container, rootStyles]}>
       <HeaderPanel
         backButton={backButton}
         handleBackPress={handleBackPress ?? handleNavigateBack}

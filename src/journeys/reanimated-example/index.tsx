@@ -1,4 +1,4 @@
-import React, {useRef} from 'react';
+import React, {JSX, useRef} from 'react';
 import {View} from 'react-native';
 import styles from './index.styles';
 import {useNavigation} from '~/common/hooks/use-navigation';
@@ -17,7 +17,7 @@ import HeaderLayout from '~/components/layoutes/HeaderLayout';
  * This screen contains an example on how to use reanimated
  * @returns {JSX.Element}
  */
-const ReanimatedExample = () => {
+const ReanimatedExample = (): JSX.Element => {
   const navigation = useNavigation();
   //this is the width of the box
   const width = useSharedValue(100); // initially 100px
@@ -57,9 +57,7 @@ const ReanimatedExample = () => {
           label="Click me"
           theme="Primary"
           customStyles={{
-            root: {
-              marginTop: 10,
-            },
+            root: styles.buttonRoot,
           }}
         />
       </View>

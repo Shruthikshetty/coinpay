@@ -14,6 +14,9 @@ const reanimatedexampleStyles = StyleSheet.create({
     maxWidth: wp(100),
     backgroundColor: colors.blue500,
   },
+  buttonRoot: {
+    marginTop: 10,
+  },
 });
 
 export default reanimatedexampleStyles;
