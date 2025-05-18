@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {View} from 'react-native';
 import HeaderLayout from '~/components/layoutes/HeaderLayout';
 import styles from './index.styles';
@@ -9,9 +9,16 @@ import {useFormContext} from 'react-hook-form';
 import Button from '~/components/buttons/Button';
 import ConfirmPhoneModal from './components/ConfirmPhoneModal';
 import {useModal} from '~/common/hooks/use-model';
+import {useSendOtp} from '~/services/otp-service';
+import {useAlert} from '~/common/hooks/use-alert';
+import DashedInput from '~/components/dashed-input/DashedInput';
+import Parsetext from '~/components/text-display/Parsetext';
 
 //** this is the sign up langing page where we start with verifying user phone number  */
 const SignUpLanding = () => {
+  const [otpSent, setotpSent] = useState(false);
+  // this holds the user entered otp
+  const [otp, setotp] = useState('');
   const {watch, formState} = useFormContext();
   // this is extracted from form since its required for conditions
   const phoneNumber = watch('phoneNumber');
@@ -19,6 +26,14 @@ const SignUpLanding = () => {
   const isPhoneValid = !!phoneNumber && !formState.errors.phoneNumber;
   // used to handle the confirm phone numbe modal
   const model = useModal();
+  // custom muation hook for sending otp
+  const {mutate: sendOtpMutation} = useSendOtp();
+  // show the apt as a alert message
+  const {changeAlert} = useAlert('Success', 'light');
+
+  const verifyotp = () => {
+    // logic to verify the otp
+  };
   return (
     <HeaderLayout
       progressPercent={12}
@@ -27,34 +42,59 @@ const SignUpLanding = () => {
       <View>
         <TitleSubtitle
           title="Confirm your phone"
-          subTitle={
-            'select your phone number we will send 6 digit code to ' +
-            phoneNumber
-          }
+          subTitle={'select your phone number we will send 6 digit code .'}
         />
+
         <View style={styles.formContainer}>
-          <FormLabelInput<CustomerregisterSchemeType>
-            name="phoneNumber"
-            label="Phone number"
-            placeholder="Phone number"
-            keyboardType="number-pad"
-          />
+          {otpSent ? (
+            <View style={styles.otpFeidContainer}>
+              <DashedInput value={otp} setValue={setotp} />
+              <Parsetext
+                text={`Didn't get a code <li>Resend</li>`}
+                textStyle={styles.resendText}
+              />
+            </View>
+          ) : (
+            <FormLabelInput<CustomerregisterSchemeType>
+              name="phoneNumber"
+              label="Phone number"
+              placeholder="Phone number"
+              keyboardType="number-pad"
+            />
+          )}
         </View>
       </View>
       <Button
         disabled={!isPhoneValid}
         theme="Primary"
         handlePress={() => {
-          model.show(); // show the modal
+          otpSent ? verifyotp() : model.show(); // show the modal
         }}
-        label="Send otp"
-        customStyles={{root: styles.button}}
+        label={otpSent ? 'Verify otp' : 'Send otp'}
       />
       <ConfirmPhoneModal
         modal={model}
         phoneNumber={phoneNumber}
         handleConfim={() => {
-          console.log('calling otp');
+          sendOtpMutation(
+            {phoneNumber},
+            {
+              onSuccess: data => {
+                console.log(data?.otp);
+                // send the otp as an alert message
+                changeAlert(`otp : ${data?.otp}`, 'Success', 'light');
+                setotpSent(true);
+              },
+              onError: error => {
+                // send the failure as an alert message
+                changeAlert(
+                  error?.response?.data?.message ?? `Failed to send otp`,
+                  'Error',
+                  'light',
+                );
+              },
+            },
+          );
         }}
       />
     </HeaderLayout>

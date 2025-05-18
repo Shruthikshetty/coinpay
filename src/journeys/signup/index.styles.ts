@@ -20,7 +20,13 @@ const signupStyles = StyleSheet.create({
     marginTop: hp(1.5),
     gap: hp(1.5),
   },
-  button: {},
+  resendText: {
+    textAlign: 'center',
+    marginTop: hp(2),
+  },
+  otpFeidContainer: {
+    marginTop: hp(2),
+  },
 });
 
 export default signupStyles;
