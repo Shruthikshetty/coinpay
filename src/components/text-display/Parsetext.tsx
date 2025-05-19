@@ -3,16 +3,17 @@ import {Trans} from 'react-i18next';
 import {Text, TextStyle} from 'react-native';
 import {parseTextStyles as styles} from './text-display.styles';
 
-/**
- *
- * This component parses the text and replaces the <tag> with required styles.
- */
+//types...
 type ParseTextProps = {
   text: string;
   textStyle?: TextStyle;
 };
 
-const parsetext: React.FC<ParseTextProps> = ({text, textStyle}) => {
+/**
+ *
+ * This component parses the text and replaces the <tag> with required styles.
+ */
+const Parsetext: React.FC<ParseTextProps> = ({text, textStyle}) => {
   return (
     <Text style={textStyle}>
       <Trans
@@ -25,4 +26,4 @@ const parsetext: React.FC<ParseTextProps> = ({text, textStyle}) => {
   );
 };
 
-export default parsetext;
+export default Parsetext;

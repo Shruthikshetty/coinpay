@@ -1,5 +1,5 @@
 import {z} from 'zod';
-import {Patters} from '~/common/constants/validation-patters.constants';
+import {Patterns} from '~/common/constants/validation-patterns.constants';
 
 // this is a zod schema used in the example form
 export const exampleSchema = z.object({
@@ -13,7 +13,7 @@ export const exampleSchema = z.object({
     .refine(
       text => {
         // validate the user entered text to be a valied email
-        return Patters.VALID_EMAIL.test(text);
+        return Patterns.VALID_EMAIL.test(text);
       },
       {message: 'Email not valied'},
     ),
