@@ -4,17 +4,7 @@ import LabelInput, {LabelInputProps} from '../label-input/LabelInput';
 // types...
 type FormLabelInputProps<T extends FieldValues> = {
   name: Path<T>;
-} & Pick<
-  LabelInputProps,
-  | 'rightComponent'
-  | 'handleBlur'
-  | 'handleFocus'
-  | 'label'
-  | 'placeholder'
-  | 'helperText'
-  | 'leftComponent'
-  | 'keyboardType'
->;
+} & Omit<LabelInputProps, 'value' | 'handleChange' | 'error'>;
 
 // form controlled Label input to use with forms
 const FormLabelInput = <T extends FieldValues>({

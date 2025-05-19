@@ -30,6 +30,10 @@ const labelInputStyles = StyleSheet.create({
     fontSize: 16,
     paddingLeft: 0,
   },
+  inputDisabled: {
+    backgroundColor: colors.gray200,
+    borderRadius: 10,
+  },
   label: {
     fontSize: 17,
     marginBottom: 7,

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useMemo} from 'react';
 import HeaderLayout from '~/components/layoutes/HeaderLayout';
 import styles from './index.styles';
 import TitleSubtitle from '~/components/text-display/TitleSubtitle';
@@ -9,7 +9,17 @@ import {View} from 'react-native';
 import Button from '~/components/buttons/Button';
 
 const SetPassword = () => {
-  const {} = useFormContext();
+  // get the errors from the form state
+  const {
+    formState: {errors},
+    trigger,
+  } = useFormContext();
+
+  // handles confirm button press
+  const handleConfirm = () => {
+    // confirm logic
+    trigger(['password', 'confirmPassword']);
+  };
   return (
     <HeaderLayout
       progressPercent={22}
@@ -23,11 +33,13 @@ const SetPassword = () => {
         <FormLabelInput<CustomerregisterSchemeType>
           name={'phoneNumber'}
           label={'Phone number'}
+          disabled={true}
           placeholder="Phone number"
         />
         <FormLabelInput<CustomerregisterSchemeType>
           name={'password'}
           label={'Password'}
+          secureTextEntry={true}
           placeholder="****"
         />
         <FormLabelInput<CustomerregisterSchemeType>
@@ -36,7 +48,12 @@ const SetPassword = () => {
           placeholder="****"
         />
       </View>
-      <Button theme="Primary" label="Confirm" handlePress={() => {}} />
+      <Button
+        theme="Primary"
+        label="Confirm"
+        handlePress={handleConfirm}
+        disabled={Boolean(errors?.password || errors?.confirmPassword)}
+      />
     </HeaderLayout>
   );
 };

@@ -17,6 +17,7 @@ import {useNavigation} from '~/common/hooks/use-navigation';
 import {Route} from '~/common/constants/navigation.constants';
 import ScreenLoader from '~/components/loaders/ScreenLoader';
 
+//@TODO resend otp function pending
 //** this is the sign up langing page where we start with verifying user phone number  */
 const SignUpLanding = () => {
   const [otpSent, setotpSent] = useState(false);

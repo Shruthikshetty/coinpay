@@ -23,7 +23,7 @@ const SignupStack = () => {
     <FormProvider {...methods}>
       <SignupNavigator.Navigator
         screenOptions={{headerShown: false}}
-        initialRouteName={Route.SET_PASSWORD}>
+        initialRouteName={Route.SIGNUP_LANDING}>
         <SignupNavigator.Screen
           name={Route.SIGNUP_LANDING}
           component={SignUpLanding}

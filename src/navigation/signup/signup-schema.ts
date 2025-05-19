@@ -21,7 +21,9 @@ export const customerRegisterSchema = z
       .string()
       .min(4, {message: 'Password should be at least 4 characters long'})
       .max(10, {message: 'Password scan not be longer than 10 characters'}),
-    confirmPassword: z.string(),
+    confirmPassword: z
+      .string()
+      .min(4, {message: 'Confirm password can not be empty'}),
   })
   .refine(data => data.password === data.confirmPassword, {
     message: 'Passwords do not match',

@@ -18,6 +18,8 @@ export type LabelInputProps = {
   error?: boolean;
   helperText?: string;
   keyboardType?: KeyboardTypeOptions;
+  secureTextEntry?: boolean;
+  disabled?: boolean;
 };
 
 // this is a recusable Input feild to be used in the app
@@ -34,6 +36,8 @@ const LabelInput = ({
   error = false,
   helperText,
   keyboardType,
+  secureTextEntry,
+  disabled = false,
 }: LabelInputProps) => {
   // this will handle state change in case there is value or setter from parent
   const [localValue, setLocalValue] = useState<string>('');
@@ -49,6 +53,7 @@ const LabelInput = ({
         style={[
           focus && styles.outerBorderActive,
           error && styles.outerBorderError,
+          disabled && styles.inputDisabled,
         ]}>
         <View
           style={[
@@ -62,7 +67,7 @@ const LabelInput = ({
           )}
 
           {/* Text feild */}
-          <View style={styles.mainInputContainer}>
+          <View style={[styles.mainInputContainer]}>
             <TextInput
               keyboardType={keyboardType ?? 'default'}
               onChangeText={handleChange ?? setLocalValue}
@@ -71,14 +76,18 @@ const LabelInput = ({
               placeholderTextColor={colors.gray400}
               style={[styles.inputstyle, error && {color: themeColors.error}]}
               cursorColor={error ? themeColors.error : themeColors.primary}
+              secureTextEntry={secureTextEntry} // This will mask the input like a password
               onFocus={() => {
+                // handeling focus effect
                 setFocus(true);
-                // run and function if provided
+                // custom function to run if given
                 handleBlur?.();
               }}
+              editable={!disabled}
               onBlur={() => {
+                // handeling blur effect
                 setFocus(false);
-                // run optional function
+                // custom function to run if given
                 handleFocus?.();
               }}
             />
