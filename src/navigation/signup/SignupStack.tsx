@@ -5,6 +5,7 @@ import {FormProvider, useForm} from 'react-hook-form';
 import {Route} from '~/common/constants/navigation.constants';
 import SignUpLanding from '~/journeys/signup';
 import {customerRegisterSchema, defaultSignupDetails} from './signup-schema';
+import SetPassword from '~/journeys/signup/set-password';
 
 // initaialize the navigator
 const SignupNavigator = createNativeStackNavigator();
@@ -24,6 +25,10 @@ const SignupStack = () => {
         <SignupNavigator.Screen
           name={Route.SIGNUP_LANDING}
           component={SignUpLanding}
+        />
+        <SignupNavigator.Screen
+          name={Route.SET_PASSWORD}
+          component={SetPassword}
         />
       </SignupNavigator.Navigator>
     </FormProvider>

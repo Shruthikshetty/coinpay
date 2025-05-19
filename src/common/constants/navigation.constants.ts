@@ -20,4 +20,5 @@ export enum Route {
   ONBOARDING = 'onboarding',
   PRE_LOGIN = 'preLogin',
   SIGNUP_LANDING = 'signupLanding',
+  SET_PASSWORD = 'setPassword',
 }

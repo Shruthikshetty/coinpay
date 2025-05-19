@@ -9,10 +9,12 @@ import {useFormContext} from 'react-hook-form';
 import Button from '~/components/buttons/Button';
 import ConfirmPhoneModal from './components/ConfirmPhoneModal';
 import {useModal} from '~/common/hooks/use-model';
-import {useSendOtp} from '~/services/otp-service';
+import {useSendOtp, useVerifyOtp} from '~/services/otp-service';
 import {useAlert} from '~/common/hooks/use-alert';
 import DashedInput from '~/components/dashed-input/DashedInput';
 import Parsetext from '~/components/text-display/Parsetext';
+import {useNavigation} from '~/common/hooks/use-navigation';
+import {Route} from '~/common/constants/navigation.constants';
 
 //** this is the sign up langing page where we start with verifying user phone number  */
 const SignUpLanding = () => {
@@ -30,9 +32,38 @@ const SignUpLanding = () => {
   const {mutate: sendOtpMutation} = useSendOtp();
   // show the apt as a alert message
   const {changeAlert} = useAlert('Success', 'light');
+  //custom hook for verify otp
+  const {mutate: verifyOtpMuation} = useVerifyOtp();
+  const navigation = useNavigation();
 
   const verifyotp = () => {
-    // logic to verify the otp
+    // verify the otp entered by the user
+    verifyOtpMuation(
+      {
+        phoneNumber: phoneNumber,
+        otp: otp,
+      },
+      {
+        onSuccess: () => {
+          // on success navigate to next screen of setting password
+          navigation.navigate(Route.SET_PASSWORD);
+          // reset otp
+          setotp('');
+          setotpSent(false);
+        },
+        onError: error => {
+          // show alert message if wrong otp entered
+          changeAlert(
+            error?.response?.data?.message ?? `Wrong otp`,
+            'Error',
+            'light',
+          );
+          // reset otp
+          setotp('');
+          setotpSent(false);
+        },
+      },
+    );
   };
   return (
     <HeaderLayout
@@ -80,7 +111,7 @@ const SignUpLanding = () => {
             {phoneNumber},
             {
               onSuccess: data => {
-                console.log(data?.otp);
+                console.log(data?.otp); //@TODO add a notification .
                 // send the otp as an alert message
                 changeAlert(`otp : ${data?.otp}`, 'Success', 'light');
                 setotpSent(true);
