@@ -15,6 +15,7 @@ import DashedInput from '~/components/dashed-input/DashedInput';
 import Parsetext from '~/components/text-display/Parsetext';
 import {useNavigation} from '~/common/hooks/use-navigation';
 import {Route} from '~/common/constants/navigation.constants';
+import ScreenLoader from '~/components/loaders/ScreenLoader';
 
 //** this is the sign up langing page where we start with verifying user phone number  */
 const SignUpLanding = () => {
@@ -29,15 +30,16 @@ const SignUpLanding = () => {
   // used to handle the confirm phone numbe modal
   const model = useModal();
   // custom muation hook for sending otp
-  const {mutate: sendOtpMutation} = useSendOtp();
+  const {mutate: sendOtpMutation, isPending: otpSendPending} = useSendOtp();
   // show the apt as a alert message
   const {changeAlert} = useAlert('Success', 'light');
   //custom hook for verify otp
-  const {mutate: verifyOtpMuation} = useVerifyOtp();
+  const {mutate: verifyOtpMuation, isPending: verifyOtpPending} =
+    useVerifyOtp();
   const navigation = useNavigation();
 
+  // verify the otp entered by the user
   const verifyotp = () => {
-    // verify the otp entered by the user
     verifyOtpMuation(
       {
         phoneNumber: phoneNumber,
@@ -128,6 +130,7 @@ const SignUpLanding = () => {
           );
         }}
       />
+      <ScreenLoader loading={otpSendPending || verifyOtpPending} />
     </HeaderLayout>
   );
 };

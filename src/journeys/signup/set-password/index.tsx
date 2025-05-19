@@ -1,12 +1,12 @@
 import React from 'react';
-import {View, Text} from 'react-native';
-import styles from './index.styles';
+import {View} from 'react-native';
+import HeaderLayout from '~/components/layoutes/HeaderLayout';
 
 const SetPassword = () => {
   return (
-    <View style={styles.container}>
-      <Text>SetPassword Component</Text>
-    </View>
+    <HeaderLayout progressPercent={22} title="Set Password">
+      <View></View>
+    </HeaderLayout>
   );
 };
 
