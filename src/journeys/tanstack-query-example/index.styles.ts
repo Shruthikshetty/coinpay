@@ -1,7 +1,7 @@
 import {StyleSheet} from 'react-native';
 import {colors} from '~/common/constants/colors.constants';
 
-const queryexampleStyles = StyleSheet.create({
+const queryExampleStyles = StyleSheet.create({
   container: {flex: 1, paddingHorizontal: 10},
   header: {
     fontSize: 20,
@@ -24,4 +24,4 @@ const queryexampleStyles = StyleSheet.create({
   },
 });
 
-export default queryexampleStyles;
+export default queryExampleStyles;
