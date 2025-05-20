@@ -54,7 +54,7 @@ export const useAlert = (
     setMessage('');
   }, [setMessage]); // this hook can be used in case we need to close a alert before the timer runs out
 
-  // this function is used to change all the properts of a Alert
+  // this function is used to change all the property of a Alert
   const changeAlert = useCallback(
     (
       messages: string,
