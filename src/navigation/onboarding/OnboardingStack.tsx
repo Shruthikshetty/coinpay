@@ -4,22 +4,22 @@ import {Route} from '~/common/constants/navigation.constants';
 import Onboarding from '~/journeys/onboarding';
 import PreLogin from '~/journeys/onboarding/login-signup-landing';
 
-// initialaize the navigator
-const OnbardingNavigator = createNativeStackNavigator();
+// initialize the navigator
+const OnboardingNavigator = createNativeStackNavigator();
 
-// this is the scrack containing the oboarding flow
-const OnbaordingStack = () => {
+// this is the stack containing the onboarding flow
+const OnboardingStack = () => {
   return (
-    <OnbardingNavigator.Navigator
+    <OnboardingNavigator.Navigator
       initialRouteName={Route.ONBOARDING}
       screenOptions={{headerShown: false}}>
-      <OnbardingNavigator.Screen
+      <OnboardingNavigator.Screen
         name={Route.ONBOARDING}
         component={Onboarding}
       />
-      <OnbardingNavigator.Screen name={Route.PRE_LOGIN} component={PreLogin} />
-    </OnbardingNavigator.Navigator>
+      <OnboardingNavigator.Screen name={Route.PRE_LOGIN} component={PreLogin} />
+    </OnboardingNavigator.Navigator>
   );
 };
 
-export default OnbaordingStack;
+export default OnboardingStack;

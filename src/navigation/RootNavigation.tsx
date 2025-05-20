@@ -11,7 +11,7 @@ import ReactFormExample from '~/journeys/react-form-example';
 import InternationalizationExample from '~/journeys/internationalization-example';
 import SendStack from './send/SendStack';
 import ReanimatedExample from '~/journeys/reanimated-example';
-import OnbaordingStack from './onboarding/OnboardingStack';
+import OnboardingStack from './onboarding/OnboardingStack';
 import SignupStack from './signup/SignupStack';
 
 const RootStack = createNativeStackNavigator();
@@ -55,7 +55,7 @@ const RootNavigation = () => {
         <RootStack.Screen name={Stack.SEND_STACK} component={SendStack} />
         <RootStack.Screen
           name={Stack.ONBOARDING_STACK}
-          component={OnbaordingStack}
+          component={OnboardingStack}
         />
         <RootStack.Screen name={Stack.SIGNUP_STACK} component={SignupStack} />
       </RootStack.Navigator>
