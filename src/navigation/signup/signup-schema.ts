@@ -7,14 +7,14 @@ export const customerRegisterSchema = z
     phoneNumber: z
       .string()
       .min(1, {message: 'Phone number is required .'})
-      .max(10, {message: 'Phone number can not be bigger than 10 letetrs'})
+      .max(10, {message: 'Phone number can not be bigger than 10 letters'})
       .refine(
         text => {
-          // validate the user entered text to be a valied phone number
+          // validate the user entered text to be a valid phone number
           return Patterns.PHONE_NUMBER.test(text);
         },
         {
-          message: 'Phone number is invalied',
+          message: 'Phone number is invalid',
         },
       ),
     password: z
@@ -31,10 +31,10 @@ export const customerRegisterSchema = z
   });
 
 // get the type from the schema
-export type CustomerregisterSchemeType = z.infer<typeof customerRegisterSchema>;
+export type CustomerRegisterSchemeType = z.infer<typeof customerRegisterSchema>;
 
 // export the default values's of the form
-export const defaultSignupDetails: CustomerregisterSchemeType = {
+export const defaultSignupDetails: CustomerRegisterSchemeType = {
   phoneNumber: '',
   password: '',
   confirmPassword: '',

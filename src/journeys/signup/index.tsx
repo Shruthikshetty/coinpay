@@ -4,7 +4,7 @@ import HeaderLayout from '~/components/layoutes/HeaderLayout';
 import styles from './index.styles';
 import TitleSubtitle from '~/components/text-display/TitleSubtitle';
 import FormLabelInput from '~/components/form-controllers/FormLabelInput';
-import {CustomerregisterSchemeType} from '~/navigation/signup/signup-schema';
+import {CustomerRegisterSchemeType} from '~/navigation/signup/signup-schema';
 import {useFormContext} from 'react-hook-form';
 import Button from '~/components/buttons/Button';
 import ConfirmPhoneModal from './components/ConfirmPhoneModal';
@@ -22,7 +22,7 @@ import ScreenLoader from '~/components/loaders/ScreenLoader';
 const SignUpLanding = () => {
   const [otpSent, setotpSent] = useState(false);
   // this holds the user entered otp
-  const [otp, setotp] = useState('');
+  const [otp, setOtp] = useState('');
   const {watch, formState} = useFormContext();
   // this is extracted from form since its required for conditions
   const phoneNumber = watch('phoneNumber');
@@ -51,7 +51,7 @@ const SignUpLanding = () => {
           // on success navigate to next screen of setting password
           navigation.navigate(Route.SET_PASSWORD);
           // reset otp
-          setotp('');
+          setOtp('');
           setotpSent(false);
         },
         onError: error => {
@@ -62,7 +62,7 @@ const SignUpLanding = () => {
             'light',
           );
           // reset otp
-          setotp('');
+          setOtp('');
           setotpSent(false);
         },
       },
@@ -72,7 +72,7 @@ const SignUpLanding = () => {
     <HeaderLayout
       progressPercent={12}
       rootStyles={styles.root}
-      conatinerStyles={styles.container}>
+      containerStyles={styles.container}>
       <View>
         <TitleSubtitle
           title="Confirm your phone"
@@ -81,15 +81,15 @@ const SignUpLanding = () => {
 
         <View style={styles.formContainer}>
           {otpSent ? (
-            <View style={styles.otpFeidContainer}>
-              <DashedInput value={otp} setValue={setotp} />
+            <View style={styles.otpFieldContainer}>
+              <DashedInput value={otp} setValue={setOtp} />
               <Parsetext
                 text={`Didn't get a code <li>Resend</li>`}
                 textStyle={styles.resendText}
               />
             </View>
           ) : (
-            <FormLabelInput<CustomerregisterSchemeType>
+            <FormLabelInput<CustomerRegisterSchemeType>
               name="phoneNumber"
               label="Phone number"
               placeholder="Phone number"

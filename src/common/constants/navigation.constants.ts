@@ -1,11 +1,11 @@
-// conatins all the Root stack screen names
+// contains all the Root stack screen names
 export enum Stack {
   APP_LANDING = 'appLanding',
   PURPOSE_SCREEN = 'purposeSelection',
   API_CALL_EXAMPLE = 'apiCallExample',
   QUERY_EXAMPLE = 'tanstackQueryExample',
   REDUX_EXAMPLE = 'reduxExample',
-  COMPONENT_CATALOG = 'componentCateloge',
+  COMPONENT_CATALOG = 'componentCatalog',
   REACT_FORM_EXAMPLE = 'reactFormExample',
   INTERNATIONALIZATION_EXAMPLE = 'i18nextExample',
   SEND_STACK = 'sendStack',

@@ -8,15 +8,15 @@ import {useNavigation} from '~/common/hooks/use-navigation';
 type HeaderLayoutProps = {
   children: React.ReactNode;
   rootStyles?: ViewStyle;
-  conatinerStyles?: ViewStyle;
+  containerStyles?: ViewStyle;
   handleBackPress?: () => void;
   backButton?: boolean;
 } & Omit<HeaderPanelBase, 'handleBackPress' | 'backButton'>;
 
-// this is a lyout that compes with a header with back button
+// this is a layout that comes with a header with back button
 const HeaderLayout = ({
   children,
-  conatinerStyles,
+  containerStyles,
   rootStyles,
   backButton = true,
   handleBackPress,
@@ -36,7 +36,7 @@ const HeaderLayout = ({
         handleBackPress={handleBackPress ?? handleNavigateBack}
         {...headerprops}
       />
-      <View style={[styles.content, conatinerStyles]}>{children}</View>
+      <View style={[styles.content, containerStyles]}>{children}</View>
     </SafeAreaView>
   );
 };

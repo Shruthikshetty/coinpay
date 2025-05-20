@@ -15,7 +15,7 @@ const PreLogin = () => {
     <HeaderLayout
       progressPercent={10}
       rootStyles={styles.root}
-      conatinerStyles={styles.conatiner}>
+      containerStyles={styles.conatiner}>
       <Image
         source={require('~/../assets/craete-account-img.png')}
         style={styles.image}

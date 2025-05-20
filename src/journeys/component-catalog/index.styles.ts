@@ -1,7 +1,7 @@
 import {StyleSheet} from 'react-native';
 import {themeColors} from '~/common/constants/colors.constants';
 
-const componentcatalogscreenStyles = StyleSheet.create({
+const componentCatalogScreenStyles = StyleSheet.create({
   container: {
     flex: 1,
     paddingHorizontal: 10,
@@ -21,4 +21,4 @@ const componentcatalogscreenStyles = StyleSheet.create({
   },
 });
 
-export default componentcatalogscreenStyles;
+export default componentCatalogScreenStyles;

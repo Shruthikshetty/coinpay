@@ -43,7 +43,7 @@ const ReanimatedExample = (): JSX.Element => {
   };
   return (
     <HeaderLayout
-      conatinerStyles={styles.content}
+      containerStyles={styles.content}
       title="Reanimated Example"
       handleBackPress={() => navigation.goBack()}>
       <TitleSubtitle
