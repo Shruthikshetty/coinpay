@@ -7,6 +7,8 @@ import FormLabelInput from '~/components/form-controllers/FormLabelInput';
 import {CustomerRegisterSchemeType} from '~/navigation/signup/signup-schema';
 import {View} from 'react-native';
 import Button from '~/components/buttons/Button';
+import {useNavigation} from '~/common/hooks/use-navigation';
+import {Route} from '~/common/constants/navigation.constants';
 
 const SetPassword = () => {
   // get the errors from the form state
@@ -15,10 +17,16 @@ const SetPassword = () => {
     trigger,
   } = useFormContext();
 
+  const navigation = useNavigation();
+
   // handles confirm button press
-  const handleConfirm = () => {
-    // confirm logic
-    trigger(['password', 'confirmPassword']);
+  const handleConfirm = async () => {
+    // trigger the validations for the required fields
+    const valid = await trigger(['password', 'confirmPassword']);
+    if (valid) {
+      // navigate to next screen
+      navigation.navigate(Route.ADD_EMAIL);
+    }
   };
   return (
     <HeaderLayout

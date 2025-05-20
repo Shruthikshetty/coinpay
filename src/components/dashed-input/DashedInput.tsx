@@ -16,7 +16,8 @@ type DashedInputType = {
   length?: number; // The fixed length of the input (number of boxes)
 };
 
-//@TODO this component has to be modified
+//@TODO handle blur
+//@TODO Animate with blink effect
 /**
  * DashedInput is a custom input component for entering a fixed-length numeric code (e.g., OTP).
  * It displays a row of boxes, each representing a digit, with a blinking cursor in the active box.
@@ -59,13 +60,22 @@ const DashedInput = ({
         />
         {/* Render boxes for each digit */}
         {[...Array(length)].map((_, i) => (
-          <View key={i} style={styles.box}>
+          <View key={i} style={[styles.box, isFocused && styles.activeColor]}>
             {chars[i] ? (
               // Show the digit if entered
-              <Text style={styles.charText}>{chars[i]}</Text>
+              <Text style={[styles.charText, isFocused && styles.activeColor]}>
+                {chars[i]}
+              </Text>
             ) : value.length === i && isFocused ? (
               // Show a blinking cursor if this is the current box and input is focused
-              <Text style={[styles.charText, styles.cursor]}>|</Text>
+              <Text
+                style={[
+                  styles.charText,
+                  styles.cursor,
+                  isFocused && styles.activeColor,
+                ]}>
+                |
+              </Text>
             ) : (
               // Otherwise, show an empty box
               <Text style={styles.charText}>{''}</Text>

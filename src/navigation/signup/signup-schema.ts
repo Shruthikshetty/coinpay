@@ -1,6 +1,7 @@
 import {z} from 'zod';
 import {Patterns} from '~/common/constants/validation-patterns.constants';
 
+//@TODO validations to be cross verified with backend
 // this zod schema is used for the signup form of users
 export const customerRegisterSchema = z
   .object({
@@ -24,6 +25,18 @@ export const customerRegisterSchema = z
     confirmPassword: z
       .string()
       .min(4, {message: 'Confirm password can not be empty'}),
+    email: z
+      .string()
+      .min(1, {message: 'Email is required'})
+      .refine(
+        text => {
+          // check if the format is a valid email format
+          return Patterns.VALID_EMAIL.test(text);
+        },
+        {
+          message: 'Invalid email please recheck',
+        },
+      ),
   })
   .refine(data => data.password === data.confirmPassword, {
     message: 'Passwords do not match',
@@ -38,4 +51,5 @@ export const defaultSignupDetails: CustomerRegisterSchemeType = {
   phoneNumber: '',
   password: '',
   confirmPassword: '',
+  email: '',
 };
