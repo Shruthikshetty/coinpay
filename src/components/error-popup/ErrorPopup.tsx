@@ -26,7 +26,7 @@ const ErrorPopup = ({
   return (
     <Modal visible={modal.visible} transparent>
       <View style={styles.root}>
-        {/* main inner conatainer */}
+        {/* main inner container */}
         <View style={styles.errorContainer}>
           <Text style={styles.title}>{title}</Text>
           <View style={styles.content}>

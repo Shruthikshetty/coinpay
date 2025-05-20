@@ -1,7 +1,7 @@
 import {StyleSheet} from 'react-native';
 import {themeColors} from '~/common/constants/colors.constants';
 
-const upadteAmountBlockStyles = StyleSheet.create({
+const updateAmountBlockStyles = StyleSheet.create({
   root: {
     borderWidth: 1,
     marginVertical: 10,
@@ -19,4 +19,4 @@ const upadteAmountBlockStyles = StyleSheet.create({
   },
 });
 
-export default upadteAmountBlockStyles;
+export default updateAmountBlockStyles;

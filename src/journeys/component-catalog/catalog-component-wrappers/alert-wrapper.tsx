@@ -123,23 +123,23 @@ const AlertVariantsDemo = () => {
       <View style={{gap: 10}}>
         <Button
           theme="Primary"
-          varient="Border"
-          label={'Pimary light alert'}
+          variant="Border"
+          label={'Primary light alert'}
           handlePress={() => {
             changeAlert('Primary light alert', 'Primary', 'light');
           }}
         />
         <Button
           theme="Primary"
-          varient="Border"
-          label={'Pimary dark alert'}
+          variant="Border"
+          label={'Primary dark alert'}
           handlePress={() => {
             changeAlert('Primary dark alert', 'Primary', 'dark');
           }}
         />
         <Button
           theme="Primary"
-          varient="Border"
+          variant="Border"
           label={'Error dark alert'}
           handlePress={() => {
             changeAlert('Error dark alert', 'Error', 'dark');
@@ -147,7 +147,7 @@ const AlertVariantsDemo = () => {
         />
         <Button
           theme="Primary"
-          varient="Border"
+          variant="Border"
           label={'Success dark alert'}
           handlePress={() => {
             changeAlert('Success dark alert', 'Success', 'dark');
@@ -155,7 +155,7 @@ const AlertVariantsDemo = () => {
         />
         <Button
           theme="Primary"
-          varient="Border"
+          variant="Border"
           label={'Secondary dark alert'}
           handlePress={() => {
             changeAlert('Secondary dark alert', 'Secondary', 'dark');

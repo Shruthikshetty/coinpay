@@ -9,7 +9,7 @@ const preLoginStyles = StyleSheet.create({
   root: {
     paddingHorizontal: 0,
   },
-  conatiner: {
+  container: {
     paddingHorizontal: wp(5),
     paddingBottom: hp(4),
     flex: 1,

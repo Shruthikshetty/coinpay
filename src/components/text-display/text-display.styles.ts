@@ -20,7 +20,7 @@ export const titleSubtitleStyles = StyleSheet.create({
 });
 
 export const parseTextStyles = StyleSheet.create({
-  linktext: {
+  linkText: {
     color: colors.blue500,
     textDecorationLine: 'underline',
   },

@@ -11,7 +11,7 @@ import TitleSubtitle from '~/components/text-display/TitleSubtitle';
 import {colors} from '~/common/constants/colors.constants';
 import Button from '~/components/buttons/Button';
 import {widthPercentageToDP as wp} from 'react-native-responsive-screen';
-import HeaderLayout from '~/components/layoutes/HeaderLayout';
+import HeaderLayout from '~/components/layouts/HeaderLayout';
 
 /**
  * This screen contains an example on how to use reanimated
@@ -35,7 +35,7 @@ const ReanimatedExample = (): JSX.Element => {
     };
   });
 
-  // a funtion to increase a width of the box
+  // a function to increase a width of the box
   const handleBoxWidth = () => {
     // we can directly change the value of width like this
     // the sync of the value is managed by the useSharedValue hook
@@ -43,7 +43,7 @@ const ReanimatedExample = (): JSX.Element => {
   };
   return (
     <HeaderLayout
-      conatinerStyles={styles.content}
+      containerStyles={styles.content}
       title="Reanimated Example"
       handleBackPress={() => navigation.goBack()}>
       <TitleSubtitle

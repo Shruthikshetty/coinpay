@@ -1,6 +1,6 @@
 import React from 'react';
 import {Image, View} from 'react-native';
-import HeaderLayout from '~/components/layoutes/HeaderLayout';
+import HeaderLayout from '~/components/layouts/HeaderLayout';
 import styles from './index.styles';
 import TitleSubtitle from '~/components/text-display/TitleSubtitle';
 import Button from '~/components/buttons/Button';
@@ -15,9 +15,9 @@ const PreLogin = () => {
     <HeaderLayout
       progressPercent={10}
       rootStyles={styles.root}
-      conatinerStyles={styles.conatiner}>
+      containerStyles={styles.container}>
       <Image
-        source={require('~/../assets/craete-account-img.png')}
+        source={require('~/../assets/create-account-img.png')}
         style={styles.image}
         resizeMode="contain"
       />
@@ -27,7 +27,7 @@ const PreLogin = () => {
           subtitle: styles.textCenter,
         }}
         title={`Create your \nCoinpay account`}
-        subTitle="coinpay is a powerfull tool that allows you to easilt send , receivee and track your transactions"
+        subTitle="coinpay is a powerful tool that allows you to easily send , receive and track your transactions"
       />
       <View style={styles.buttonContainer}>
         <Button
@@ -41,7 +41,7 @@ const PreLogin = () => {
           label="Log in"
           handlePress={() => {}}
           theme="Primary"
-          varient="Border"
+          variant="Border"
         />
       </View>
       <Parsetext

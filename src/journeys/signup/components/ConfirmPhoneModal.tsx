@@ -10,20 +10,20 @@ import {useModal} from '~/common/hooks/use-model';
 type ConfirmPhoneModalType = {
   phoneNumber: string;
   modal: ReturnType<typeof useModal>;
-  handleConfim: () => void;
+  handleConfirm: () => void;
 };
 
 // this is a custom modal used in signup flow for user confirmation on entered phone number
 const ConfirmPhoneModal = ({
   phoneNumber = '',
   modal,
-  handleConfim,
+  handleConfirm,
 }: ConfirmPhoneModalType) => {
   return (
     <Modal transparent visible={modal.visible}>
       <View style={styles.blur}>
         <View style={styles.outerRim}>
-          <ElevatedBox customStyles={styles.conatiner}>
+          <ElevatedBox customStyles={styles.container}>
             {/* cross icon */}
             <TouchableOpacity
               style={styles.cross}
@@ -53,7 +53,7 @@ const ConfirmPhoneModal = ({
               <Button
                 handlePress={() => {
                   modal.hide(); // close modal
-                  handleConfim();
+                  handleConfirm();
                 }}
                 label="Yes"
                 theme="Primary"
@@ -64,7 +64,7 @@ const ConfirmPhoneModal = ({
                 }}
                 label="No"
                 theme="Primary"
-                varient="Border"
+                variant="Border"
               />
             </View>
           </ElevatedBox>

@@ -1,7 +1,7 @@
 import {StyleSheet} from 'react-native';
 import {colors, themeColors} from '~/common/constants/colors.constants';
 
-const TranscationItemStyles = StyleSheet.create({
+const TransactionItemStyles = StyleSheet.create({
   root: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -40,4 +40,4 @@ const TranscationItemStyles = StyleSheet.create({
   },
 });
 
-export default TranscationItemStyles;
+export default TransactionItemStyles;

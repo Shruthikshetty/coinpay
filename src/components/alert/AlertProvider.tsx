@@ -7,8 +7,8 @@ type AlertProviderProps = {
   children: React.ReactNode;
 };
 
-// all the varients the alert can have
-export type AlertVarientType = 'light' | 'dark';
+// all the variants the alert can have
+export type AlertVariantType = 'light' | 'dark';
 
 export type AlertThemeType = 'Secondary' | 'Error' | 'Primary' | 'Success';
 
@@ -16,10 +16,12 @@ export type AlertThemeType = 'Secondary' | 'Error' | 'Primary' | 'Success';
 type AlertContextType = {
   message: string;
   setMessage: React.Dispatch<React.SetStateAction<string>>;
-  varient: AlertVarientType;
-  setVarient: React.Dispatch<React.SetStateAction<AlertVarientType>>;
+  variant: AlertVariantType;
+  setVariant: React.Dispatch<React.SetStateAction<AlertVariantType>>;
   theme: AlertThemeType;
   setTheme: React.Dispatch<React.SetStateAction<AlertThemeType>>;
+  duration: number;
+  setDuration: React.Dispatch<React.SetStateAction<number>>;
 };
 
 // creating alert context to store the visible state
@@ -32,14 +34,24 @@ export const useAlertContext = () => useContext(AlertContext);
 const AlertProvider = ({children}: AlertProviderProps) => {
   const [message, setMessage] = useState(''); // store the alert message
   const [theme, setTheme] = useState<AlertThemeType>('Primary'); // set the theme it can be Success Error Primary or Secondary
-  const [varient, setVarient] = useState<AlertVarientType>('light'); // can be light or dark
+  const [variant, setVariant] = useState<AlertVariantType>('light'); // can be light or dark
+  const [duration, setDuration] = useState(1000);
 
   return (
     <AlertContext.Provider
-      value={{message, setMessage, varient, setVarient, theme, setTheme}}>
+      value={{
+        message,
+        setMessage,
+        variant,
+        setVariant,
+        theme,
+        setTheme,
+        duration,
+        setDuration,
+      }}>
       <View style={StyleSheet.absoluteFill}>
         {children}
-        {!!message && <Alert duration={1000} />}
+        {!!message && <Alert duration={duration} />}
       </View>
     </AlertContext.Provider>
   );

@@ -24,7 +24,7 @@ const signupStyles = StyleSheet.create({
     textAlign: 'center',
     marginTop: hp(2),
   },
-  otpFeidContainer: {
+  otpFieldContainer: {
     marginTop: hp(2),
   },
 });

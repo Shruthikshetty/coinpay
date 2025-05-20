@@ -1,7 +1,7 @@
 /* eslint-disable react-native/no-inline-styles */
 import * as React from 'react';
 import Svg, {G, Mask, Path, Defs, ClipPath, Rect} from 'react-native-svg';
-function Onboardingimg2({height = 223, width = 260, ...props}) {
+function OnboardingImg2({height = 223, width = 260, ...props}) {
   return (
     <Svg
       width={width}
@@ -554,4 +554,4 @@ function Onboardingimg2({height = 223, width = 260, ...props}) {
     </Svg>
   );
 }
-export default Onboardingimg2;
+export default OnboardingImg2;

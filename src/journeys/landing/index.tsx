@@ -20,7 +20,7 @@ const AppLanding = () => {
     {name: 'Redux example', route: Stack.REDUX_EXAMPLE},
     {name: 'Component catalog', route: Stack.COMPONENT_CATALOG},
     {name: 'React Form', route: Stack.REACT_FORM_EXAMPLE},
-    {name: 'Intenationalization', route: Stack.INTERNATIONALIZATION_EXAMPLE},
+    {name: 'Internationalization', route: Stack.INTERNATIONALIZATION_EXAMPLE},
     {name: 'Send Stack', route: Stack.SEND_STACK},
     {name: 'Reanimated Example', route: Stack.REANIMATED_EXAMPLE},
     {name: 'Onboarding', route: Stack.ONBOARDING_STACK},

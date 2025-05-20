@@ -16,7 +16,7 @@ const paginationStyles = StyleSheet.create({
     borderRadius: wp(5),
     height: hp(1),
   },
-  conatainer: {
+  container: {
     gap: wp(1.5),
   },
 });

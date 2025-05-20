@@ -1,10 +1,10 @@
 import {NavigationContainer} from '@react-navigation/native';
 import React from 'react';
 import {StatusBar, StyleSheet, View} from 'react-native';
-import RootNavigation from '~/navigation/RootNavigation';
+import RootNavigation from './src/navigation/RootNavigation';
 import {QueryClientProvider, QueryClient} from '@tanstack/react-query';
 import {Provider} from 'react-redux';
-import {store} from '~/state-management/store';
+import {store} from './src/state-management/store';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
 
 // initailize queryclient

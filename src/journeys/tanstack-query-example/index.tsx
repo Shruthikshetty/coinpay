@@ -13,7 +13,7 @@ import {useModal} from '~/common/hooks/use-model';
 import Button from '~/components/buttons/Button';
 import {SafeAreaView} from 'react-native-safe-area-context';
 
-type PerposeOptionType = {
+type PurposeOptionType = {
   key: string;
   title: string;
   subtitle: string;
@@ -21,12 +21,12 @@ type PerposeOptionType = {
 };
 
 // this is user entered data stored in state
-type AddPuroseDataType = Pick<PerposeOptionType, 'title' | 'subtitle'>;
+type AddPurposeDataType = Pick<PurposeOptionType, 'title' | 'subtitle'>;
 
-//simple screen showing how to use tansatck query for state management
+//simple screen showing how to use tanstack query for state management
 const QueryExample = () => {
   // user entered data to add a new item to purpose options
-  const [addPurposeData, setAddPurposeData] = useState<AddPuroseDataType>({
+  const [addPurposeData, setAddPurposeData] = useState<AddPurposeDataType>({
     title: '',
     subtitle: '',
   });
@@ -40,9 +40,9 @@ const QueryExample = () => {
   const {data, isLoading, isError, error, refetch} = useQuery<
     AxiosResponse<any, any>,
     Error,
-    AxiosResponse<PerposeOptionType[]>
+    AxiosResponse<PurposeOptionType[]>
   >({
-    queryKey: ['perposeSelection'],
+    queryKey: ['purposeSelection'],
     queryFn: () => axios.get(Endpoints.PURPOSE_OPTIONS).then(res => res),
   });
 
@@ -57,12 +57,12 @@ const QueryExample = () => {
   // this logic is to be moved to service file
   // need to handle errors from this as well
   const {mutate} = useMutation({
-    mutationKey: ['perposeAdd'],
-    mutationFn: (req: PerposeOptionType) =>
+    mutationKey: ['purposeAdd'],
+    mutationFn: (req: PurposeOptionType) =>
       axios.post(Endpoints.PURPOSE_OPTIONS, req),
   });
 
-  // function to add a new item to purpose options onpress of button
+  // function to add a new item to purpose options onPress of button
   // we use the mutation from above useMutation Query
   const handleAddPurposeOptions = () => {
     mutate(
@@ -121,11 +121,11 @@ const QueryExample = () => {
       />
       <Button
         customStyles={{root: styles.button}}
-        disabled={!Object.values(addPurposeData).every(value => Boolean(value))} // check if user has entered all the required feilds
+        disabled={!Object.values(addPurposeData).every(value => Boolean(value))} // check if user has entered all the required fields
         theme={'Primary'}
         label={'Add new purpose'}
         handlePress={handleAddPurposeOptions}
-        varient="Border"
+        variant="Border"
       />
       {/* ------ end of the form ------ */}
 

@@ -1,5 +1,5 @@
 import {Text, View} from 'react-native';
-import styles from './update-ampunt-block.styles';
+import styles from './update-amount-block.styles';
 import Button from '~/components/buttons/Button';
 import {RUPEE_SYMBOL} from '~/common/constants/screen.constants';
 import {
@@ -14,7 +14,7 @@ import {
 
 // this component is used to modify the amount
 const UpdateAmountBlock = () => {
-  // initailize dispatch
+  // initialize dispatch
   const dispatch = useAppDispatch();
   // get about from store
   // used to prevent amount from going to negative values

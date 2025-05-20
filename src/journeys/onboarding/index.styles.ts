@@ -36,7 +36,7 @@ const onboardingStyles = StyleSheet.create({
   carousalContentContainer: {
     gap: hp(5),
   },
-  paginationConatiner: {
+  paginationContainer: {
     position: 'absolute',
     bottom: hp(13),
     alignSelf: 'center',

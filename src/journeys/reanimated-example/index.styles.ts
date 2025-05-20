@@ -2,7 +2,7 @@ import {StyleSheet} from 'react-native';
 import {widthPercentageToDP as wp} from 'react-native-responsive-screen';
 import {colors} from '~/common/constants/colors.constants';
 
-const reanimatedexampleStyles = StyleSheet.create({
+const reanimatedExampleStyles = StyleSheet.create({
   content: {
     flex: 1,
     marginTop: '10%',
@@ -19,4 +19,4 @@ const reanimatedexampleStyles = StyleSheet.create({
   },
 });
 
-export default reanimatedexampleStyles;
+export default reanimatedExampleStyles;

@@ -7,7 +7,7 @@ import {colors} from '~/common/constants/colors.constants';
 import {getOpacity} from '~/common/utils/get-opacity';
 
 const confirmPhoneModalStyles = StyleSheet.create({
-  conatiner: {
+  container: {
     borderRadius: wp(5),
     backgroundColor: colors.white,
     paddingVertical: hp(3),

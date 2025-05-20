@@ -18,7 +18,7 @@ const PurposeSelect = () => {
 
       <RadioGroup setValue={setValue} value={value}>
         <Radio
-          value={'Peronal'}
+          value={'Personal'}
           subTitle={'Pay friends and family'}
           image={<UserIcon width={40} height={50} />}
         />

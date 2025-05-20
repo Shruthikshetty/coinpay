@@ -18,9 +18,11 @@ export type LabelInputProps = {
   error?: boolean;
   helperText?: string;
   keyboardType?: KeyboardTypeOptions;
+  secureTextEntry?: boolean;
+  disabled?: boolean;
 };
 
-// this is a recusable Input feild to be used in the app
+// this is a reusable Input field to be used in the app
 // contains a left and right component
 const LabelInput = ({
   value,
@@ -34,10 +36,12 @@ const LabelInput = ({
   error = false,
   helperText,
   keyboardType,
+  secureTextEntry,
+  disabled = false,
 }: LabelInputProps) => {
   // this will handle state change in case there is value or setter from parent
   const [localValue, setLocalValue] = useState<string>('');
-  // control focus since we need to chnge border color
+  // control focus since we need to change border color
   const [focus, setFocus] = useState(false);
 
   return (
@@ -49,6 +53,7 @@ const LabelInput = ({
         style={[
           focus && styles.outerBorderActive,
           error && styles.outerBorderError,
+          disabled && styles.inputDisabled,
         ]}>
         <View
           style={[
@@ -61,24 +66,28 @@ const LabelInput = ({
             <View style={styles.leftComponent}>{leftComponent}</View>
           )}
 
-          {/* Text feild */}
-          <View style={styles.mainInputContainer}>
+          {/* Text field */}
+          <View style={[styles.mainInputContainer]}>
             <TextInput
               keyboardType={keyboardType ?? 'default'}
               onChangeText={handleChange ?? setLocalValue}
               value={value ?? localValue}
               placeholder={placeholder}
               placeholderTextColor={colors.gray400}
-              style={[styles.inputstyle, error && {color: themeColors.error}]}
+              style={[styles.inputStyle, error && {color: themeColors.error}]}
               cursorColor={error ? themeColors.error : themeColors.primary}
+              secureTextEntry={secureTextEntry} // This will mask the input like a password
               onFocus={() => {
+                // handling focus effect
                 setFocus(true);
-                // run and function if provided
+                // custom function to run if given
                 handleBlur?.();
               }}
+              editable={!disabled}
               onBlur={() => {
+                // handling blur effect
                 setFocus(false);
-                // run optional function
+                // custom function to run if given
                 handleFocus?.();
               }}
             />

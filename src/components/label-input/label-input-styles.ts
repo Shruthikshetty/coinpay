@@ -25,10 +25,14 @@ const labelInputStyles = StyleSheet.create({
   mainInputContainer: {
     flex: 14,
   },
-  inputstyle: {
+  inputStyle: {
     color: themeColors.contentPrimary,
     fontSize: 16,
     paddingLeft: 0,
+  },
+  inputDisabled: {
+    backgroundColor: colors.gray200,
+    borderRadius: 10,
   },
   label: {
     fontSize: 17,

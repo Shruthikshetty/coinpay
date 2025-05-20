@@ -2,7 +2,7 @@ import {Text, TextStyle, TouchableOpacity, ViewStyle} from 'react-native';
 import styles from './button.styles';
 import {colors, themeColors} from '~/common/constants/colors.constants';
 
-// this is type safty for style prop
+// this is type safety for style prop
 type CustomButtonStyles = Partial<{
   root: ViewStyle;
   label: TextStyle;
@@ -12,19 +12,19 @@ type ButtonProps = {
   square?: boolean;
   theme: 'Primary' | 'Error' | 'Info';
   label: string;
-  varient?: 'Normal' | 'Border';
+  variant?: 'Normal' | 'Border';
   handlePress: () => void;
   customStyles?: CustomButtonStyles;
   disabled?: boolean;
   //size?: 'Full' | 'Medium' | 'Small';
 };
 
-// this is diff varients of button used in app
+// this is diff variants of button used in app
 const Button = ({
   square = false,
   theme,
   label = 'Label',
-  varient = 'Normal',
+  variant = 'Normal',
   handlePress,
   customStyles,
   disabled = false,
@@ -58,8 +58,8 @@ const Button = ({
         {
           backgroundColor: disabled ? themeColors.info : getTheme().bgColor, // get color based on color
         },
-        varient === 'Border' && {
-          // in case the varient is Border
+        variant === 'Border' && {
+          // in case the variant is Border
           borderColor: disabled ? themeColors.info : getTheme().bgColor,
           ...styles.buttonBorder,
         },
@@ -69,8 +69,8 @@ const Button = ({
         style={[
           styles.label,
           {color: disabled ? colors.gray700 : getTheme().textColor},
-          varient === 'Border' && {
-            // in case the Varient is Border the text color changes
+          variant === 'Border' && {
+            // in case the variant is Border the text color changes
             color: disabled ? themeColors.info : getTheme().bgColor,
           },
           customStyles?.label,

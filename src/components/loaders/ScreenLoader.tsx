@@ -11,7 +11,7 @@ type ScreenLoaderType = {
   size?: number;
 };
 
-// Loader that applys to the full screen preventing any actions on the screen
+// Loader that apply's to the full screen preventing any actions on the screen
 const ScreenLoader = ({
   loading = true,
   color = colors.blue500,
