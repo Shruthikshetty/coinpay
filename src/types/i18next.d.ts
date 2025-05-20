@@ -1,7 +1,7 @@
 import 'i18next';
 import en from '../i18next/languages/english.json';
 
-// this file is used to provide type safty to translations in i18next
+// this file is used to provide type safety to translations in i18next
 
 declare module 'i18next' {
   interface CustomTypeOptions {

@@ -4,7 +4,7 @@ import {createSlice, PayloadAction} from '@reduxjs/toolkit';
  * This is a example slice for redux store on how to use in the app
  */
 
-// these are the values that are initialy stored
+// these are the values that are initially stored
 const defaultValue = {
   amount: 500,
 };
@@ -13,7 +13,7 @@ const reduxExampleSlice = createSlice({
   name: 'reduxExample', // unique name for the slice
   initialState: defaultValue,
   reducers: {
-    // first action this will increament the amount with the number passed as payload to the action
+    // first action this will increment the amount with the number passed as payload to the action
     addAmount: (state, action: PayloadAction<number>) => {
       state.amount += action.payload;
     },
@@ -26,7 +26,7 @@ const reduxExampleSlice = createSlice({
     resetAmount: state => {
       state.amount = defaultValue.amount;
     },
-  }, // these are the rudcers actions are stored here
+  }, // these are the reducers actions are stored here
 });
 
 // exporting the actions

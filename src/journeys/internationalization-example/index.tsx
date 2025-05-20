@@ -3,7 +3,7 @@ import {Text, View} from 'react-native';
 import styles from './index.styles';
 import {useTranslation} from 'react-i18next';
 import {SafeAreaView} from 'react-native-safe-area-context';
-import {Languages} from '~/common/constants/language.constatnts';
+import {Languages} from '~/common/constants/language.constants';
 import {changeLanguage} from 'i18next';
 import DropDown from '~/components/drop-down/DropDown';
 import {LanguageKey} from '~/types/types';
