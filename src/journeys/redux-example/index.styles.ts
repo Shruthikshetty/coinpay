@@ -1,7 +1,7 @@
 import {StyleSheet} from 'react-native';
 import {themeColors} from '~/common/constants/colors.constants';
 
-const reduxexampleStyles = StyleSheet.create({
+const reduxExampleStyles = StyleSheet.create({
   container: {
     flex: 1,
     paddingHorizontal: 10,
@@ -13,4 +13,4 @@ const reduxexampleStyles = StyleSheet.create({
   },
 });
 
-export default reduxexampleStyles;
+export default reduxExampleStyles;
