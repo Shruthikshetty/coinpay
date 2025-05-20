@@ -1,4 +1,4 @@
-// this files contains all the varients of error pop up to be shown in catalog
+// this files contains all the variants of error pop up to be shown in catalog
 
 import {useModal} from '~/common/hooks/use-model';
 import ErrorPopup from '~/components/error-popup/ErrorPopup';
@@ -18,7 +18,7 @@ const ErrorPopUpDefault = () => {
   );
 };
 
-// ussing error pop up with all optional props
+// using error pop up with all optional props
 const ErrorPopUpAllProps = () => {
   const modal = useModal(true);
   return (

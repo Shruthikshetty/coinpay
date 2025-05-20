@@ -18,30 +18,30 @@ import {Route} from '~/common/constants/navigation.constants';
 import ScreenLoader from '~/components/loaders/ScreenLoader';
 
 //@TODO resend otp function pending
-//** this is the sign up langing page where we start with verifying user phone number  */
+//** this is the sign up landing page where we start with verifying user phone number  */
 const SignUpLanding = () => {
-  const [otpSent, setotpSent] = useState(false);
+  const [otpSent, setOtpSent] = useState(false);
   // this holds the user entered otp
   const [otp, setOtp] = useState('');
   const {watch, formState} = useFormContext();
   // this is extracted from form since its required for conditions
   const phoneNumber = watch('phoneNumber');
-  // holdes the data if phone number is valied or not
+  // hold's the data if phone number is valid or not
   const isPhoneValid = !!phoneNumber && !formState.errors.phoneNumber;
-  // used to handle the confirm phone numbe modal
+  // used to handle the confirm phone number modal
   const model = useModal();
-  // custom muation hook for sending otp
+  // custom mutation hook for sending otp
   const {mutate: sendOtpMutation, isPending: otpSendPending} = useSendOtp();
   // show the apt as a alert message
   const {changeAlert} = useAlert('Success', 'light');
   //custom hook for verify otp
-  const {mutate: verifyOtpMuation, isPending: verifyOtpPending} =
+  const {mutate: verifyOtpMutation, isPending: verifyOtpPending} =
     useVerifyOtp();
   const navigation = useNavigation();
 
   // verify the otp entered by the user
-  const verifyotp = () => {
-    verifyOtpMuation(
+  const verifyOtp = () => {
+    verifyOtpMutation(
       {
         phoneNumber: phoneNumber,
         otp: otp,
@@ -52,7 +52,7 @@ const SignUpLanding = () => {
           navigation.navigate(Route.SET_PASSWORD);
           // reset otp
           setOtp('');
-          setotpSent(false);
+          setOtpSent(false);
         },
         onError: error => {
           // show alert message if wrong otp entered
@@ -63,7 +63,7 @@ const SignUpLanding = () => {
           );
           // reset otp
           setOtp('');
-          setotpSent(false);
+          setOtpSent(false);
         },
       },
     );
@@ -102,14 +102,14 @@ const SignUpLanding = () => {
         disabled={!isPhoneValid}
         theme="Primary"
         handlePress={() => {
-          otpSent ? verifyotp() : model.show(); // show the modal
+          otpSent ? verifyOtp() : model.show(); // show the modal
         }}
         label={otpSent ? 'Verify otp' : 'Send otp'}
       />
       <ConfirmPhoneModal
         modal={model}
         phoneNumber={phoneNumber}
-        handleConfim={() => {
+        handleConfirm={() => {
           sendOtpMutation(
             {phoneNumber},
             {
@@ -117,7 +117,7 @@ const SignUpLanding = () => {
                 console.log(data?.otp); //@TODO add a notification .
                 // send the otp as an alert message
                 changeAlert(`otp : ${data?.otp}`, 'Success', 'light');
-                setotpSent(true);
+                setOtpSent(true);
               },
               onError: error => {
                 // send the failure as an alert message

@@ -35,7 +35,7 @@ const ReanimatedExample = (): JSX.Element => {
     };
   });
 
-  // a funtion to increase a width of the box
+  // a function to increase a width of the box
   const handleBoxWidth = () => {
     // we can directly change the value of width like this
     // the sync of the value is managed by the useSharedValue hook

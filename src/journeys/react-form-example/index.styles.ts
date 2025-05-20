@@ -1,7 +1,7 @@
 import {StyleSheet} from 'react-native';
 import {themeColors} from '~/common/constants/colors.constants';
 
-const reactformexampleStyles = StyleSheet.create({
+const reactFormExampleStyles = StyleSheet.create({
   container: {flex: 1},
   title: {
     color: themeColors.contentPrimary,
@@ -17,4 +17,4 @@ const reactformexampleStyles = StyleSheet.create({
   },
 });
 
-export default reactformexampleStyles;
+export default reactFormExampleStyles;

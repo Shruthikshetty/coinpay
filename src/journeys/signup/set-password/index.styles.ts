@@ -4,7 +4,7 @@ import {
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
 
-const setpasswordStyles = StyleSheet.create({
+const setPasswordStyles = StyleSheet.create({
   container: {
     flex: 1,
     paddingHorizontal: wp(3),
@@ -17,4 +17,4 @@ const setpasswordStyles = StyleSheet.create({
   },
 });
 
-export default setpasswordStyles;
+export default setPasswordStyles;

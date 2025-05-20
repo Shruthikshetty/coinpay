@@ -5,17 +5,17 @@ import {Patterns} from '~/common/constants/validation-patterns.constants';
 export const exampleSchema = z.object({
   name: z
     .string()
-    .min(1, {message: 'This feild is required'})
+    .min(1, {message: 'This field is required'})
     .max(15, {message: 'Name can not be more than 15 letters'}),
   email: z
     .string()
     .min(1, {message: 'Email is required'})
     .refine(
       text => {
-        // validate the user entered text to be a valied email
+        // validate the user entered text to be a valid email
         return Patterns.VALID_EMAIL.test(text);
       },
-      {message: 'Email not valied'},
+      {message: 'Email not valid'},
     ),
 });
 

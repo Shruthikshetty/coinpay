@@ -16,19 +16,19 @@ import {useNavigation} from '~/common/hooks/use-navigation';
 import {Route} from '~/common/constants/navigation.constants';
 import CustomPagination from '~/components/pagination/CustomPagination';
 /**
- * This is onboarding screen this screen will only shown when the app is opend for the first time
+ * This is onboarding screen this screen will only shown when the app is open'd for the first time
  */
 const Onboarding = () => {
   const navigation = useNavigation();
   const [loading, setLoading] = useState(true);
-  // this hold's the currect image and info shown
+  // this hold's the current image and info shown
   const progress = useSharedValue<number>(0);
   // ref for the carousal component
   const ref = React.useRef<ICarouselInstance>(null);
 
   useEffect(() => {
     // this is used to check id the user is logging in for first time
-    // if not its navigated to the prelogin screen
+    // if not its navigated to the pre-login screen
     const checkOnboarding = async () => {
       const value = await AsyncStorage.getItem('onboarding');
       if (!value) {
@@ -40,7 +40,7 @@ const Onboarding = () => {
     checkOnboarding();
   }, [navigation]);
 
-  // used to sroll the contants of carousal to the required position on press of pagination dot
+  // used to scroll the contents of carousal to the required position on press of pagination dot
   const onPressPagination = (index: number) => {
     ref.current?.scrollTo({
       /**
@@ -78,7 +78,7 @@ const Onboarding = () => {
               </View>
             )}
           />
-          <View style={styles.paginationConatiner}>
+          <View style={styles.paginationContainer}>
             {/* pagination dots  */}
             {!loading && (
               <CustomPagination

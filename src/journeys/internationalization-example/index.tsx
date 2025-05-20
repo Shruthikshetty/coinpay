@@ -18,7 +18,7 @@ const InternationalizationExample = () => {
   return (
     <SafeAreaView style={styles.container}>
       <Text style={styles.header}>Internationalization Example</Text>
-      <View style={styles.dropDownConatiner}>
+      <View style={styles.dropDownContainer}>
         <DropDown<LanguageKey>
           options={Object.keys(Languages) as LanguageKey[]}
           value={selectedLanguage}
