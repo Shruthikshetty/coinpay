@@ -19,7 +19,7 @@ const Parsetext: React.FC<ParseTextProps> = ({text, textStyle}) => {
       <Trans
         defaults={text}
         components={{
-          li: <Text style={styles.linktext} />,
+          li: <Text style={styles.linkText} />,
         }}
       />
     </Text>

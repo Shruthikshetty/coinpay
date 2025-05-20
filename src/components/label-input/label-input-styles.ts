@@ -25,7 +25,7 @@ const labelInputStyles = StyleSheet.create({
   mainInputContainer: {
     flex: 14,
   },
-  inputstyle: {
+  inputStyle: {
     color: themeColors.contentPrimary,
     fontSize: 16,
     paddingLeft: 0,

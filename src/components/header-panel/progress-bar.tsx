@@ -4,7 +4,7 @@ import {ProgressBarStyles as styles} from './header-panel.styles';
 import {getCombinedStyles} from '~/common/utils/combined-styles';
 
 // types....
-export type ProgresCustomStyles = {
+export type ProgressCustomStyles = {
   root: ViewStyle;
   fill: ViewStyle;
 };
@@ -12,14 +12,14 @@ export type ProgresCustomStyles = {
 type ProgressBarProps = {
   Progress: number; // percentage of progress
   fillColor?: string;
-  customStyles?: ProgresCustomStyles;
+  customStyles?: ProgressCustomStyles;
 };
 
-// this a prgress bar where the prgess is taken by percentage
+// this a progress bar where the progress is taken by percentage
 const ProgressBar = ({Progress, fillColor, customStyles}: ProgressBarProps) => {
   const minMaxProgress = Math.max(0, Math.min(100, Progress)); // ensure progress is between 0 and 100
   // combined styles
-  const combinedStyles = getCombinedStyles<ProgresCustomStyles>(
+  const combinedStyles = getCombinedStyles<ProgressCustomStyles>(
     styles,
     customStyles,
   );

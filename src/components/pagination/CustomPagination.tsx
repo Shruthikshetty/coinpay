@@ -8,11 +8,11 @@ import {widthPercentageToDP as wp} from 'react-native-responsive-screen';
  * A wrapper component for `Pagination.Basic` that customizes dot and container styles
  * according to the app's design requirements.
  *
- * @param prpos - Props passed down to the underlying `Pagination.Basic` component.
+ * @param props - Props passed down to the underlying `Pagination.Basic` component.
  * @returns The styled pagination component.
  */
 const CustomPagination = ({
-  ...prpos
+  ...props
 }: React.ComponentProps<typeof Pagination.Custom>) => {
   return (
     <Pagination.Custom
@@ -30,8 +30,8 @@ const CustomPagination = ({
           width,
         };
       }}
-      containerStyle={styles.conatainer}
-      {...prpos}
+      containerStyle={styles.container}
+      {...props}
     />
   );
 };

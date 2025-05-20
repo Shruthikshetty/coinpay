@@ -2,7 +2,7 @@ import React from 'react';
 import {Image, Text, View} from 'react-native';
 import TitleSubtitle from '../text-display/TitleSubtitle';
 import styles from './transaction-item.styles';
-import {DEFAULT_TRANSCATION_IMAGE_URI} from '~/common/constants/screen.constants';
+import {DEFAULT_TRANSACTION_IMAGE_URI} from '~/common/constants/screen.constants';
 
 //types...
 type TransactionItemProps = {
@@ -17,7 +17,7 @@ type TransactionItemProps = {
  * this is a Reusable component that provides transaction item
  * it contains profile image, name, email and amount
  * @param param0  - name, subtitle, amount, imageUri, isCredit
- * @param param0.name - name of the recipent
+ * @param param0.name - name of the recipient
  * @returns JSX.Element
  */
 const TransactionItem = ({
@@ -30,10 +30,10 @@ const TransactionItem = ({
   return (
     <View style={styles.root}>
       <View style={styles.subContainer}>
-        {/* profile image of recipent */}
+        {/* profile image of recipient */}
         <Image
           source={{
-            uri: imageUri ?? DEFAULT_TRANSCATION_IMAGE_URI,
+            uri: imageUri ?? DEFAULT_TRANSACTION_IMAGE_URI,
           }}
           height={50}
           width={50}

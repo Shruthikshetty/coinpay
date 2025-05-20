@@ -9,8 +9,8 @@
  * @returns A hex color string with opacity included (e.g. "#FFFFFF80" for 50% opacity)
  *
  * @example
- * getopacity('#FF0000', 50); // Returns: "#FF000080"
- * getopacity('#000000', 25); // Returns: "#00000040"
+ * getOpacity('#FF0000', 50); // Returns: "#FF000080"
+ * getOpacity('#000000', 25); // Returns: "#00000040"
  */
 export function getOpacity(hex: string, opacityPercentage: number): string {
   // extract # from hex
@@ -25,6 +25,6 @@ export function getOpacity(hex: string, opacityPercentage: number): string {
     .toString(16)
     .padStart(2, '0');
 
-  // retrun the converted color with opacity
+  // return the converted color with opacity
   return `#${originalHex}${hexOpacity}`;
 }

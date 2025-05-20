@@ -1,7 +1,7 @@
 import React from 'react';
 import {View, Text, TouchableOpacity} from 'react-native';
 import styles from './header-panel.styles';
-import Angleleft from '../svgs/AngleLeft';
+import AngleLeft from '../svgs/AngleLeft';
 import ProgressBar from './progress-bar';
 
 //types ...
@@ -48,7 +48,7 @@ const HeaderPanel = ({
           {/* back icon */}
           {backButton && (
             <TouchableOpacity onPress={handleBackPress}>
-              <Angleleft />
+              <AngleLeft />
             </TouchableOpacity>
           )}
         </View>

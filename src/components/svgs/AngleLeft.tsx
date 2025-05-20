@@ -1,7 +1,7 @@
 import Svg, {Path, SvgProps} from 'react-native-svg';
 import {themeColors} from '~/common/constants/colors.constants';
 
-function Angleleft({width = 25, height = 24, fill, ...props}: SvgProps) {
+function AngleLeft({width = 25, height = 24, fill, ...props}: SvgProps) {
   return (
     <Svg
       width={width}
@@ -17,4 +17,4 @@ function Angleleft({width = 25, height = 24, fill, ...props}: SvgProps) {
   );
 }
 
-export default Angleleft;
+export default AngleLeft;

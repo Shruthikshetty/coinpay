@@ -17,7 +17,7 @@ type DropDownProps<T = string> = {
 
 //@TODO handle press outside options popup
 //@TODO yet to add props for error etc ...
-// drop down component to slect options from a array of string
+// drop down component to select options from a array of string
 const DropDown = <T,>({
   options = [],
   label,
@@ -26,15 +26,15 @@ const DropDown = <T,>({
   renderOption,
   value,
 }: DropDownProps<T>) => {
-  // state to handle visiblity of options
-  const [optionsVisble, setOptionsVisble] = useState(false);
+  // state to handle visibility of options
+  const [optionsVisible, setOptionsVisible] = useState(false);
 
   // handle to select a value
-  const handleOptionSelction = (option: T) => {
-    // set slected value
+  const handleOptionSelection = (option: T) => {
+    // set selected value
     handleValue(option);
     // close options
-    setOptionsVisble(false);
+    setOptionsVisible(false);
   };
 
   return (
@@ -44,10 +44,10 @@ const DropDown = <T,>({
         <TouchableOpacity
           style={styles.pressableOverlay}
           onPress={() => {
-            if (!optionsVisble) {
-              setOptionsVisble(true);
+            if (!optionsVisible) {
+              setOptionsVisible(true);
             } else {
-              setOptionsVisble(false);
+              setOptionsVisible(false);
             }
           }}
         />
@@ -60,17 +60,17 @@ const DropDown = <T,>({
       </View>
       {/* options modal */}
       <View>
-        {optionsVisble && (
+        {optionsVisible && (
           <View style={styles.optionsContainer}>
             {options.map((item, index) => (
               <TouchableOpacity
                 key={index}
                 onPress={() => {
-                  handleOptionSelction(item);
+                  handleOptionSelection(item);
                 }}>
                 <View style={styles.optionItem}>
                   <Text style={styles.option}>
-                    {/*  handle custom optin values */}
+                    {/*  handle custom option values */}
                     {renderOption ? renderOption(item) : String(item)}
                   </Text>
                   {item === value && ( // show only if selected

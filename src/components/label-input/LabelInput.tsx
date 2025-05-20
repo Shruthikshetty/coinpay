@@ -22,7 +22,7 @@ export type LabelInputProps = {
   disabled?: boolean;
 };
 
-// this is a recusable Input feild to be used in the app
+// this is a reusable Input field to be used in the app
 // contains a left and right component
 const LabelInput = ({
   value,
@@ -41,7 +41,7 @@ const LabelInput = ({
 }: LabelInputProps) => {
   // this will handle state change in case there is value or setter from parent
   const [localValue, setLocalValue] = useState<string>('');
-  // control focus since we need to chnge border color
+  // control focus since we need to change border color
   const [focus, setFocus] = useState(false);
 
   return (
@@ -66,7 +66,7 @@ const LabelInput = ({
             <View style={styles.leftComponent}>{leftComponent}</View>
           )}
 
-          {/* Text feild */}
+          {/* Text field */}
           <View style={[styles.mainInputContainer]}>
             <TextInput
               keyboardType={keyboardType ?? 'default'}
@@ -74,18 +74,18 @@ const LabelInput = ({
               value={value ?? localValue}
               placeholder={placeholder}
               placeholderTextColor={colors.gray400}
-              style={[styles.inputstyle, error && {color: themeColors.error}]}
+              style={[styles.inputStyle, error && {color: themeColors.error}]}
               cursorColor={error ? themeColors.error : themeColors.primary}
               secureTextEntry={secureTextEntry} // This will mask the input like a password
               onFocus={() => {
-                // handeling focus effect
+                // handling focus effect
                 setFocus(true);
                 // custom function to run if given
                 handleBlur?.();
               }}
               editable={!disabled}
               onBlur={() => {
-                // handeling blur effect
+                // handling blur effect
                 setFocus(false);
                 // custom function to run if given
                 handleFocus?.();
