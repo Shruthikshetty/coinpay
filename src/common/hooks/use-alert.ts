@@ -1,34 +1,39 @@
 import {useCallback, useEffect} from 'react';
 import {
   AlertThemeType,
-  AlertVarientType,
+  AlertVariantType,
   useAlertContext,
 } from '~/components/alert/AlertProvider';
 
 /**
  * Custom hook to trigger and configure alerts in the app.
  *
- * @param varient Alert variant (e.g. 'light' or 'dark')
+ * @param variant Alert variant (e.g. 'light' or 'dark')
  * @param theme Alert theme (e.g. 'Error', 'Success')
  * @returns { alert, reset } - Functions to trigger and clear alerts
  */
 export const useAlert = (
   theme?: AlertThemeType,
-  varient?: AlertVarientType,
+  variant?: AlertVariantType,
+  duration?: number,
 ) => {
   // get all the  setters from context
-  const {setMessage, setVarient, setTheme} = useAlertContext();
+  const {setMessage, setVariant, setTheme, setDuration} = useAlertContext();
 
-  // change the theme or varient based on the props provided
+  // change the theme or variant based on the props provided
   useEffect(() => {
-    if (varient) {
+    if (variant) {
       // just in case to prevent redundant updates we check with prev state
-      setVarient(prev => (prev !== varient ? varient : prev));
+      setVariant(prev => (prev !== variant ? variant : prev));
     }
     if (theme) {
       setTheme(prev => (prev !== theme ? theme : prev));
     }
-  }, [varient, theme, setVarient, setTheme]);
+    // optionally change duration if required
+    if (duration) {
+      setDuration(duration);
+    }
+  }, [variant, theme, setVariant, setTheme, duration, setDuration]);
 
   /**
    * this is used to call the alert on the screen
@@ -54,13 +59,13 @@ export const useAlert = (
     (
       messages: string,
       newTheme: AlertThemeType,
-      newVarient: AlertVarientType,
+      newVariant: AlertVariantType,
     ) => {
-      setVarient(newVarient);
+      setVariant(newVariant);
       setTheme(newTheme);
       setMessage(messages);
     },
-    [setMessage, setTheme, setVarient],
+    [setMessage, setTheme, setVariant],
   );
 
   return {alert, reset, changeAlert};

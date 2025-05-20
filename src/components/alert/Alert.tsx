@@ -17,7 +17,7 @@ const Alert = ({duration = 1000}: AlertProps) => {
   // getting the top insert as to place the alert at correct place
   const {top} = useSafeAreaInsets();
   // getting the state from context
-  const {message, setMessage, theme, varient} = useAlertContext();
+  const {message, setMessage, theme, variant} = useAlertContext();
   // ref for time out
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const opacity = useRef(new Animated.Value(1)).current; // Start fully visible
@@ -46,9 +46,9 @@ const Alert = ({duration = 1000}: AlertProps) => {
 
   // extract the bg and text color to be used in the Alert as per the theme
   const getThemeColors = () => {
-    // the currently selcted theme and varient map color
+    // the currently selected theme and variant map color
     const currentTheme = ALERT_THEME_MAP[theme] || ALERT_THEME_MAP.Primary;
-    const isLight = varient === 'light';
+    const isLight = variant === 'light';
 
     return {
       bgColor: isLight ? currentTheme.light : currentTheme.dark,
