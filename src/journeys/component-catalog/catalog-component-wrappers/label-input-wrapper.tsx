@@ -1,5 +1,5 @@
 /**
- * contains all the varient of the label input componnet
+ * contains all the variant of the label input component
  * and how to used them ...
  */
 import {useState} from 'react';
@@ -79,7 +79,7 @@ const AllProps = () => {
 };
 
 // export all as a const to map into the catalog
-// all varients of LabelInput
+// all variants of LabelInput
 export const LABEL_INPUT_VARIANTS = {
   Default: () => <LabelInputDefault />,
   WithPlaceholder: () => <WithPlaceholder />,

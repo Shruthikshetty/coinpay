@@ -64,7 +64,7 @@ const ConfirmPhoneModal = ({
                 }}
                 label="No"
                 theme="Primary"
-                varient="Border"
+                variant="Border"
               />
             </View>
           </ElevatedBox>

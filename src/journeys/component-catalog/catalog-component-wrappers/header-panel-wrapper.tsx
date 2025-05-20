@@ -50,8 +50,8 @@ const WithOnlyTitle = () => {
   );
 };
 
-// expoert all the variants of header panel to be used in catalog
-export const HEADER_PANEL_VARIEANTS = {
+// export all the variants of header panel to be used in catalog
+export const HEADER_PANEL_VARIANTS = {
   Default: () => <Default />,
   WithTitle: () => <WithTitle />,
   WithRightComponent: () => <WithRightComponent />,

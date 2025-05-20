@@ -40,44 +40,44 @@ const AllButtons = () => (
       <Button
         theme="Primary"
         label="Primary Normal"
-        varient="Normal"
+        variant="Normal"
         handlePress={() => {}}
       />
       <Button
         theme="Primary"
-        label="Primary Normal squrare"
-        varient="Normal"
+        label="Primary Normal square"
+        variant="Normal"
         handlePress={() => {}}
         square
       />
       <Button
         theme="Primary"
         label="Primary Border"
-        varient="Border"
+        variant="Border"
         handlePress={() => {}}
       />
       <Button
         theme="Error"
         label="Error Normal"
-        varient="Normal"
+        variant="Normal"
         handlePress={() => {}}
       />
       <Button
         theme="Error"
         label="Error Border"
-        varient="Border"
+        variant="Border"
         handlePress={() => {}}
       />
       <Button
         theme="Info"
         label="Info Normal"
-        varient="Normal"
+        variant="Normal"
         handlePress={() => {}}
       />
       <Button
         theme="Info"
         label="Info Border"
-        varient="Border"
+        variant="Border"
         handlePress={() => {}}
       />
     </View>

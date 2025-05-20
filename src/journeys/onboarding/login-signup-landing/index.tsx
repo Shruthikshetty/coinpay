@@ -41,7 +41,7 @@ const PreLogin = () => {
           label="Log in"
           handlePress={() => {}}
           theme="Primary"
-          varient="Border"
+          variant="Border"
         />
       </View>
       <Parsetext

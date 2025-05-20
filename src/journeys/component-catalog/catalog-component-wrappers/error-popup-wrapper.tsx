@@ -37,7 +37,7 @@ const ErrorPopUpAllProps = () => {
 };
 
 // export all as a const
-export const ERROR_POPUP_VARIENTS = {
+export const ERROR_POPUP_VARIANTS = {
   Default: () => <ErrorPopUpDefault />,
   AllProps: () => <ErrorPopUpAllProps />,
 };

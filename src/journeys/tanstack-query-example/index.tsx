@@ -125,7 +125,7 @@ const QueryExample = () => {
         theme={'Primary'}
         label={'Add new purpose'}
         handlePress={handleAddPurposeOptions}
-        varient="Border"
+        variant="Border"
       />
       {/* ------ end of the form ------ */}
 
