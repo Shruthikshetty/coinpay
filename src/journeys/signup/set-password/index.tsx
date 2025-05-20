@@ -1,5 +1,5 @@
 import React from 'react';
-import HeaderLayout from '~/components/layoutes/HeaderLayout';
+import HeaderLayout from '~/components/layouts/HeaderLayout';
 import styles from './index.styles';
 import TitleSubtitle from '~/components/text-display/TitleSubtitle';
 import {useFormContext} from 'react-hook-form';

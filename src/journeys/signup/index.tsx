@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {View} from 'react-native';
-import HeaderLayout from '~/components/layoutes/HeaderLayout';
+import HeaderLayout from '~/components/layouts/HeaderLayout';
 import styles from './index.styles';
 import TitleSubtitle from '~/components/text-display/TitleSubtitle';
 import FormLabelInput from '~/components/form-controllers/FormLabelInput';
