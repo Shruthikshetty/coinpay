@@ -74,4 +74,8 @@ export const defaultSignupDetails: CustomerRegisterSchemeType = {
   password: '',
   confirmPassword: '',
   email: '',
+  address: '',
+  city: '',
+  country: '',
+  pinCode: '',
 };
