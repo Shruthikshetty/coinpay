@@ -9,7 +9,7 @@ const addEmailStyles = StyleSheet.create({
     flex: 1,
     marginTop: hp(1.5),
     paddingHorizontal: wp(3),
-    gap: hp(2),
+    gap: hp(3),
   },
 });
 

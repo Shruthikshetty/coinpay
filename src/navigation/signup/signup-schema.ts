@@ -37,6 +37,28 @@ export const customerRegisterSchema = z
           message: 'Invalid email please recheck',
         },
       ),
+    address: z
+      .string()
+      .min(1, {message: 'Address is required'})
+      .max(50, {message: 'Address can not be more than 50 char in length'}),
+    city: z
+      .string()
+      .min(1, {message: 'City is required'})
+      .refine(text => Patterns.ONLY_CHARACTERS.test(text), {
+        message: 'Invalid city',
+      }),
+    country: z
+      .string()
+      .min(1, {message: 'Country is required'})
+      .refine(text => Patterns.ONLY_CHARACTERS.test(text), {
+        message: 'Invalid Country',
+      }),
+    pinCode: z
+      .string()
+      .length(6, {message: 'Pin code must be exactly 6 digits'})
+      .refine(val => Patterns.PIN_CODE.test(val), {
+        message: 'Pin code must be a 6-digit number',
+      }),
   })
   .refine(data => data.password === data.confirmPassword, {
     message: 'Passwords do not match',

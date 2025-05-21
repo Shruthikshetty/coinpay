@@ -21,6 +21,8 @@ export type LabelInputProps = {
   keyboardType?: KeyboardTypeOptions;
   secureTextEntry?: boolean;
   disabled?: boolean;
+  autoCorrect?: boolean;
+  spellCheck?: boolean;
 };
 
 // this is a reusable Input field to be used in the app
@@ -39,6 +41,8 @@ const LabelInput = ({
   keyboardType,
   secureTextEntry,
   disabled = false,
+  autoCorrect = false,
+  spellCheck = false,
 }: LabelInputProps) => {
   // this will handle state change in case there is value or setter from parent
   const [localValue, setLocalValue] = useState<string>('');
@@ -78,6 +82,8 @@ const LabelInput = ({
               style={[styles.inputStyle, error && {color: themeColors.error}]}
               cursorColor={error ? themeColors.error : themeColors.primary}
               secureTextEntry={secureTextEntry} // This will mask the input like a password
+              autoCorrect={autoCorrect} // Disable auto correct by default
+              spellCheck={spellCheck} // (Android only)
               onFocus={() => {
                 // handling focus effect
                 setFocus(true);
