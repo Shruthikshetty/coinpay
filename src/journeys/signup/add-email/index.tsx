@@ -5,8 +5,6 @@ import TitleSubtitle from '~/components/text-display/TitleSubtitle';
 import {useFormContext} from 'react-hook-form';
 import FormLabelInput from '~/components/form-controllers/FormLabelInput';
 import {CustomerRegisterSchemeType} from '~/navigation/signup/signup-schema';
-import Button from '~/components/buttons/Button';
-import {View} from 'react-native';
 import EnvelopeIcon from '~/components/svgs/EnvelopeIcon';
 import {useNavigation} from '~/common/hooks/use-navigation';
 import {Route} from '~/common/constants/navigation.constants';
@@ -34,23 +32,23 @@ const AddEmail = () => {
   };
 
   return (
-    <HeaderLayout progressPercent={27} containerStyles={styles.container}>
-      <View style={styles.form}>
-        <TitleSubtitle
-          title="Add your email"
-          subTitle="This info need's to be accurate with your ID document ."
-        />
-        <FormLabelInput<CustomerRegisterSchemeType>
-          name={'email'}
-          leftComponent={<EnvelopeIcon />}
-          placeholder="name@example.com"
-        />
-      </View>
-      <Button
-        handlePress={handleContinue}
-        label="Continue"
-        theme="Primary"
-        disabled={!!errors?.email}
+    <HeaderLayout
+      progressPercent={27}
+      containerStyles={styles.container}
+      buttonProps={{
+        handlePress: handleContinue,
+        label: 'Continue',
+        theme: 'Primary',
+        disabled: !!errors?.email,
+      }}>
+      <TitleSubtitle
+        title="Add your email"
+        subTitle="This info need's to be accurate with your ID document ."
+      />
+      <FormLabelInput<CustomerRegisterSchemeType>
+        name={'email'}
+        leftComponent={<EnvelopeIcon />}
+        placeholder="name@example.com"
       />
     </HeaderLayout>
   );

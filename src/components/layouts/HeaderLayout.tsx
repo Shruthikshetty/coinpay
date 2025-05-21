@@ -3,6 +3,7 @@ import {SafeAreaView, View, ViewStyle} from 'react-native';
 import HeaderPanel, {HeaderPanelBase} from '../header-panel/HeaderPanel';
 import {headerLayoutStyles as styles} from './layout.styles';
 import {useNavigation} from '~/common/hooks/use-navigation';
+import Button, {ButtonProps} from '../buttons/Button';
 
 // types...
 type HeaderLayoutProps = {
@@ -11,6 +12,7 @@ type HeaderLayoutProps = {
   containerStyles?: ViewStyle;
   handleBackPress?: () => void;
   backButton?: boolean;
+  buttonProps?: ButtonProps;
 } & Omit<HeaderPanelBase, 'handleBackPress' | 'backButton'>;
 
 // this is a layout that comes with a header with back button
@@ -20,6 +22,7 @@ const HeaderLayout = ({
   rootStyles,
   backButton = true,
   handleBackPress,
+  buttonProps,
   ...headerprops
 }: HeaderLayoutProps) => {
   const navigation = useNavigation();
@@ -37,6 +40,7 @@ const HeaderLayout = ({
         {...headerprops}
       />
       <View style={[styles.content, containerStyles]}>{children}</View>
+      {buttonProps && <Button customStyles={{root: styles.button}} {...buttonProps} />}
     </SafeAreaView>
   );
 };

@@ -1,12 +1,16 @@
 import React from 'react';
-import {View, Text} from 'react-native';
-import styles from './index.styles';
+
+import HeaderLayout from '~/components/layouts/HeaderLayout';
+import TitleSubtitle from '~/components/text-display/TitleSubtitle';
 
 const AddHomeAddress = () => {
   return (
-    <View style={styles.container}>
-      <Text>AddHomeAddress Component</Text>
-    </View>
+    <HeaderLayout progressPercent={28}>
+      <TitleSubtitle
+        title={'Home address'}
+        subTitle="This info need's to be accurate with your ID document ."
+      />
+    </HeaderLayout>
   );
 };
 

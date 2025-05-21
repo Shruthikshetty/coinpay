@@ -47,6 +47,7 @@ const SetPassword = () => {
           disabled={true}
           placeholder="Phone number"
         />
+        {/*@TODO Hide unhide */}
         <FormLabelInput<CustomerRegisterSchemeType>
           name={'password'}
           label={'Password'}

@@ -1,4 +1,5 @@
 //@TODO outside click is not calling on blur
+//@TODO remove spell check underline
 import {KeyboardTypeOptions, Text, TextInput, View} from 'react-native';
 import styles from './label-input-styles';
 import {colors, themeColors} from '~/common/constants/colors.constants';

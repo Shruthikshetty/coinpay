@@ -9,10 +9,6 @@ const addEmailStyles = StyleSheet.create({
     flex: 1,
     marginTop: hp(1.5),
     paddingHorizontal: wp(3),
-    paddingBottom: hp(4),
-    justifyContent: 'space-between',
-  },
-  form: {
     gap: hp(2),
   },
 });
