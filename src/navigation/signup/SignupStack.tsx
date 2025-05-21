@@ -9,7 +9,6 @@ import SetPassword from '~/journeys/signup/set-password';
 import AddEmail from '~/journeys/signup/add-email';
 import AddHomeAddress from '~/journeys/signup/add-home-address';
 import AddPersonalInfo from '~/journeys/signup/add-personal-info';
-import DropDown from '~/components/drop-down/DropDown';
 
 // initialize the navigator
 const SignupNavigator = createNativeStackNavigator();
@@ -28,7 +27,11 @@ const SignupStack = () => {
       <SignupNavigator.Navigator
         screenOptions={{headerShown: false}}
         initialRouteName={Route.ADD_HOME_ADDRESS}>
-        {/* <DropDown options={} handleValue={() => {}} value={}/> */}
+        {/* @TODO Temp test change */}
+        <SignupNavigator.Screen
+          name={Route.SIGNUP_LANDING}
+          component={SignUpLanding}
+        />
         <SignupNavigator.Screen
           name={Route.SET_PASSWORD}
           component={SetPassword}

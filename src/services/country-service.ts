@@ -1,5 +1,5 @@
 import {useQuery} from '@tanstack/react-query';
-import axios, {AxiosResponse} from 'axios';
+import axios from 'axios';
 import {Endpoints} from '~/common/constants/endpoints.constants';
 import {ServiceKey} from '~/common/constants/service.constants';
 
@@ -14,8 +14,9 @@ type Country = {
  * This is a hook used to fetch the list of countries
  */
 export const useFetchCountry = () => {
-  return useQuery<AxiosResponse<any, any>, Error, AxiosResponse<Country[]>>({
+  return useQuery<Country[], Error>({
     queryKey: [ServiceKey.FETCH_COUNTRY],
-    queryFn: () => axios.get(Endpoints.FETCH_COUNTRY).then(res => res),
+    queryFn: () =>
+      axios.get<Country[]>(Endpoints.FETCH_COUNTRY).then(res => res.data),
   });
 };

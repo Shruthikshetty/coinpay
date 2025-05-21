@@ -10,7 +10,7 @@ type DropDownProps<T = string> = {
   options: T[];
   label?: string;
   placeholder?: string;
-  value: T;
+  value: T | '';
   handleValue: (value: T) => void;
   renderOption?: (item: T) => string;
 };
@@ -24,7 +24,7 @@ const DropDown = <T,>({
   placeholder = '',
   handleValue,
   renderOption,
-  value,
+  value = '',
 }: DropDownProps<T>) => {
   // state to handle visibility of options
   const [optionsVisible, setOptionsVisible] = useState(false);
