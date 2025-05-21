@@ -10,6 +10,9 @@ import Button from '~/components/buttons/Button';
 import {useNavigation} from '~/common/hooks/use-navigation';
 import {Route} from '~/common/constants/navigation.constants';
 
+/**
+ * This is the form screen for setting the password
+ */
 const SetPassword = () => {
   // get the errors from the form state
   const {
