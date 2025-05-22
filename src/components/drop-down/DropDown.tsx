@@ -50,11 +50,7 @@ const DropDown = <T,>({
         <TouchableOpacity
           style={styles.pressableOverlay}
           onPress={() => {
-            if (!optionsVisible) {
-              setOptionsVisible(true);
-            } else {
-              setOptionsVisible(false);
-            }
+            setOptionsVisible(s => !s);
           }}
         />
         <LabelInput
