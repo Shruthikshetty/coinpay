@@ -39,6 +39,12 @@ const dropDownStyles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
+  emptyMessage: {
+    color: colors.red500,
+    textAlign: 'center',
+    fontSize: 16,
+    fontWeight: '500',
+  },
 });
 
 export default dropDownStyles;

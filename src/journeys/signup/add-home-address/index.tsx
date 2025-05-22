@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 
 import HeaderLayout from '~/components/layouts/HeaderLayout';
 import TitleSubtitle from '~/components/text-display/TitleSubtitle';
@@ -14,7 +14,11 @@ import {useFormContext} from 'react-hook-form';
 // This is the form screen for filling in the home address
 const AddHomeAddress = () => {
   // extract watch from the form context
-  const {watch} = useFormContext<CustomerRegisterSchemeType>();
+  const {
+    watch,
+    trigger,
+    formState: {errors},
+  } = useFormContext<CustomerRegisterSchemeType>();
   // hooks used for fetching country and city
   const {data: cityList, mutate: cityMutation} = useFetchCity();
   const {data: countryList} = useFetchCountry();
@@ -29,12 +33,31 @@ const AddHomeAddress = () => {
     cityMutation(country._id);
   }, [cityMutation, country]);
 
+  // check if all the fields are valid and navigate
+  const handleContinue = async () => {
+    const isValid = await trigger([
+      'address',
+      'city',
+      'countryData',
+      'pinCode',
+    ]);
+    if (isValid) {
+      // navigate to next screen
+    }
+    // no actions to be done if not valid
+  };
+
   return (
     <HeaderLayout
       progressPercent={28}
       containerStyles={styles.container}
       buttonProps={{
-        handlePress: () => {},
+        handlePress: handleContinue,
+        disabled:
+          !!errors.countryData ||
+          !!errors.city ||
+          !!errors.pinCode ||
+          !!errors.address,
         label: 'Continue',
         theme: 'Primary',
       }}>
@@ -46,12 +69,13 @@ const AddHomeAddress = () => {
         <FormLabelInput<CustomerRegisterSchemeType>
           name={'address'}
           label="Address line"
+          placeholder="Address"
         />
         <FormDropDown<CustomerRegisterSchemeType, Country>
           options={countryList ?? []}
           name="countryData"
           renderOption={item => item.country}
-          placeholder="country"
+          placeholder="Country"
           label="Country"
         />
         <FormDropDown<CustomerRegisterSchemeType>
@@ -59,10 +83,12 @@ const AddHomeAddress = () => {
           options={cityList?.map(data => data.city) ?? []}
           label="City"
           placeholder="City"
+          emptyHandlerMessage="Sorry no city for this country is serviceable"
         />
         <FormLabelInput<CustomerRegisterSchemeType>
           name={'pinCode'}
           label="Postcode"
+          placeholder={'Ex. 000000'}
         />
       </View>
     </HeaderLayout>

@@ -1,12 +1,12 @@
 import {Text, TouchableOpacity, View} from 'react-native';
 import styles from './drop-down.styles';
-import LabelInput from '../label-input/LabelInput';
+import LabelInput, {LabelInputProps} from '../label-input/LabelInput';
 import {useState} from 'react';
 import DownArrow from '../svgs/DownArrow';
 import Check from '../svgs/Check';
 
 //types...
-type DropDownProps<T = string> = {
+export type DropDownProps<T = string> = {
   options: T[];
   label?: string;
   placeholder?: string;
@@ -15,7 +15,8 @@ type DropDownProps<T = string> = {
   renderOption?: (item: T) => string;
   error?: boolean;
   helperText?: string;
-};
+  emptyHandlerMessage?: string;
+} & Pick<LabelInputProps, 'disabled'>;
 
 //@TODO handle press outside options popup
 //@TODO yet to add props for error etc ...
@@ -29,6 +30,8 @@ const DropDown = <T,>({
   value = '',
   error,
   helperText,
+  emptyHandlerMessage = 'Sorry no options found',
+  disabled,
 }: DropDownProps<T>) => {
   // state to handle visibility of options
   const [optionsVisible, setOptionsVisible] = useState(false);
@@ -66,31 +69,36 @@ const DropDown = <T,>({
           placeholder={placeholder}
           helperText={helperText}
           error={error}
+          disabled={disabled}
         />
       </View>
       {/* options modal */}
       <View>
         {optionsVisible && (
           <View style={styles.optionsContainer}>
-            {options.map((item, index) => (
-              <TouchableOpacity
-                key={index}
-                onPress={() => {
-                  handleOptionSelection(item);
-                }}>
-                <View style={styles.optionItem}>
-                  <Text style={styles.option}>
-                    {/*  handle custom option values */}
-                    {renderOption ? renderOption(item) : String(item)}
-                  </Text>
-                  {item === value && ( // show only if selected
-                    <View style={styles.checkContainer}>
-                      <Check />
-                    </View>
-                  )}
-                </View>
-              </TouchableOpacity>
-            ))}
+            {options && options.length ? (
+              options?.map((item, index) => (
+                <TouchableOpacity
+                  key={index}
+                  onPress={() => {
+                    handleOptionSelection(item);
+                  }}>
+                  <View style={styles.optionItem}>
+                    <Text style={styles.option}>
+                      {/*  handle custom option values */}
+                      {renderOption ? renderOption(item) : String(item)}
+                    </Text>
+                    {item === value && ( // show only if selected
+                      <View style={styles.checkContainer}>
+                        <Check />
+                      </View>
+                    )}
+                  </View>
+                </TouchableOpacity>
+              ))
+            ) : (
+              <Text style={styles.emptyMessage}>{emptyHandlerMessage}</Text>
+            )}
           </View>
         )}
       </View>

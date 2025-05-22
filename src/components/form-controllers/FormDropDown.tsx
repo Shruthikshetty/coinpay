@@ -1,15 +1,16 @@
 import {Controller, FieldValues, Path, useFormContext} from 'react-hook-form';
-import DropDown from '../drop-down/DropDown';
+import DropDown, {DropDownProps} from '../drop-down/DropDown';
 
 //types ...
 type FormDropDownProps<T extends FieldValues, OptionType = string> = {
   name: Path<T>;
   options: OptionType[];
   renderOption?: (item: OptionType) => string;
-  label?: string;
-  placeholder?: string;
   helperText?: string;
-};
+} & Omit<
+  DropDownProps<T>,
+  'value' | 'handleValue' | 'renderOption' | 'options' | 'error'
+>;
 
 /**
  * This is a form controlled wrapper for DropDown
@@ -18,9 +19,8 @@ const FormDropDown = <T extends FieldValues, OptionType = string>({
   name,
   options,
   renderOption,
-  label,
-  placeholder,
   helperText,
+  ...restDropdownProps
 }: FormDropDownProps<T, OptionType>) => {
   const {control} = useFormContext<T>();
   return (
@@ -33,10 +33,9 @@ const FormDropDown = <T extends FieldValues, OptionType = string>({
           value={value}
           handleValue={onChange}
           renderOption={renderOption}
-          label={label}
-          placeholder={placeholder}
           error={!!error}
           helperText={error?.message || helperText}
+          {...restDropdownProps}
         />
       )}
     />
