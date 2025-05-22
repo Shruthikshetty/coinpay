@@ -20,11 +20,10 @@ export type LabelInputProps = {
   helperText?: string;
   keyboardType?: KeyboardTypeOptions;
   secureTextEntry?: boolean;
-  disabled?: boolean; // this will change the design 
+  disabled?: boolean;
   autoCorrect?: boolean;
   spellCheck?: boolean;
   inputRef?: React.Ref<TextInput> | undefined;
-  editable?: boolean;
 };
 
 // this is a reusable Input field to be used in the app
