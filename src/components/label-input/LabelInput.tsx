@@ -20,9 +20,11 @@ export type LabelInputProps = {
   helperText?: string;
   keyboardType?: KeyboardTypeOptions;
   secureTextEntry?: boolean;
-  disabled?: boolean;
+  disabled?: boolean; // this will change the design 
   autoCorrect?: boolean;
   spellCheck?: boolean;
+  inputRef?: React.Ref<TextInput> | undefined;
+  editable?: boolean;
 };
 
 // this is a reusable Input field to be used in the app
@@ -43,6 +45,7 @@ const LabelInput = ({
   disabled = false,
   autoCorrect = false,
   spellCheck = false,
+  inputRef,
 }: LabelInputProps) => {
   // this will handle state change in case there is value or setter from parent
   const [localValue, setLocalValue] = useState<string>('');
@@ -74,6 +77,7 @@ const LabelInput = ({
           {/* Text field */}
           <View style={[styles.mainInputContainer]}>
             <TextInput
+              ref={inputRef}
               keyboardType={keyboardType ?? 'default'}
               onChangeText={handleChange ?? setLocalValue}
               value={value ?? localValue}
