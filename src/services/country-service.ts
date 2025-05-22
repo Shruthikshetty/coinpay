@@ -4,7 +4,7 @@ import {Endpoints} from '~/common/constants/endpoints.constants';
 import {ServiceKey} from '~/common/constants/service.constants';
 
 //types...
-type Country = {
+export type Country = {
   country: string;
   code: string;
   phoneCode: string;

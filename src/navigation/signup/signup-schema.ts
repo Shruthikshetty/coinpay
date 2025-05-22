@@ -47,12 +47,17 @@ export const customerRegisterSchema = z
       .refine(text => Patterns.ONLY_CHARACTERS.test(text), {
         message: 'Invalid city',
       }),
-    country: z
-      .string()
-      .min(1, {message: 'Country is required'})
-      .refine(text => Patterns.ONLY_CHARACTERS.test(text), {
-        message: 'Invalid Country',
-      }),
+    countryData: z.object({
+      country: z
+        .string()
+        .min(1, {message: 'Country is required'})
+        .refine(text => Patterns.ONLY_CHARACTERS_AND_SPACES.test(text), {
+          message: 'Invalid Country',
+        }),
+      code: z.string(),
+      phoneCode: z.string(),
+      _id: z.string(),
+    }),
     pinCode: z
       .string()
       .length(6, {message: 'Pin code must be exactly 6 digits'})

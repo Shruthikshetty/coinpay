@@ -10,9 +10,11 @@ type DropDownProps<T = string> = {
   options: T[];
   label?: string;
   placeholder?: string;
-  value: T | '';
+  value: T | undefined | string;
   handleValue: (value: T) => void;
   renderOption?: (item: T) => string;
+  error?: boolean;
+  helperText?: string;
 };
 
 //@TODO handle press outside options popup
@@ -25,6 +27,8 @@ const DropDown = <T,>({
   handleValue,
   renderOption,
   value = '',
+  error,
+  helperText,
 }: DropDownProps<T>) => {
   // state to handle visibility of options
   const [optionsVisible, setOptionsVisible] = useState(false);
@@ -53,9 +57,15 @@ const DropDown = <T,>({
         />
         <LabelInput
           rightComponent={<DownArrow />}
-          value={renderOption ? renderOption(value) : String(value)} // handle custom labels
+          value={
+            renderOption && Boolean(value)
+              ? renderOption(value as T)
+              : String(value)
+          } // handle custom labels
           handleChange={() => {}} // value can not be modified from here
           placeholder={placeholder}
+          helperText={helperText}
+          error={error}
         />
       </View>
       {/* options modal */}
