@@ -1,11 +1,8 @@
-//@TODO outside click is not calling on blur
-//@TODO remove spell check underline
 import {
   Keyboard,
   KeyboardTypeOptions,
   Text,
   TextInput,
-  TouchableWithoutFeedback,
   View,
 } from 'react-native';
 import styles from './label-input-styles';
@@ -59,73 +56,74 @@ const LabelInput = ({
   const [focus, setFocus] = useState(false);
 
   return (
-      <View>
-        {/* Render label its optional */}
-        {label && <Text style={styles.label}>{label}</Text>}
-        {/* outer border  */}
+    <View>
+      {/* Render label its optional */}
+      {label && <Text style={styles.label}>{label}</Text>}
+      {/* outer border  */}
+      <View
+        style={[
+          focus && styles.outerBorderActive,
+          error && styles.outerBorderError,
+          disabled && styles.inputDisabled,
+        ]}>
         <View
           style={[
-            focus && styles.outerBorderActive,
-            error && styles.outerBorderError,
-            disabled && styles.inputDisabled,
+            styles.borderContainer,
+            focus && {borderColor: themeColors.primary},
+            error && {borderColor: themeColors.error},
           ]}>
-          <View
-            style={[
-              styles.borderContainer,
-              focus && {borderColor: themeColors.primary},
-              error && {borderColor: themeColors.error},
-            ]}>
-            {/* Left component */}
-            {leftComponent && (
-              <View style={styles.leftComponent}>{leftComponent}</View>
-            )}
+          {/* Left component */}
+          {leftComponent && (
+            <View style={styles.leftComponent}>{leftComponent}</View>
+          )}
 
-            {/* Text field */}
-            <View style={[styles.mainInputContainer]}>
-              <TextInput
-                ref={inputRef}
-                keyboardType={keyboardType ?? 'default'}
-                onChangeText={handleChange ?? setLocalValue}
-                value={value ?? localValue}
-                placeholder={placeholder}
-                placeholderTextColor={colors.gray400}
-                style={[styles.inputStyle, error && {color: themeColors.error}]}
-                cursorColor={error ? themeColors.error : themeColors.primary}
-                secureTextEntry={secureTextEntry} // This will mask the input like a password
-                autoCorrect={autoCorrect} // Disable auto correct by default
-                spellCheck={spellCheck} // (Android only)
-                onFocus={() => {
-                  // handling focus effect
-                  setFocus(true);
-                  // custom function to run if given
-                  handleFocus?.();
-                }}
-                editable={!disabled}
-                onBlur={() => {
-                  // handling blur effect
-                  setFocus(false);
-                  // custom function to run if given
-                  handleBlur?.();
-                }}
-              />
-            </View>
-
-            {/* Right component  */}
-            {rightComponent && (
-              <View style={styles.rightComponent}>{rightComponent}</View>
-            )}
+          {/* Text field */}
+          <View style={[styles.mainInputContainer]}>
+            <TextInput
+              onSubmitEditing={Keyboard.dismiss} // dismiss keyboard on done or enter
+              ref={inputRef}
+              keyboardType={keyboardType ?? 'default'}
+              onChangeText={handleChange ?? setLocalValue}
+              value={value ?? localValue}
+              placeholder={placeholder}
+              placeholderTextColor={colors.gray400}
+              style={[styles.inputStyle, error && {color: themeColors.error}]}
+              cursorColor={error ? themeColors.error : themeColors.primary}
+              secureTextEntry={secureTextEntry} // This will mask the input like a password
+              autoCorrect={autoCorrect} // Disable auto correct by default
+              spellCheck={spellCheck} // (Android only)
+              onFocus={() => {
+                // handling focus effect
+                setFocus(true);
+                // custom function to run if given
+                handleFocus?.();
+              }}
+              editable={!disabled}
+              onBlur={() => {
+                // handling blur effect
+                setFocus(false);
+                // custom function to run if given
+                handleBlur?.();
+              }}
+            />
           </View>
+
+          {/* Right component  */}
+          {rightComponent && (
+            <View style={styles.rightComponent}>{rightComponent}</View>
+          )}
         </View>
-        {helperText && (
-          <View style={styles.helperContainer}>
-            <InfoCircle fill={error ? themeColors.error : colors.gray400} />
-            <Text
-              style={[styles.helperText, error && {color: themeColors.error}]}>
-              {helperText}
-            </Text>
-          </View>
-        )}
       </View>
+      {helperText && (
+        <View style={styles.helperContainer}>
+          <InfoCircle fill={error ? themeColors.error : colors.gray400} />
+          <Text
+            style={[styles.helperText, error && {color: themeColors.error}]}>
+            {helperText}
+          </Text>
+        </View>
+      )}
+    </View>
   );
 };
 
