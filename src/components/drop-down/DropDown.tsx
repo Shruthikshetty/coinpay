@@ -19,8 +19,7 @@ export type DropDownProps<T = string> = {
 } & Pick<LabelInputProps, 'disabled'>;
 
 //@TODO handle press outside options popup
-//@TODO yet to add props for error etc ...
-// drop down component to select options from a array of string
+// drop down component to select options from a array of string or a custom array of objects
 const DropDown = <T,>({
   options = [],
   label,
