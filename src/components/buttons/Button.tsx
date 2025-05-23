@@ -8,7 +8,7 @@ type CustomButtonStyles = Partial<{
   label: TextStyle;
 }>;
 
-type ButtonProps = {
+export type ButtonProps = {
   square?: boolean;
   theme: 'Primary' | 'Error' | 'Info';
   label: string;

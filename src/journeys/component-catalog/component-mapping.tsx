@@ -5,6 +5,9 @@ import {RADIO_GROUP_VARIANTS} from './catalog-component-wrappers/radio-group-wra
 import {BUTTON_VARIANTS} from './catalog-component-wrappers/button-wrapper';
 import {LABEL_INPUT_VARIANTS} from './catalog-component-wrappers/label-input-wrapper';
 import {HEADER_PANEL_VARIANTS} from './catalog-component-wrappers/header-panel-wrapper';
+import {COUNTRY_DROPDOWN_VARIANTS} from './catalog-component-wrappers/country-wrapper';
+import {ELEVATED_BOX_VARIANTS} from './catalog-component-wrappers/elevated-box-wrapper';
+import {LOADER_VARIANTS} from './catalog-component-wrappers/loader-wrapper';
 
 // add all the keys here this will show as option in the drop down
 export const COMPONENT_KEYS = [
@@ -14,6 +17,9 @@ export const COMPONENT_KEYS = [
   'ErrorPopup',
   'Alert',
   'HeaderPanel',
+  'CountryDropdown',
+  'ElevatedBox',
+  'Loader',
 ];
 export type ComponentKey = (typeof COMPONENT_KEYS)[number];
 
@@ -29,4 +35,7 @@ export const COMPONENT_VARIANTS_MAP: Record<
   ErrorPopup: ERROR_POPUP_VARIANTS,
   Alert: ALERT_VARIANTS,
   HeaderPanel: HEADER_PANEL_VARIANTS,
+  CountryDropdown: COUNTRY_DROPDOWN_VARIANTS,
+  ElevatedBox: ELEVATED_BOX_VARIANTS,
+  Loader: LOADER_VARIANTS,
 };

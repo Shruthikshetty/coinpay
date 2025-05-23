@@ -1,4 +1,10 @@
 import {StyleSheet} from 'react-native';
+import {
+  heightPercentageToDP as hp,
+  widthPercentageToDP as wp,
+} from 'react-native-responsive-screen';
+import {colors, themeColors} from '~/common/constants/colors.constants';
+import {getOpacity} from '~/common/utils/get-opacity';
 
 const dashedInputStyles = StyleSheet.create({
   container: {
@@ -9,11 +15,11 @@ const dashedInputStyles = StyleSheet.create({
   box: {
     borderBottomWidth: 2,
     borderColor: '#ccc',
-    width: 30,
+    width: wp(8.5),
     marginHorizontal: 5,
     alignItems: 'center',
     justifyContent: 'center',
-    height: 40,
+    height: hp(4.5),
   },
   charText: {
     textAlign: 'center',
@@ -27,9 +33,13 @@ const dashedInputStyles = StyleSheet.create({
     height: 1,
   },
   cursor: {
-    color: '#333',
+    color: colors.gray900,
     fontSize: 24,
     opacity: 0.7,
+  },
+  activeColor: {
+    color: themeColors.primary,
+    borderColor: getOpacity(themeColors.primary, 70),
   },
 });
 

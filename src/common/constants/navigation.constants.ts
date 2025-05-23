@@ -21,4 +21,7 @@ export enum Route {
   PRE_LOGIN = 'preLogin',
   SIGNUP_LANDING = 'signupLanding',
   SET_PASSWORD = 'setPassword',
+  ADD_EMAIL = 'addEmail',
+  ADD_HOME_ADDRESS = 'addHomeAddress',
+  ADD_PERSONAL_INFO = 'addPersonalInfo',
 }

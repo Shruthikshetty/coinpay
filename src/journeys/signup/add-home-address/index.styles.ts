@@ -4,16 +4,15 @@ import {
   widthPercentageToDP as wp,
 } from 'react-native-responsive-screen';
 
-export const headerLayoutStyles = StyleSheet.create({
+const addHomeAddressStyles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: hp(1.5),
+    paddingHorizontal: wp(3),
   },
-  content: {
-    flex: 1,
-  },
-  button: {
-    marginBottom: hp(4),
-    marginHorizontal: wp(3),
+  form: {
+    marginTop: hp(3),
+    gap: hp(2),
   },
 });
+
+export default addHomeAddressStyles;

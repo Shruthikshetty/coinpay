@@ -4,6 +4,7 @@ const alertStyles = StyleSheet.create({
   root: {
     width: '90%',
     padding: 10,
+    paddingRight: 15,
     borderRadius: 10,
     position: 'absolute',
     alignSelf: 'center',

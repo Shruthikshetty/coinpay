@@ -1,5 +1,10 @@
-//@TODO outside click is not calling on blur
-import {KeyboardTypeOptions, Text, TextInput, View} from 'react-native';
+import {
+  Keyboard,
+  KeyboardTypeOptions,
+  Text,
+  TextInput,
+  View,
+} from 'react-native';
 import styles from './label-input-styles';
 import {colors, themeColors} from '~/common/constants/colors.constants';
 import {useState} from 'react';
@@ -20,6 +25,9 @@ export type LabelInputProps = {
   keyboardType?: KeyboardTypeOptions;
   secureTextEntry?: boolean;
   disabled?: boolean;
+  autoCorrect?: boolean;
+  spellCheck?: boolean;
+  inputRef?: React.Ref<TextInput> | undefined;
 };
 
 // this is a reusable Input field to be used in the app
@@ -38,6 +46,9 @@ const LabelInput = ({
   keyboardType,
   secureTextEntry,
   disabled = false,
+  autoCorrect = false,
+  spellCheck = false,
+  inputRef,
 }: LabelInputProps) => {
   // this will handle state change in case there is value or setter from parent
   const [localValue, setLocalValue] = useState<string>('');
@@ -69,6 +80,8 @@ const LabelInput = ({
           {/* Text field */}
           <View style={[styles.mainInputContainer]}>
             <TextInput
+              onSubmitEditing={Keyboard.dismiss} // dismiss keyboard on done or enter
+              ref={inputRef}
               keyboardType={keyboardType ?? 'default'}
               onChangeText={handleChange ?? setLocalValue}
               value={value ?? localValue}
@@ -77,18 +90,20 @@ const LabelInput = ({
               style={[styles.inputStyle, error && {color: themeColors.error}]}
               cursorColor={error ? themeColors.error : themeColors.primary}
               secureTextEntry={secureTextEntry} // This will mask the input like a password
+              autoCorrect={autoCorrect} // Disable auto correct by default
+              spellCheck={spellCheck} // (Android only)
               onFocus={() => {
                 // handling focus effect
                 setFocus(true);
                 // custom function to run if given
-                handleBlur?.();
+                handleFocus?.();
               }}
               editable={!disabled}
               onBlur={() => {
                 // handling blur effect
                 setFocus(false);
                 // custom function to run if given
-                handleFocus?.();
+                handleBlur?.();
               }}
             />
           </View>

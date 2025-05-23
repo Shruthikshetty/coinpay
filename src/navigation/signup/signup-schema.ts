@@ -1,6 +1,7 @@
 import {z} from 'zod';
 import {Patterns} from '~/common/constants/validation-patterns.constants';
 
+//@TODO validations to be cross verified with backend
 // this zod schema is used for the signup form of users
 export const customerRegisterSchema = z
   .object({
@@ -24,6 +25,45 @@ export const customerRegisterSchema = z
     confirmPassword: z
       .string()
       .min(4, {message: 'Confirm password can not be empty'}),
+    email: z
+      .string()
+      .min(1, {message: 'Email is required'})
+      .refine(
+        text => {
+          // check if the format is a valid email format
+          return Patterns.VALID_EMAIL.test(text);
+        },
+        {
+          message: 'Invalid email please recheck',
+        },
+      ),
+    address: z
+      .string()
+      .min(1, {message: 'Address is required'})
+      .max(50, {message: 'Address can not be more than 50 char in length'}),
+    city: z
+      .string()
+      .min(1, {message: 'City is required'})
+      .refine(text => Patterns.ONLY_CHARACTERS_AND_SPACES.test(text), {
+        message: 'Invalid city',
+      }),
+    countryData: z.object({
+      country: z
+        .string()
+        .min(1, {message: 'Country is required'})
+        .refine(text => Patterns.ONLY_CHARACTERS_AND_SPACES.test(text), {
+          message: 'Invalid Country',
+        }),
+      code: z.string(),
+      phoneCode: z.string(),
+      _id: z.string(),
+    }),
+    pinCode: z
+      .string()
+      .length(6, {message: 'Pin code must be exactly 6 digits'})
+      .refine(val => Patterns.PIN_CODE.test(val), {
+        message: 'Pin code must be a 6-digit number',
+      }),
   })
   .refine(data => data.password === data.confirmPassword, {
     message: 'Passwords do not match',
@@ -38,4 +78,14 @@ export const defaultSignupDetails: CustomerRegisterSchemeType = {
   phoneNumber: '',
   password: '',
   confirmPassword: '',
+  email: '',
+  address: '',
+  city: '',
+  pinCode: '',
+  countryData: {
+    _id: '',
+    code: '',
+    phoneCode: '',
+    country: '',
+  },
 };

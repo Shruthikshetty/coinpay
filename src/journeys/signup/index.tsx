@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {View} from 'react-native';
+import {TouchableOpacity, View} from 'react-native';
 import HeaderLayout from '~/components/layouts/HeaderLayout';
 import styles from './index.styles';
 import TitleSubtitle from '~/components/text-display/TitleSubtitle';
@@ -17,7 +17,6 @@ import {useNavigation} from '~/common/hooks/use-navigation';
 import {Route} from '~/common/constants/navigation.constants';
 import ScreenLoader from '~/components/loaders/ScreenLoader';
 
-//@TODO resend otp function pending
 //** this is the sign up landing page where we start with verifying user phone number  */
 const SignUpLanding = () => {
   const [otpSent, setOtpSent] = useState(false);
@@ -33,11 +32,34 @@ const SignUpLanding = () => {
   // custom mutation hook for sending otp
   const {mutate: sendOtpMutation, isPending: otpSendPending} = useSendOtp();
   // show the apt as a alert message
-  const {changeAlert} = useAlert('Success', 'light');
+  const {changeAlert} = useAlert('Success', 'light', 2000);
   //custom hook for verify otp
   const {mutate: verifyOtpMutation, isPending: verifyOtpPending} =
     useVerifyOtp();
   const navigation = useNavigation();
+
+  // function to send otp same can be used for resend
+  const handleSendOtp = () => {
+    sendOtpMutation(
+      {phoneNumber},
+      {
+        onSuccess: data => {
+          console.log(data?.otp); //@TODO add a notification .
+          // send the otp as an alert message
+          changeAlert(`otp : ${data?.otp}`, 'Success', 'light');
+          setOtpSent(true);
+        },
+        onError: error => {
+          // send the failure as an alert message
+          changeAlert(
+            error?.response?.data?.message ?? `Failed to send otp`,
+            'Error',
+            'light',
+          );
+        },
+      },
+    );
+  };
 
   // verify the otp entered by the user
   const verifyOtp = () => {
@@ -83,10 +105,12 @@ const SignUpLanding = () => {
           {otpSent ? (
             <View style={styles.otpFieldContainer}>
               <DashedInput value={otp} setValue={setOtp} />
-              <Parsetext
-                text={`Didn't get a code <li>Resend</li>`}
-                textStyle={styles.resendText}
-              />
+              <TouchableOpacity onPress={handleSendOtp}>
+                <Parsetext
+                  text={`Didn't get a code <li>Resend</li>`}
+                  textStyle={styles.resendText}
+                />
+              </TouchableOpacity>
             </View>
           ) : (
             <FormLabelInput<CustomerRegisterSchemeType>
@@ -109,27 +133,7 @@ const SignUpLanding = () => {
       <ConfirmPhoneModal
         modal={model}
         phoneNumber={phoneNumber}
-        handleConfirm={() => {
-          sendOtpMutation(
-            {phoneNumber},
-            {
-              onSuccess: data => {
-                console.log(data?.otp); //@TODO add a notification .
-                // send the otp as an alert message
-                changeAlert(`otp : ${data?.otp}`, 'Success', 'light');
-                setOtpSent(true);
-              },
-              onError: error => {
-                // send the failure as an alert message
-                changeAlert(
-                  error?.response?.data?.message ?? `Failed to send otp`,
-                  'Error',
-                  'light',
-                );
-              },
-            },
-          );
-        }}
+        handleConfirm={handleSendOtp}
       />
       <ScreenLoader loading={otpSendPending || verifyOtpPending} />
     </HeaderLayout>

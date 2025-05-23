@@ -4,16 +4,13 @@ import {
   widthPercentageToDP as wp,
 } from 'react-native-responsive-screen';
 
-export const headerLayoutStyles = StyleSheet.create({
+const addEmailStyles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: hp(1.5),
-  },
-  content: {
-    flex: 1,
-  },
-  button: {
-    marginBottom: hp(4),
-    marginHorizontal: wp(3),
+    marginTop: hp(1.5),
+    paddingHorizontal: wp(3),
+    gap: hp(3),
   },
 });
+
+export default addEmailStyles;

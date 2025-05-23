@@ -8,4 +8,7 @@ export const Endpoints = {
   PURPOSE_OPTIONS: `${BASE_URL}/api/purpose-options`,
   SEND_OTP: `${BASE_URL}/api/otp/send`,
   VERIFY_OTP: `${BASE_URL}/api/otp/verify`,
+  FETCH_CITY_BY_COUNTRY: `${BASE_URL}/api/city/country`,
+  FETCH_CITY: `${BASE_URL}/api/city`,
+  FETCH_COUNTRY: `${BASE_URL}/api/country`,
 };

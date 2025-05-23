@@ -6,6 +6,9 @@ import {Route} from '~/common/constants/navigation.constants';
 import SignUpLanding from '~/journeys/signup';
 import {customerRegisterSchema, defaultSignupDetails} from './signup-schema';
 import SetPassword from '~/journeys/signup/set-password';
+import AddEmail from '~/journeys/signup/add-email';
+import AddHomeAddress from '~/journeys/signup/add-home-address';
+import AddPersonalInfo from '~/journeys/signup/add-personal-info';
 
 // initialize the navigator
 const SignupNavigator = createNativeStackNavigator();
@@ -23,7 +26,8 @@ const SignupStack = () => {
     <FormProvider {...methods}>
       <SignupNavigator.Navigator
         screenOptions={{headerShown: false}}
-        initialRouteName={Route.SIGNUP_LANDING}>
+        initialRouteName={Route.ADD_HOME_ADDRESS}>
+        {/* @TODO Temp test change */}
         <SignupNavigator.Screen
           name={Route.SIGNUP_LANDING}
           component={SignUpLanding}
@@ -31,6 +35,15 @@ const SignupStack = () => {
         <SignupNavigator.Screen
           name={Route.SET_PASSWORD}
           component={SetPassword}
+        />
+        <SignupNavigator.Screen name={Route.ADD_EMAIL} component={AddEmail} />
+        <SignupNavigator.Screen
+          name={Route.ADD_HOME_ADDRESS}
+          component={AddHomeAddress}
+        />
+        <SignupNavigator.Screen
+          name={Route.ADD_PERSONAL_INFO}
+          component={AddPersonalInfo}
         />
       </SignupNavigator.Navigator>
     </FormProvider>
