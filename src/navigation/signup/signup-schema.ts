@@ -44,7 +44,7 @@ export const customerRegisterSchema = z
     city: z
       .string()
       .min(1, {message: 'City is required'})
-      .refine(text => Patterns.ONLY_CHARACTERS.test(text), {
+      .refine(text => Patterns.ONLY_CHARACTERS_AND_SPACES.test(text), {
         message: 'Invalid city',
       }),
     countryData: z.object({
@@ -81,6 +81,11 @@ export const defaultSignupDetails: CustomerRegisterSchemeType = {
   email: '',
   address: '',
   city: '',
-  country: '',
   pinCode: '',
+  countryData: {
+    _id: '',
+    code: '',
+    phoneCode: '',
+    country: '',
+  },
 };

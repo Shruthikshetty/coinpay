@@ -16,7 +16,8 @@ export type DropDownProps<T = string> = {
   error?: boolean;
   helperText?: string;
   emptyHandlerMessage?: string;
-} & Pick<LabelInputProps, 'disabled'>;
+  optionsLeftIcon?: (item: T) => React.ReactNode;
+} & Pick<LabelInputProps, 'disabled' | 'leftComponent'>;
 
 //@TODO handle press outside options popup
 // drop down component to select options from a array of string or a custom array of objects
@@ -31,6 +32,8 @@ const DropDown = <T,>({
   helperText,
   emptyHandlerMessage = 'Sorry no options found',
   disabled,
+  leftComponent,
+  optionsLeftIcon,
 }: DropDownProps<T>) => {
   // state to handle visibility of options
   const [optionsVisible, setOptionsVisible] = useState(false);
@@ -54,6 +57,7 @@ const DropDown = <T,>({
           }}
         />
         <LabelInput
+          leftComponent={leftComponent}
           rightComponent={<DownArrow />}
           value={
             renderOption && Boolean(value)
@@ -79,10 +83,14 @@ const DropDown = <T,>({
                     handleOptionSelection(item);
                   }}>
                   <View style={styles.optionItem}>
-                    <Text style={styles.option}>
-                      {/*  handle custom option values */}
-                      {renderOption ? renderOption(item) : String(item)}
-                    </Text>
+                    <View style={styles.textIconContainer}>
+                      {/* optional icon to add at the left of the options*/}
+                      {optionsLeftIcon?.(item)}
+                      <Text style={styles.option}>
+                        {/*  handle custom option values */}
+                        {renderOption ? renderOption(item) : String(item)}
+                      </Text>
+                    </View>
                     {item === value && ( // show only if selected
                       <View style={styles.checkContainer}>
                         <Check />

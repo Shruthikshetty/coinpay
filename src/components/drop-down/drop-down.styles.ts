@@ -45,6 +45,10 @@ const dropDownStyles = StyleSheet.create({
     fontSize: 16,
     fontWeight: '500',
   },
+  textIconContainer: {
+    flexDirection: 'row',
+    gap: 5,
+  },
 });
 
 export default dropDownStyles;
