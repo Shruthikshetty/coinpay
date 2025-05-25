@@ -4,10 +4,14 @@ import {colors, themeColors} from '~/common/constants/colors.constants';
 const dropDownStyles = StyleSheet.create({
   root: {},
   optionsContainer: {
+    width: '100%',
+    gap: 5,
+    paddingVertical: 10,
+    paddingHorizontal: 10,
+  },
+  optionsScroll: {
     marginTop: 5,
     borderRadius: 5,
-    paddingHorizontal: 10,
-    paddingVertical: 10,
     backgroundColor: colors.white,
     elevation: 3,
     position: 'absolute',
