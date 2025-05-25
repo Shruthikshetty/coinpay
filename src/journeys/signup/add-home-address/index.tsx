@@ -11,9 +11,12 @@ import FormDropDown from '~/components/form-controllers/FormDropDown';
 import {useFormContext} from 'react-hook-form';
 import {useAlert} from '~/common/hooks/use-alert';
 import FormCountryDropDown from '~/components/form-controllers/FormCountryDropDown';
+import {useNavigation} from '~/common/hooks/use-navigation';
+import {Route} from '~/common/constants/navigation.constants';
 
 // This is the form screen for filling in the home address
 const AddHomeAddress = () => {
+  const navigation = useNavigation();
   // extract watch from the form context
   const {
     watch,
@@ -57,6 +60,7 @@ const AddHomeAddress = () => {
     ]);
     if (isValid) {
       // navigate to next screen
+      navigation.navigate(Route.ADD_PERSONAL_INFO);
     }
     // no actions to be done if not valid
   };

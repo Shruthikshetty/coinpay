@@ -64,6 +64,14 @@ export const customerRegisterSchema = z
       .refine(val => Patterns.PIN_CODE.test(val), {
         message: 'Pin code must be a 6-digit number',
       }),
+    name: z
+      .string()
+      .min(1, {message: 'Name is Required'})
+      .refine(text => Patterns.ONLY_CHARACTERS_AND_SPACES.test(text), {
+        message: 'Invalid Country',
+      }),
+    userName: z.string().min(1, {message: 'Username is required'}),
+    dob: z.string().min(1, 'Date of birth is required'),
   })
   .refine(data => data.password === data.confirmPassword, {
     message: 'Passwords do not match',
@@ -88,4 +96,7 @@ export const defaultSignupDetails: CustomerRegisterSchemeType = {
     phoneCode: '',
     country: '',
   },
+  name: '',
+  userName: '',
+  dob: '',
 };

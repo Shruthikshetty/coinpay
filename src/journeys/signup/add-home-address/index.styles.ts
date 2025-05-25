@@ -8,6 +8,7 @@ const addHomeAddressStyles = StyleSheet.create({
   container: {
     flex: 1,
     paddingHorizontal: wp(3),
+    marginTop: hp(1.5),
   },
   form: {
     marginTop: hp(3),
