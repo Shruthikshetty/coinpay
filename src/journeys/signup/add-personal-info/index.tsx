@@ -5,13 +5,36 @@ import HeaderLayout from '~/components/layouts/HeaderLayout';
 import {View} from 'react-native';
 import FormLabelInput from '~/components/form-controllers/FormLabelInput';
 import {CustomerRegisterSchemeType} from '~/navigation/signup/signup-schema';
-import Button from '~/components/buttons/Button';
+import {useFormContext} from 'react-hook-form';
 
 // this is the form to fill in the user personal details
 // part of signup flow
 const AddPersonalInfo = () => {
+  // get the trigger and errors from form context
+  const {
+    formState: {errors},
+    trigger,
+  } = useFormContext<CustomerRegisterSchemeType>();
+  // function to handle click on continue
+  const handleContinue = async () => {
+    // trigger the validations
+    const isValid = await trigger(['name', 'userName', 'dob']);
+    if (isValid) {
+      // navigate to next screen
+    }
+    // nothing to to do here if its not valid
+  };
+
   return (
-    <HeaderLayout progressPercent={28} containerStyles={styles.container}>
+    <HeaderLayout
+      progressPercent={28}
+      containerStyles={styles.container}
+      buttonProps={{
+        label: 'Continue',
+        handlePress: handleContinue,
+        theme: 'Primary',
+        disabled: !!errors.name || !!errors.userName || !!errors.dob,
+      }}>
       <TitleSubtitle
         title={'Personal Info'}
         subTitle="This info need's to be accurate with your ID document ."
@@ -34,7 +57,6 @@ const AddPersonalInfo = () => {
           placeholder="MM / DD / YYYY"
         />
       </View>
-      <Button label="Continue" theme="Primary" handlePress={() => {}} />
     </HeaderLayout>
   );
 };
