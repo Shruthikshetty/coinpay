@@ -40,7 +40,9 @@ const HeaderLayout = ({
         {...headerprops}
       />
       <View style={[styles.content, containerStyles]}>{children}</View>
-      {buttonProps && <Button customStyles={{root: styles.button}} {...buttonProps} />}
+      {buttonProps && (
+        <Button customStyles={{root: styles.button}} {...buttonProps} />
+      )}
     </SafeAreaView>
   );
 };
