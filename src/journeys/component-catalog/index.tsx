@@ -8,7 +8,6 @@ import {COMPONENT_KEYS, COMPONENT_VARIANTS_MAP} from './component-mapping';
 
 // this is a catalog of all the components used in the app
 // used for development purpose
-// @TODO in progress
 const ComponentCatalogScreen = () => {
   const [selectedComponent, setSelectedComponent] = useState('');
   const [selectedVariant, setSelectedVariant] = useState('');
