@@ -1,4 +1,4 @@
-import {Text, TouchableOpacity, View} from 'react-native';
+import {ScrollView, Text, TouchableOpacity, View} from 'react-native';
 import styles from './drop-down.styles';
 import LabelInput, {LabelInputProps} from '../label-input/LabelInput';
 import {useState} from 'react';
@@ -74,35 +74,37 @@ const DropDown = <T,>({
       {/* options modal */}
       <View>
         {optionsVisible && (
-          <View style={styles.optionsContainer}>
-            {options && options.length ? (
-              options?.map((item, index) => (
-                <TouchableOpacity
-                  key={index}
-                  onPress={() => {
-                    handleOptionSelection(item);
-                  }}>
-                  <View style={styles.optionItem}>
-                    <View style={styles.textIconContainer}>
-                      {/* optional icon to add at the left of the options*/}
-                      {optionsLeftIcon?.(item)}
-                      <Text style={styles.option}>
-                        {/*  handle custom option values */}
-                        {renderOption ? renderOption(item) : String(item)}
-                      </Text>
-                    </View>
-                    {item === value && ( // show only if selected
-                      <View style={styles.checkContainer}>
-                        <Check />
+          <ScrollView style={styles.optionsScroll}>
+            <View style={styles.optionsContainer}>
+              {options && options.length ? (
+                options?.map((item, index) => (
+                  <TouchableOpacity
+                    key={index}
+                    onPress={() => {
+                      handleOptionSelection(item);
+                    }}>
+                    <View style={styles.optionItem}>
+                      <View style={styles.textIconContainer}>
+                        {/* optional icon to add at the left of the options*/}
+                        {optionsLeftIcon?.(item)}
+                        <Text style={styles.option}>
+                          {/*  handle custom option values */}
+                          {renderOption ? renderOption(item) : String(item)}
+                        </Text>
                       </View>
-                    )}
-                  </View>
-                </TouchableOpacity>
-              ))
-            ) : (
-              <Text style={styles.emptyMessage}>{emptyHandlerMessage}</Text>
-            )}
-          </View>
+                      {item === value && ( // show only if selected
+                        <View style={styles.checkContainer}>
+                          <Check />
+                        </View>
+                      )}
+                    </View>
+                  </TouchableOpacity>
+                ))
+              ) : (
+                <Text style={styles.emptyMessage}>{emptyHandlerMessage}</Text>
+              )}
+            </View>
+          </ScrollView>
         )}
       </View>
     </View>

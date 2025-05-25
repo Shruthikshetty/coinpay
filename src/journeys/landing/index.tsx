@@ -5,7 +5,7 @@ import {useNavigation} from '~/common/hooks/use-navigation'; // custom typed nav
 import styles from './index.styles';
 import {SafeAreaView} from 'react-native-safe-area-context';
 
-// App landing screen
+// App temp landing screen
 const AppLanding = () => {
   const navigation = useNavigation();
 

@@ -2,6 +2,7 @@
   "name": "coinpay",
   "version": "1.0.0",
   "private": true,
+  "author": "shruthik shetty",
   "scripts": {
     "android": "react-native run-android",
     "ios": "react-native run-ios",
