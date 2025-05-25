@@ -7,7 +7,6 @@ import {View} from 'react-native';
 import FormLabelInput from '~/components/form-controllers/FormLabelInput';
 import {CustomerRegisterSchemeType} from '~/navigation/signup/signup-schema';
 import {useFetchCity} from '~/services/city-service';
-import {Country, useFetchCountry} from '~/services/country-service';
 import FormDropDown from '~/components/form-controllers/FormDropDown';
 import {useFormContext} from 'react-hook-form';
 import {useAlert} from '~/common/hooks/use-alert';
@@ -27,7 +26,6 @@ const AddHomeAddress = () => {
     mutate: cityMutation,
     isError: cityFetchError,
   } = useFetchCity();
-  const {data: countryList} = useFetchCountry();
   // store current value of country
   const country = watch('countryData');
 
