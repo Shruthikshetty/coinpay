@@ -10,6 +10,8 @@ import {useFetchCity} from '~/services/city-service';
 import {Country, useFetchCountry} from '~/services/country-service';
 import FormDropDown from '~/components/form-controllers/FormDropDown';
 import {useFormContext} from 'react-hook-form';
+import {useAlert} from '~/common/hooks/use-alert';
+import FormCountryDropDown from '~/components/form-controllers/FormCountryDropDown';
 
 // This is the form screen for filling in the home address
 const AddHomeAddress = () => {
@@ -20,11 +22,17 @@ const AddHomeAddress = () => {
     formState: {errors},
   } = useFormContext<CustomerRegisterSchemeType>();
   // hooks used for fetching country and city
-  const {data: cityList, mutate: cityMutation} = useFetchCity();
+  const {
+    data: cityList,
+    mutate: cityMutation,
+    isError: cityFetchError,
+  } = useFetchCity();
   const {data: countryList} = useFetchCountry();
   // store current value of country
   const country = watch('countryData');
-  console.log(JSON.stringify(country, null, 2));
+
+  const {alert} = useAlert('Error', 'light');
+
   useEffect(() => {
     // this is used to fetch the cities belonging to a country
     if (!country?.code) {
@@ -32,6 +40,14 @@ const AddHomeAddress = () => {
     }
     cityMutation(country._id);
   }, [cityMutation, country]);
+
+  // handle errors
+  useEffect(() => {
+    // in case city was not fetched
+    if (cityFetchError) {
+      alert('failed to fetch city try after sometime .');
+    }
+  }, [alert, cityFetchError]);
 
   // check if all the fields are valid and navigate
   const handleContinue = async () => {
@@ -71,13 +87,7 @@ const AddHomeAddress = () => {
           label="Address line"
           placeholder="Address"
         />
-        <FormDropDown<CustomerRegisterSchemeType, Country>
-          options={countryList ?? []}
-          name="countryData"
-          renderOption={item => item.country}
-          placeholder="Country"
-          label="Country"
-        />
+        <FormCountryDropDown<CustomerRegisterSchemeType> name="countryData" />
         <FormDropDown<CustomerRegisterSchemeType>
           name="city"
           options={cityList?.map(data => data.city) ?? []}

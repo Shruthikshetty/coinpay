@@ -1,10 +1,16 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 
-import DropDown from '../DropDown';
+import DropDown, {DropDownProps} from '../DropDown';
 import {Country, useFetchCountry} from '~/services/country-service';
 import {useAlert} from '~/common/hooks/use-alert';
 import {COUNTRY_FLAG_MAP} from './country-mapping';
 import UnknownFlag from '~/components/svgs/UnknownFlag';
+
+//types
+type CountryDropDownProps = {
+  value: Country; // better to provide empty values
+  setValue: React.Dispatch<React.SetStateAction<Country>>;
+} & Pick<DropDownProps<Country>, 'error' | 'helperText'>;
 
 /**
  * Helper function to get the flag component for a given country code.
@@ -21,26 +27,28 @@ const getFlagComponent = (code: string): React.ComponentType<any> => {
 /**
  * This is a country dropdown that shows the country with its flags as a dropdown
  */
-const CountryDropDown = () => {
-  // state to store selected country
-  const [value, setValue] = useState<Country>({
+const CountryDropDown = ({
+  // setting an empty value to prevent any crash's
+  value = {
+    _id: '',
     code: '',
     country: '',
     phoneCode: '',
-    _id: '',
-  });
-
+  },
+  setValue,
+  ...dropDownProps
+}: CountryDropDownProps) => {
   // get the function to show alerts
   const {alert} = useAlert('Error', 'light');
   // fetch all the country list
-  const {data, error} = useFetchCountry();
+  const {data, error: countryFetchError} = useFetchCountry();
 
   // show error in case api fails
   useEffect(() => {
-    if (error?.message) {
+    if (countryFetchError?.message) {
       alert('Failed to get Country list try after sometime.');
     }
-  }, [alert, error?.message]);
+  }, [alert, countryFetchError?.message]);
 
   // Get the flag component for the currently selected country
   const SelectedFlag = getFlagComponent(value.code);
@@ -62,6 +70,7 @@ const CountryDropDown = () => {
       placeholder="country"
       renderOption={item => item.country}
       emptyHandlerMessage="Sorry failed to get country list"
+      {...dropDownProps}
     />
   );
 };

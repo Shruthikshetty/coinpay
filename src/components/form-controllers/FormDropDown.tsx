@@ -8,7 +8,7 @@ type FormDropDownProps<T extends FieldValues, OptionType = string> = {
   renderOption?: (item: OptionType) => string;
   helperText?: string;
 } & Omit<
-  DropDownProps<T>,
+  DropDownProps<OptionType>,
   'value' | 'handleValue' | 'renderOption' | 'options' | 'error'
 >;
 
