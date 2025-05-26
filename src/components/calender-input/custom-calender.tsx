@@ -28,8 +28,34 @@ type CalenderInputProps = {
   'markedDates' | 'onDayPress' | 'renderArrow' | 'headerStyle' | 'renderHeader'
 >;
 
-/* this is a custom calender make sure to store the date in YYYY-MM-DD format
- *used to select the date
+/**
+ * CustomCalender is a reusable calendar component for React Native, designed to allow users to select a date
+ * in 'YYYY-MM-DD' format. It features a modal-based UI, a custom year picker, and customizable calendar props.
+ *
+ * ## Props
+ * @param {string} selectedDate - The currently selected date in 'YYYY-MM-DD' format.
+ * @param {ReturnType<typeof useModal>} modal - Modal control object from the `useModal` hook, used to manage visibility.
+ * @param {string} [buttonLabel] - Optional label for the confirm button (defaults to 'Confirm').
+ * @param {(value: string) => void} setSelectedDate - Callback to update the selected date.
+ * @param {number[]} [yearSelectRange] - Optional range for year selection as [yearsBack, yearsForward] (defaults to [20, 10]).
+ * @param {Omit<CalendarProps, 'markedDates' | 'onDayPress' | 'renderArrow' | 'headerStyle' | 'renderHeader'>} restCalenderProps - Additional props passed to the underlying Calendar component, excluding certain overridden props.
+ *
+ * ## Usage
+ * ```tsx
+ * <CustomCalender
+ *   selectedDate={selectedDate}
+ *   setSelectedDate={setSelectedDate}
+ *   modal={modal}
+ *   buttonLabel="Select Date"
+ *   yearSelectRange={[10, 10]}
+ * />
+ * ```
+ *
+ * @remarks
+ * - The component expects the date to be stored and managed in 'YYYY-MM-DD' format.
+ * - The year picker allows users to quickly jump to a specific year within the defined range.
+ *
+ * @component
  */
 const CustomCalender = ({
   setSelectedDate,
