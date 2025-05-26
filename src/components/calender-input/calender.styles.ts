@@ -19,8 +19,11 @@ const calendarInputStyles = StyleSheet.create({
   modalContainer: {
     justifyContent: 'center',
     flex: 1,
-    backgroundColor: getOpacity(colors.gray400, 60),
+    backgroundColor: getOpacity(colors.gray500, 60),
     paddingHorizontal: wp(10),
+  },
+  headerStyle: {
+    gap: hp(1),
   },
 });
 
