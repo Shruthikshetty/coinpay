@@ -25,6 +25,37 @@ const calendarInputStyles = StyleSheet.create({
   headerStyle: {
     gap: hp(1),
   },
+  yearPickerContainer: {
+    flex: 1,
+    backgroundColor: getOpacity(colors.black, 50),
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  yearPicker: {
+    backgroundColor: 'white',
+    width: wp(70),
+    height: '40%',
+    borderRadius: 10,
+    padding: 10,
+  },
+  yearItem: {
+    paddingVertical: hp(1),
+    alignItems: 'center',
+  },
+  yearText: {
+    fontSize: 16,
+    color: colors.gray700,
+  },
+  headerTitle: {
+    fontSize: 18,
+    fontWeight: '700',
+    color: colors.gray700,
+    textAlign: 'center',
+  },
+  separator: {
+    borderWidth: StyleSheet.hairlineWidth,
+    borderColor: colors.info,
+  },
 });
 
 export default calendarInputStyles;
