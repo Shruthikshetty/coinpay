@@ -6,23 +6,39 @@ import {
   TouchableOpacity,
   FlatList,
   Pressable,
+  ViewStyle,
+  TextStyle,
 } from 'react-native';
 import {Calendar, CalendarProps} from 'react-native-calendars';
 import {colors, themeColors} from '~/common/constants/colors.constants';
-import Button from '../buttons/Button';
-import styles from './calender.styles';
+import Button, {ButtonProps} from '../buttons/Button';
+import defaultStyles from './calender.styles';
 import {useModal} from '~/common/hooks/use-model';
 import AngleLeft from '../svgs/AngleLeft';
 import AngleRight from '../svgs/AngleRight';
 import './local-config';
+import {getCombinedStyles} from '~/common/utils/combined-styles';
 
 // types...
+type CalendarInputStylesType = {
+  root: ViewStyle;
+  modalContainer: ViewStyle;
+  headerStyle: ViewStyle;
+  yearPickerContainer: ViewStyle;
+  yearPicker: ViewStyle;
+  yearItem: ViewStyle;
+  yearText: TextStyle;
+  headerTitle: TextStyle;
+  separator: ViewStyle;
+};
+
 type CalenderInputProps = {
   selectedDate: string; // should be in 'YYYY-MM-DD' format
   modal: ReturnType<typeof useModal>;
-  buttonLabel?: string;
   setSelectedDate: (value: string) => void;
   yearSelectRange?: number[]; // should be [from 10 years back , to 10 years in future] = [10, 10]
+  buttonProps?: Omit<ButtonProps, 'handlePress'>;
+  customStyles?: Partial<CalendarInputStylesType>;
 } & Omit<
   CalendarProps,
   'markedDates' | 'onDayPress' | 'renderArrow' | 'headerStyle' | 'renderHeader'
@@ -61,14 +77,23 @@ const CustomCalender = ({
   setSelectedDate,
   selectedDate,
   modal,
-  buttonLabel,
   yearSelectRange = [20, 10],
+  buttonProps = {
+    label: 'Confirm',
+    theme: 'Primary',
+  },
+  customStyles,
   ...restCalenderProps
 }: CalenderInputProps) => {
   // state to hold the visibility of date picker
   const [showYearPicker, setShowYearPicker] = useState(false);
 
-  console.log(selectedDate);
+  // combine the default and provided custom styles
+  const styles = getCombinedStyles<CalendarInputStylesType>(
+    defaultStyles,
+    customStyles,
+  );
+
   // setting the style for selected data
   const markedDates = {
     [selectedDate]: {
@@ -77,10 +102,11 @@ const CustomCalender = ({
     },
   };
 
+  //@TODO the default selected date can be an issue in case of min and max date
   // function to handle the change of years
   const changeYear = (year: number) => {
-    const [_, selectedM] = selectedDate.split('-');
-    const newDate = `${year}-${selectedM ?? '01'}-01`; // set some defaults in case of no date selected
+    const [_, selectedM, selectedDay] = selectedDate.split('-');
+    const newDate = `${year}-${selectedM ?? '01'}-${selectedDay ?? '01'}`; // set some defaults in case of no date selected
     setSelectedDate(newDate);
     setShowYearPicker(false);
   };
@@ -150,11 +176,7 @@ const CustomCalender = ({
             }}
             theme={{
               textDayHeaderFontWeight: '700',
-              arrowColor: colors.gray400,
               textSectionTitleColor: colors.gray500,
-              textMonthFontWeight: '700',
-              monthTextColor: colors.gray600,
-              textMonthFontSize: 19,
             }}
             renderArrow={direction => {
               switch (direction) {
@@ -169,11 +191,7 @@ const CustomCalender = ({
             markedDates={markedDates}
             {...restCalenderProps}
           />
-          <Button
-            label={buttonLabel ?? 'Confirm'}
-            theme="Primary"
-            handlePress={() => modal.hide()}
-          />
+          <Button handlePress={() => modal.hide()} {...buttonProps} />
         </View>
       </View>
     </Modal>

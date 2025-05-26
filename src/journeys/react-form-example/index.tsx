@@ -22,7 +22,7 @@ const ReactFormExample = () => {
 
   // handler to submit the form
   const handleFormSubmit: SubmitHandler<ExampleSchema> = data => {
-    console.log(data);
+    console.log(data); // this is the form data that can be used
     methods.reset(); // reset data once submitted
   };
 
