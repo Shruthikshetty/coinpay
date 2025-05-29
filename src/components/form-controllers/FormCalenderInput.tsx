@@ -9,13 +9,20 @@ import {useModal} from '~/common/hooks/use-model';
 type FormCalenderInputProps<T extends FieldValues> = {
   name: Path<T>;
   helperText?: string;
-} & Pick<CalenderInputProps, 'label'>;
+} & Omit<
+  CalenderInputProps,
+  | 'helperText'
+  | 'error'
+  | 'modal'
+  | 'setSelectedDate'
+  | 'selectedDate'
+>;
 
 // form controlled calender input
 const FormCalenderInput = <T extends FieldValues>({
   name,
-  label,
   helperText,
+  ...restFields
 }: FormCalenderInputProps<T>) => {
   // get form control from context
   const {control} = useFormContext<T>();
@@ -29,10 +36,10 @@ const FormCalenderInput = <T extends FieldValues>({
         <CalenderInput
           selectedDate={value}
           modal={model}
-          label={label}
           setSelectedDate={onChange}
           error={!!error}
           helperText={helperText ?? error?.message}
+          {...restFields}
         />
       )}
     />

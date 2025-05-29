@@ -11,7 +11,7 @@ import {getOpacity} from '~/common/utils/get-opacity';
 //types..
 export type CalenderInputProps = {
   placeholder?: string;
-  disPlayDateFormat?: string;
+  displayDateFormat?: string;
   helperText?: string;
   error?: boolean;
   label?: string;
@@ -22,7 +22,7 @@ const CalenderInput = ({
   selectedDate,
   modal,
   placeholder = 'MM/DD/YYYY',
-  disPlayDateFormat = 'MM/DD/YYYY',
+  displayDateFormat = 'MM/DD/YYYY',
   error,
   label,
   helperText,
@@ -47,7 +47,7 @@ const CalenderInput = ({
           leftComponent={<CalenderEmptyIcon />}
           handleChange={() => {}} // it wont be editable
           value={
-            selectedDate ? moment(selectedDate).format(disPlayDateFormat) : ''
+            selectedDate ? moment(selectedDate).format(displayDateFormat) : ''
           }
           label={label}
           placeholder={placeholder}
