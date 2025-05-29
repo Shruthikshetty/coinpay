@@ -9,9 +9,12 @@ import {colors} from '~/common/constants/colors.constants';
 import {getOpacity} from '~/common/utils/get-opacity';
 
 //types..
-type CalenderInputProps = {
+export type CalenderInputProps = {
   placeholder?: string;
   disPlayDateFormat?: string;
+  helperText?: string;
+  error?: boolean;
+  label?: string;
 } & CalenderCalenderProps;
 
 // this is a input component that opens up a calenders and the selected values show in the input field
@@ -20,6 +23,9 @@ const CalenderInput = ({
   modal,
   placeholder = 'MM/DD/YYYY',
   disPlayDateFormat = 'MM/DD/YYYY',
+  error,
+  label,
+  helperText,
   ...calenderProps
 }: CalenderInputProps) => {
   // state to handle visibility of the calender modal
@@ -43,7 +49,10 @@ const CalenderInput = ({
           value={
             selectedDate ? moment(selectedDate).format(disPlayDateFormat) : ''
           }
+          label={label}
           placeholder={placeholder}
+          helperText={helperText}
+          error={error}
         />
       </View>
       <CustomCalender

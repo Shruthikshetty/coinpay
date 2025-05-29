@@ -6,6 +6,7 @@ import {View} from 'react-native';
 import FormLabelInput from '~/components/form-controllers/FormLabelInput';
 import {CustomerRegisterSchemeType} from '~/navigation/signup/signup-schema';
 import {useFormContext} from 'react-hook-form';
+import FormCalenderInput from '~/components/form-controllers/FormCalenderInput';
 
 // this is the form to fill in the user personal details
 // part of signup flow
@@ -50,11 +51,9 @@ const AddPersonalInfo = () => {
           label="Username"
           placeholder="@username"
         />
-        {/* to be changed with calender input */}
-        <FormLabelInput<CustomerRegisterSchemeType>
-          name={'dob'}
+        <FormCalenderInput<CustomerRegisterSchemeType>
+          name="dob"
           label="Date of Birth"
-          placeholder="MM / DD / YYYY"
         />
       </View>
     </HeaderLayout>

@@ -26,7 +26,7 @@ const SignupStack = () => {
     <FormProvider {...methods}>
       <SignupNavigator.Navigator
         screenOptions={{headerShown: false}}
-        initialRouteName={Route.SIGNUP_LANDING}>
+        initialRouteName={Route.ADD_PERSONAL_INFO}>
         {/* @TODO Temp test change */}
         <SignupNavigator.Screen
           name={Route.SIGNUP_LANDING}
