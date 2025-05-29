@@ -6,7 +6,7 @@ import {
 import {colors} from '~/common/constants/colors.constants';
 import {getOpacity} from '~/common/utils/get-opacity';
 
-const calendarInputStyles = StyleSheet.create({
+const calendarStyles = StyleSheet.create({
   root: {
     borderRadius: wp(3),
     backgroundColor: colors.white,
@@ -58,4 +58,4 @@ const calendarInputStyles = StyleSheet.create({
   },
 });
 
-export default calendarInputStyles;
+export default calendarStyles;
