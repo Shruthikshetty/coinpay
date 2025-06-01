@@ -1,7 +1,7 @@
 import React, {useRef, useImperativeHandle, Ref} from 'react';
 import {TouchableOpacity, View, TextInput} from 'react-native';
 import styles from './pin-input.styles';
-import {colors, themeColors} from '~/common/constants/colors.constants';
+import {themeColors} from '~/common/constants/colors.constants';
 
 //types...
 type PinInputProps = {
@@ -11,7 +11,9 @@ type PinInputProps = {
   ref?: Ref<TextInput>;
 };
 
-// this is a pin input component where the entered pin is hidden and displayed as a dot
+/*
+ * this is a pin input component where the entered pin is hidden and displayed as a dot
+ */
 const PinInput = ({
   pinLength = 4,
   pin = '',
