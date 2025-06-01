@@ -1,4 +1,4 @@
-import React, {Dispatch, SetStateAction, useMemo, Ref} from 'react';
+import React, {Dispatch, SetStateAction, useMemo} from 'react';
 import {Text, TextInput, TouchableOpacity, View} from 'react-native';
 import styles from './keyboard.styles';
 import {generateJumbledDigits} from '~/common/utils/jumble-digits';

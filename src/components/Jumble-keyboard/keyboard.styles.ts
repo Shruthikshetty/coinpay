@@ -40,6 +40,8 @@ const jumbleKeyboardStyles = StyleSheet.create({
   },
   specialKey: {
     backgroundColor: 'transparent',
+    padding: wp(-2), // negating the parent padding
+    justifyContent: 'center',
     elevation: 0,
   },
 });
