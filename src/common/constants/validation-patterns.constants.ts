@@ -5,4 +5,5 @@ export const Patterns = {
   PIN_CODE: /^\d{6}$/,
   ONLY_CHARACTERS: /^[A-Za-z]+$/,
   ONLY_CHARACTERS_AND_SPACES: /^[A-Za-z\s]+$/, // Allows only letters and spaces
+  ONLY_NUMBERS: /^\d+$/, // Allows only numbers
 };

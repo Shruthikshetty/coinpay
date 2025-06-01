@@ -14,6 +14,7 @@ import {TITLE_SUBTITLE_ALL_VARIANTS} from './catalog-component-wrappers/title-su
 import {TRANSACTION_ITEM_VARIANTS} from './catalog-component-wrappers/transaction-icon';
 import {CALENDAR_VARIANTS} from './catalog-component-wrappers/calender';
 import {CALENDER_INPUT_VARIANTS} from './catalog-component-wrappers/calender-input';
+import {PIN_INPUT_VARIANTS} from './catalog-component-wrappers/pin-input-wrapper';
 
 // add all the keys here this will show as option in the drop down
 export const COMPONENT_KEYS = [
@@ -32,6 +33,7 @@ export const COMPONENT_KEYS = [
   'TransactionItem',
   'CustomCalender',
   'CalenderInput',
+  'PinInput',
 ];
 export type ComponentKey = (typeof COMPONENT_KEYS)[number];
 
@@ -56,4 +58,5 @@ export const COMPONENT_VARIANTS_MAP: Record<
   TransactionItem: TRANSACTION_ITEM_VARIANTS,
   CustomCalender: CALENDAR_VARIANTS,
   CalenderInput: CALENDER_INPUT_VARIANTS,
+  PinInput: PIN_INPUT_VARIANTS,
 };

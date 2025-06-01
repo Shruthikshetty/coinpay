@@ -28,6 +28,7 @@ export type LabelInputProps = {
   autoCorrect?: boolean;
   spellCheck?: boolean;
   inputRef?: React.Ref<TextInput> | undefined;
+  focusable?: boolean;
 };
 
 // this is a reusable Input field to be used in the app
@@ -48,6 +49,7 @@ const LabelInput = ({
   disabled = false,
   autoCorrect = false,
   spellCheck = false,
+  focusable = true,
   inputRef,
 }: LabelInputProps) => {
   // this will handle state change in case there is value or setter from parent
@@ -92,6 +94,7 @@ const LabelInput = ({
               secureTextEntry={secureTextEntry} // This will mask the input like a password
               autoCorrect={autoCorrect} // Disable auto correct by default
               spellCheck={spellCheck} // (Android only)
+              focusable={focusable}
               onFocus={() => {
                 // handling focus effect
                 setFocus(true);

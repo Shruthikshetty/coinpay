@@ -11,7 +11,6 @@ import {useNavigation} from '~/common/hooks/use-navigation';
 import {Route} from '~/common/constants/navigation.constants';
 import moment from 'moment';
 import {DATE_FORMAT} from '~/common/constants/screen.constants';
-import {number} from 'zod';
 
 // this is the form to fill in the user personal details
 // part of signup flow

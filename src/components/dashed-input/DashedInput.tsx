@@ -16,7 +16,6 @@ type DashedInputType = {
   length?: number; // The fixed length of the input (number of boxes)
 };
 
-//@TODO handle blur
 //@TODO Animate with blink effect
 /**
  * DashedInput is a custom input component for entering a fixed-length numeric code (e.g., OTP).

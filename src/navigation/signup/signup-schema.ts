@@ -72,6 +72,13 @@ export const customerRegisterSchema = z
       }),
     userName: z.string().min(1, {message: 'Username is required'}),
     dob: z.string().min(1, 'Date of birth is required'),
+    pin: z
+      .string()
+      .trim()
+      .length(6, {message: 'Pin to be 6 digits'})
+      .refine(text => Patterns.ONLY_NUMBERS.test(text), {
+        message: 'Invalid Pin Format only number accepted',
+      }),
   })
   .refine(data => data.password === data.confirmPassword, {
     message: 'Passwords do not match',
@@ -99,4 +106,5 @@ export const defaultSignupDetails: CustomerRegisterSchemeType = {
   name: '',
   userName: '',
   dob: '',
+  pin: '',
 };
