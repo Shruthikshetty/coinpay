@@ -20,7 +20,7 @@ import './local-config';
 import {getCombinedStyles} from '~/common/utils/combined-styles';
 
 // types...
-type CalendarInputStylesType = {
+type CalendarCalenderStylesType = {
   root: ViewStyle;
   modalContainer: ViewStyle;
   headerStyle: ViewStyle;
@@ -32,13 +32,13 @@ type CalendarInputStylesType = {
   separator: ViewStyle;
 };
 
-type CalenderInputProps = {
+export type CalenderCalenderProps = {
   selectedDate: string; // should be in 'YYYY-MM-DD' format
   modal: ReturnType<typeof useModal>;
   setSelectedDate: (value: string) => void;
   yearSelectRange?: number[]; // should be [from 10 years back , to 10 years in future] = [10, 10]
   buttonProps?: Omit<ButtonProps, 'handlePress'>;
-  customStyles?: Partial<CalendarInputStylesType>;
+  customStyles?: Partial<CalendarCalenderStylesType>;
 } & Omit<
   CalendarProps,
   'markedDates' | 'onDayPress' | 'renderArrow' | 'headerStyle' | 'renderHeader'
@@ -84,12 +84,12 @@ const CustomCalender = ({
   },
   customStyles,
   ...restCalenderProps
-}: CalenderInputProps) => {
+}: CalenderCalenderProps) => {
   // state to hold the visibility of date picker
   const [showYearPicker, setShowYearPicker] = useState(false);
 
   // combine the default and provided custom styles
-  const styles = getCombinedStyles<CalendarInputStylesType>(
+  const styles = getCombinedStyles<CalendarCalenderStylesType>(
     defaultStyles,
     customStyles,
   );

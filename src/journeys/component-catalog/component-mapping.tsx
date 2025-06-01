@@ -12,7 +12,9 @@ import {DASHED_INPUT_VARIANTS} from './catalog-component-wrappers/dashed-input';
 import {PARSE_TEXT_ALL_VARIANTS} from './catalog-component-wrappers/parse-text';
 import {TITLE_SUBTITLE_ALL_VARIANTS} from './catalog-component-wrappers/title-subtitle';
 import {TRANSACTION_ITEM_VARIANTS} from './catalog-component-wrappers/transaction-icon';
-import {CALENDAR_INPUT_VARIANTS} from './catalog-component-wrappers/calender-input';
+import {CALENDAR_VARIANTS} from './catalog-component-wrappers/calender';
+import {CALENDER_INPUT_VARIANTS} from './catalog-component-wrappers/calender-input';
+import {PIN_INPUT_VARIANTS} from './catalog-component-wrappers/pin-input-wrapper';
 
 // add all the keys here this will show as option in the drop down
 export const COMPONENT_KEYS = [
@@ -30,6 +32,8 @@ export const COMPONENT_KEYS = [
   'TitleSubtitle',
   'TransactionItem',
   'CustomCalender',
+  'CalenderInput',
+  'PinInput',
 ];
 export type ComponentKey = (typeof COMPONENT_KEYS)[number];
 
@@ -52,5 +56,7 @@ export const COMPONENT_VARIANTS_MAP: Record<
   Parsetext: PARSE_TEXT_ALL_VARIANTS,
   TitleSubtitle: TITLE_SUBTITLE_ALL_VARIANTS,
   TransactionItem: TRANSACTION_ITEM_VARIANTS,
-  CustomCalender: CALENDAR_INPUT_VARIANTS,
+  CustomCalender: CALENDAR_VARIANTS,
+  CalenderInput: CALENDER_INPUT_VARIANTS,
+  PinInput: PIN_INPUT_VARIANTS,
 };

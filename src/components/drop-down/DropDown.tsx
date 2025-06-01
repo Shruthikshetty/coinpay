@@ -69,6 +69,7 @@ const DropDown = <T,>({
           helperText={helperText}
           error={error}
           disabled={disabled}
+          focusable={false}
         />
       </View>
       {/* options modal */}
