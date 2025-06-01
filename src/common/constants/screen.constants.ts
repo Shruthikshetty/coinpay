@@ -26,3 +26,8 @@ export const ONBOARDING_CAROUSAL_CONTENT = [
     message: 'Receive money from anywhere in the world',
   },
 ];
+
+// date formats used in the app
+export const DATE_FORMAT = {
+  YYYY_MM_DD: 'YYYY-MM-DD', // expected stored default
+};
