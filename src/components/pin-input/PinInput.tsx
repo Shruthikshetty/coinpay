@@ -9,6 +9,7 @@ type PinInputProps = {
   pin: string;
   setPin: (value: string) => void;
   ref?: Ref<TextInput>;
+  customPressAction?: () => void;
 };
 
 /*
@@ -19,6 +20,7 @@ const PinInput = ({
   pin = '',
   ref,
   setPin = () => {},
+  customPressAction,
 }: PinInputProps) => {
   // Ref to control the hidden TextInput programmatically
   const inputRef = useRef<TextInput>(null);
@@ -27,7 +29,12 @@ const PinInput = ({
 
   // Focus the hidden TextInput when the box input area is pressed
   const handleBoxPress = () => {
-    inputRef.current?.focus();
+    if (customPressAction) {
+      // custom action like open custom keyboard
+      customPressAction();
+    } else {
+      inputRef.current?.focus();
+    }
   };
 
   // Expose the ref to parent components

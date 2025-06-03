@@ -11,11 +11,21 @@ import {
 import {useModal} from '~/common/hooks/use-model';
 
 //types...
-type JumbleKeyBoardProps = {
-  setValue: Dispatch<SetStateAction<string>>;
-  model: ReturnType<typeof useModal>;
-  inputRef?: React.RefObject<TextInput>;
-};
+type JumbleKeyBoardProps =
+  | {
+      setValue: Dispatch<SetStateAction<string>>;
+      value: string;
+      model: ReturnType<typeof useModal>;
+      inputRef?: React.RefObject<TextInput>;
+      maxLength: number;
+    }
+  | {
+      setValue: Dispatch<SetStateAction<string>>;
+      value?: string;
+      model: ReturnType<typeof useModal>;
+      inputRef?: React.RefObject<TextInput>;
+      maxLength?: undefined;
+    };
 
 // used for conditions on design
 const JUMBLE_SPECIAL_KEY = {
@@ -24,7 +34,13 @@ const JUMBLE_SPECIAL_KEY = {
 };
 
 // this is a jumble keyboard for pin entry screen with number pad
-const JumbleKeyBoard = ({setValue, model, inputRef}: JumbleKeyBoardProps) => {
+const JumbleKeyBoard = ({
+  setValue,
+  model,
+  inputRef,
+  maxLength,
+  value,
+}: JumbleKeyBoardProps) => {
   // the numbers are scuffled on mount
   const options = useMemo(() => {
     // get jumbled numbers
@@ -57,6 +73,18 @@ const JumbleKeyBoard = ({setValue, model, inputRef}: JumbleKeyBoardProps) => {
             <TouchableOpacity
               style={[styles.key, getSpecialStyle(digit)]}
               onPress={() => {
+                if (
+                  maxLength &&
+                  value &&
+                  digit !== JUMBLE_SPECIAL_KEY.back &&
+                  digit !== JUMBLE_SPECIAL_KEY.tick
+                ) {
+                  // no value is set if the maxlength is exceeded
+                  console.log(value);
+                  if (value?.length > maxLength - 1) {
+                    return;
+                  }
+                }
                 if (digit === JUMBLE_SPECIAL_KEY.back) {
                   // remove the last char
                   setValue((s: string) => s.slice(0, -1));
