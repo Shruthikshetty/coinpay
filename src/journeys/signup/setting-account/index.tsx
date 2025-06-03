@@ -17,12 +17,12 @@ const AccountSetup = () => {
     },
     {
       index: 2,
-      text: 'Phone Verified',
+      text: 'Checking up document ID',
       loading: true,
     },
     {
       index: 3,
-      text: 'Phone Verified',
+      text: 'Verifying Photo',
       loading: true,
     },
   ];

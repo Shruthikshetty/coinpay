@@ -4,4 +4,5 @@ export const enum ServiceKey {
   FETCH_CITY = 'fetch-city',
   FETCH_All_CITY = 'fetch-All-city',
   FETCH_COUNTRY = 'fetch-country',
+  ADD_CUSTOMER = 'add-customer',
 }
