@@ -6,7 +6,7 @@ const pinWithJumbledKeyboardStyles = StyleSheet.create({
     justifyContent: 'center',
     width: '100%',
     alignItems: 'center',
-    marginTop: hp(2),
+    marginTop: hp(17),
   },
   root: {
     flex: 1,
