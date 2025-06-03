@@ -25,4 +25,5 @@ export enum Route {
   ADD_HOME_ADDRESS = 'addHomeAddress',
   ADD_PERSONAL_INFO = 'addPersonalInfo',
   CREATE_PIN = 'createPin',
+  ACCOUNT_SETUP = 'accountSetup',
 }
