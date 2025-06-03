@@ -75,7 +75,7 @@ export const customerRegisterSchema = z
     pin: z
       .string()
       .trim()
-      .length(6, {message: 'Pin to be 6 digits'})
+      .length(4, {message: 'Pin to be 4 digits'})
       .refine(text => Patterns.ONLY_NUMBERS.test(text), {
         message: 'Invalid Pin Format only number accepted',
       }),

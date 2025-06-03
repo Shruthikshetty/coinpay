@@ -1,7 +1,7 @@
 import React, {useRef, useImperativeHandle, Ref} from 'react';
 import {TouchableOpacity, View, TextInput} from 'react-native';
 import styles from './pin-input.styles';
-import {colors, themeColors} from '~/common/constants/colors.constants';
+import {themeColors} from '~/common/constants/colors.constants';
 
 //types...
 type PinInputProps = {
@@ -9,14 +9,18 @@ type PinInputProps = {
   pin: string;
   setPin: (value: string) => void;
   ref?: Ref<TextInput>;
+  customPressAction?: () => void;
 };
 
-// this is a pin input component where the entered pin is hidden and displayed as a dot
+/*
+ * this is a pin input component where the entered pin is hidden and displayed as a dot
+ */
 const PinInput = ({
   pinLength = 4,
   pin = '',
   ref,
   setPin = () => {},
+  customPressAction,
 }: PinInputProps) => {
   // Ref to control the hidden TextInput programmatically
   const inputRef = useRef<TextInput>(null);
@@ -25,7 +29,12 @@ const PinInput = ({
 
   // Focus the hidden TextInput when the box input area is pressed
   const handleBoxPress = () => {
-    inputRef.current?.focus();
+    if (customPressAction) {
+      // custom action like open custom keyboard
+      customPressAction();
+    } else {
+      inputRef.current?.focus();
+    }
   };
 
   // Expose the ref to parent components

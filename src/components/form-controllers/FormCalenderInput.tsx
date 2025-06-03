@@ -11,11 +11,7 @@ type FormCalenderInputProps<T extends FieldValues> = {
   helperText?: string;
 } & Omit<
   CalenderInputProps,
-  | 'helperText'
-  | 'error'
-  | 'modal'
-  | 'setSelectedDate'
-  | 'selectedDate'
+  'helperText' | 'error' | 'modal' | 'setSelectedDate' | 'selectedDate'
 >;
 
 // form controlled calender input

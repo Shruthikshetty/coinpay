@@ -10,6 +10,7 @@ import AddEmail from '~/journeys/signup/add-email';
 import AddHomeAddress from '~/journeys/signup/add-home-address';
 import AddPersonalInfo from '~/journeys/signup/add-personal-info';
 import CreatePin from '~/journeys/signup/create-pin';
+import AccountSetup from '~/journeys/signup/setting-account';
 
 // initialize the navigator
 const SignupNavigator = createNativeStackNavigator();
@@ -47,6 +48,10 @@ const SignupStack = () => {
           component={AddPersonalInfo}
         />
         <SignupNavigator.Screen name={Route.CREATE_PIN} component={CreatePin} />
+        <SignupNavigator.Screen
+          name={Route.ACCOUNT_SETUP}
+          component={AccountSetup}
+        />
       </SignupNavigator.Navigator>
     </FormProvider>
   );

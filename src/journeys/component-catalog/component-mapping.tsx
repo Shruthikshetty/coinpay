@@ -15,6 +15,7 @@ import {TRANSACTION_ITEM_VARIANTS} from './catalog-component-wrappers/transactio
 import {CALENDAR_VARIANTS} from './catalog-component-wrappers/calender';
 import {CALENDER_INPUT_VARIANTS} from './catalog-component-wrappers/calender-input';
 import {PIN_INPUT_VARIANTS} from './catalog-component-wrappers/pin-input-wrapper';
+import {JUMBLE_KEYBOARD_VARIANTS} from './catalog-component-wrappers/jumbled-keyboard-wrapper';
 
 // add all the keys here this will show as option in the drop down
 export const COMPONENT_KEYS = [
@@ -34,6 +35,7 @@ export const COMPONENT_KEYS = [
   'CustomCalender',
   'CalenderInput',
   'PinInput',
+  'JumbleKeyBoard',
 ];
 export type ComponentKey = (typeof COMPONENT_KEYS)[number];
 
@@ -59,4 +61,5 @@ export const COMPONENT_VARIANTS_MAP: Record<
   CustomCalender: CALENDAR_VARIANTS,
   CalenderInput: CALENDER_INPUT_VARIANTS,
   PinInput: PIN_INPUT_VARIANTS,
+  JumbleKeyBoard: JUMBLE_KEYBOARD_VARIANTS,
 };
