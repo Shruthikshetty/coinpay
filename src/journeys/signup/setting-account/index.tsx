@@ -8,6 +8,7 @@ import ProgressItem from '~/components/progress-item/ProgressItem';
 
 // this is the screen where the account is registered
 const AccountSetup = () => {
+  // @TODO move to screen constants
   const progressData = [
     {
       index: 1,
@@ -25,6 +26,10 @@ const AccountSetup = () => {
       loading: true,
     },
   ];
+
+  // separator line for progress items
+  const renderSeparator = () => <View style={styles.separator} />;
+
   return (
     <HeaderLayout progressPercent={90} containerStyles={styles.root}>
       {/* image  */}
@@ -42,7 +47,7 @@ const AccountSetup = () => {
       <FlatList
         data={progressData}
         contentContainerStyle={styles.progressItemsContainer}
-        ItemSeparatorComponent={() => <View style={styles.separator} />}
+        ItemSeparatorComponent={renderSeparator}
         keyExtractor={({index}) => index.toString()}
         renderItem={({item}) => (
           <ProgressItem
