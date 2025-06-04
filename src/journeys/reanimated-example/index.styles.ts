@@ -7,6 +7,7 @@ const reanimatedExampleStyles = StyleSheet.create({
     flex: 1,
     marginTop: '10%',
     alignItems: 'center',
+    paddingHorizontal: wp(3),
   },
   box: {
     borderRadius: 15,

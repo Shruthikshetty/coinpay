@@ -2,6 +2,7 @@ import {useMutation} from '@tanstack/react-query';
 import axios, {AxiosError} from 'axios';
 import {Endpoints} from '~/common/constants/endpoints.constants';
 import {ServiceKey} from '~/common/constants/service.constants';
+import { ApiValidationError } from '~/types/types';
 
 //types...
 type AddCustomerReq = {
@@ -34,16 +35,12 @@ type AddCustomerRes = {
   profileImage?: string;
 };
 
-type AddCUstomerError = {
-  message: string;
-  statusCode?: string;
-};
 
 // custom hook as a wrapper for the mutation to add customer
 export const useAddCustomer = () => {
   return useMutation<
     AddCustomerRes,
-    AxiosError<AddCUstomerError>,
+    AxiosError<ApiValidationError>,
     AddCustomerReq
   >({
     mutationKey: [ServiceKey.ADD_CUSTOMER],

@@ -26,4 +26,5 @@ export enum Route {
   ADD_PERSONAL_INFO = 'addPersonalInfo',
   CREATE_PIN = 'createPin',
   ACCOUNT_SETUP = 'accountSetup',
+  Welcome = 'welcome',
 }

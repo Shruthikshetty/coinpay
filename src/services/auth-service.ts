@@ -9,9 +9,9 @@ import {ServiceKey} from '~/common/constants/service.constants';
 
 //types...
 type AddAuthReq = {
-  customerRefId: 'string';
-  password: 'string';
-  pin: 'string';
+  customerRefId: string;
+  password: string;
+  pin: string;
 };
 
 type AddAuthRes = {

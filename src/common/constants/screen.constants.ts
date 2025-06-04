@@ -31,3 +31,22 @@ export const ONBOARDING_CAROUSAL_CONTENT = [
 export const DATE_FORMAT = {
   YYYY_MM_DD: 'YYYY-MM-DD', // expected stored default
 };
+
+// initial data in account setup screen
+export const ACCOUNT_SETUP_INITIAL_PROGRESS_DATA = [
+  {
+    index: 1,
+    text: 'Phone Verified',
+    loading: false,
+  },
+  {
+    index: 2,
+    text: 'Checking up document ID',
+    loading: true,
+  },
+  {
+    index: 3,
+    text: 'Verifying Photo',
+    loading: true,
+  },
+];
