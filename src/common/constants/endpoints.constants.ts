@@ -12,4 +12,5 @@ export const Endpoints = {
   FETCH_CITY: `${BASE_URL}/api/city`,
   FETCH_COUNTRY: `${BASE_URL}/api/country`,
   CUSTOMER: `${BASE_URL}/api/customer`,
+  ADD_AUTH: `${BASE_URL}/api/auth/add`,
 };
