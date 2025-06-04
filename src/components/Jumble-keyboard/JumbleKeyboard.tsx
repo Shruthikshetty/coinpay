@@ -80,7 +80,6 @@ const JumbleKeyBoard = ({
                   digit !== JUMBLE_SPECIAL_KEY.tick
                 ) {
                   // no value is set if the maxlength is exceeded
-                  console.log(value);
                   if (value?.length > maxLength - 1) {
                     return;
                   }

@@ -7,7 +7,7 @@ import {Provider} from 'react-redux';
 import {store} from './src/state-management/store';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
 
-// initailize queryclient
+// initialize queryclient
 const queryClient = new QueryClient();
 
 function App(): React.JSX.Element {
