@@ -6,4 +6,5 @@ export const Patterns = {
   ONLY_CHARACTERS: /^[A-Za-z]+$/,
   ONLY_CHARACTERS_AND_SPACES: /^[A-Za-z\s]+$/, // Allows only letters and spaces
   ONLY_NUMBERS: /^\d+$/, // Allows only numbers
+  PAN_NUMBER: /^[A-Z]{5}[0-9]{4}[A-Z]$/, // Pan card number
 };
