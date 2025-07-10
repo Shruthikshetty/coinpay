@@ -36,7 +36,7 @@ const AccountSetup = () => {
   };
 
   // take out alert for errors
-  const {alert} = useAlert('Error', 'light', 2000);
+  const {alert} = useAlert('Error', 'light', 3000);
   // add customer useMutation
   const {mutate: addCustomerMutate} = useAddCustomer();
   // auth mutation
@@ -57,7 +57,6 @@ const AccountSetup = () => {
         {
           ...addCustomerReq,
           country: countryData.country,
-          panNumber: 'PQRS57', // @TODO this is yet to be implemented
         },
         {
           onError: (error: AxiosError<ApiValidationError>) => {

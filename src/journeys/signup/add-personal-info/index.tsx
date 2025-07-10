@@ -24,7 +24,7 @@ const AddPersonalInfo = () => {
   // function to handle click on continue
   const handleContinue = async () => {
     // trigger the validations
-    const isValid = await trigger(['name', 'userName', 'dob']);
+    const isValid = await trigger(['name', 'userName', 'dob', 'panNumber']);
     if (isValid) {
       // navigate to next screen
       navigation.navigate(Route.CREATE_PIN);
@@ -40,7 +40,11 @@ const AddPersonalInfo = () => {
         label: 'Continue',
         handlePress: handleContinue,
         theme: 'Primary',
-        disabled: !!errors.name || !!errors.userName || !!errors.dob,
+        disabled:
+          !!errors.name ||
+          !!errors.userName ||
+          !!errors.dob ||
+          !!errors.panNumber,
       }}>
       <TitleSubtitle
         title={'Personal Info'}
@@ -56,6 +60,11 @@ const AddPersonalInfo = () => {
           name={'userName'}
           label="Username"
           placeholder="@username"
+        />
+        <FormLabelInput<CustomerRegisterSchemeType>
+          name={'panNumber'}
+          label="Pan number"
+          placeholder="eg. A1B2C3D4E5"
         />
         <FormCalenderInput<CustomerRegisterSchemeType>
           maxDate={moment().format(DATE_FORMAT.YYYY_MM_DD)}

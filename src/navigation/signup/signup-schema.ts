@@ -39,7 +39,7 @@ export const customerRegisterSchema = z
       ),
     address: z
       .string()
-      .min(1, {message: 'Address is required'})
+      .min(5, {message: 'Address should be at least 5 characters long'})
       .max(50, {message: 'Address can not be more than 50 char in length'}),
     city: z
       .string()
@@ -68,7 +68,7 @@ export const customerRegisterSchema = z
       .string()
       .min(1, {message: 'Name is Required'})
       .refine(text => Patterns.ONLY_CHARACTERS_AND_SPACES.test(text), {
-        message: 'Invalid Country',
+        message: 'Invalid Name',
       }),
     userName: z.string().min(1, {message: 'Username is required'}),
     dob: z.string().min(1, 'Date of birth is required'),
@@ -78,6 +78,12 @@ export const customerRegisterSchema = z
       .length(4, {message: 'Pin to be 4 digits'})
       .refine(text => Patterns.ONLY_NUMBERS.test(text), {
         message: 'Invalid Pin Format only number accepted',
+      }),
+    panNumber: z
+      .string()
+      .min(1, {message: 'Pan number is required'})
+      .refine(text => Patterns.PAN_NUMBER.test(text), {
+        message: 'Invalid Pan number',
       }),
   })
   .refine(data => data.password === data.confirmPassword, {
@@ -107,4 +113,5 @@ export const defaultSignupDetails: CustomerRegisterSchemeType = {
   userName: '',
   dob: '',
   pin: '',
+  panNumber: '',
 };
