@@ -52,7 +52,7 @@ const SignupStack = () => {
           name={Route.ACCOUNT_SETUP}
           component={AccountSetup}
         />
-        <SignupNavigator.Screen name={Route.Welcome} component={Welcome} />
+        <SignupNavigator.Screen name={Route.WELCOME} component={Welcome} />
       </SignupNavigator.Navigator>
     </FormProvider>
   );

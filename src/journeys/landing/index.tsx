@@ -25,6 +25,7 @@ const AppLanding = () => {
     {name: 'Reanimated Example', route: Stack.REANIMATED_EXAMPLE},
     {name: 'Onboarding', route: Stack.ONBOARDING_STACK},
     {name: 'Signup', route: Stack.SIGNUP_STACK},
+    {name: 'Login', route: Stack.LOGIN_STACK},
     // Add more screens here
   ];
 

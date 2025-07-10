@@ -90,7 +90,7 @@ const AccountSetup = () => {
                   //store the customer ref id in async storage
                   AsyncStorage.setItem('customerRefId', data._id);
                   // navigate to welcome Screen
-                  navigation.navigate(Route.Welcome);
+                  navigation.navigate(Route.WELCOME);
                 },
               },
             );

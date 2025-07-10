@@ -12,6 +12,7 @@ export enum Stack {
   REANIMATED_EXAMPLE = 'reanimatedExample',
   ONBOARDING_STACK = 'onboardingStack',
   SIGNUP_STACK = 'signupStack',
+  LOGIN_STACK = 'loginStack',
 }
 
 // contains all the inner stack screen names
@@ -26,5 +27,6 @@ export enum Route {
   ADD_PERSONAL_INFO = 'addPersonalInfo',
   CREATE_PIN = 'createPin',
   ACCOUNT_SETUP = 'accountSetup',
-  Welcome = 'welcome',
+  WELCOME = 'welcome',
+  LOGIN = 'login',
 }

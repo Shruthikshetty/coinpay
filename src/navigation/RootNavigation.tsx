@@ -13,6 +13,7 @@ import SendStack from './send/SendStack';
 import ReanimatedExample from '~/journeys/reanimated-example';
 import OnboardingStack from './onboarding/OnboardingStack';
 import SignupStack from './signup/SignupStack';
+import LoginStack from './login/LoginStack';
 
 const RootStack = createNativeStackNavigator();
 
@@ -58,6 +59,7 @@ const RootNavigation = () => {
           component={OnboardingStack}
         />
         <RootStack.Screen name={Stack.SIGNUP_STACK} component={SignupStack} />
+        <RootStack.Screen name={Stack.LOGIN_STACK} component={LoginStack} />
       </RootStack.Navigator>
     </AlertProvider>
   );
